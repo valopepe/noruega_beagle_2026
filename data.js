@@ -73,7 +73,8 @@ const NORWAY_TRAVEL_DATA = {
         {
           section: "Navegación y paseos cortos en Gjende",
           items: [
-            { name: "🅿️ Parking: Gjendeosen-Reinsvangen | Onepark", mapsUrl: "https://maps.app.goo.gl/B7EoVkiFx5UUJ9qq9", desc: "Aparcar aquí obligatoriamente — no se puede aparcar en el muelle de Gjendesheim. Parking Gjendeosen-Reinsvangen (Onepark), a ≈1,7 km del embarcadero. Coordenadas: 61.4954256, 8.8092086. Desde el parking tomad la lanzadera gratuita (Gjendebåtene shuttle) hasta el muelle — calculad 20-30 min extra para el trayecto lanzadera + espera." },
+            { name: "⚠️ RESERVA PREVIA OBLIGATORIA — Parking + Shuttle + Barco", bookingUrl: "https://visitgjende.no/", desc: "Es imprescindible reservar con antelación en visitgjende.no el pack completo: parking Gjendeosen-Reinsvangen (Onepark) + lanzadera shuttle + billete de barco. Sin reserva previa no podréis embarcar. Reservad cuanto antes ya que las plazas son limitadas en agosto." },
+            { name: "🅿️ Parking: Gjendeosen-Reinsvangen | Onepark", mapsUrl: "https://maps.app.goo.gl/B7EoVkiFx5UUJ9qq9", desc: "Aparcar aquí obligatoriamente (reservado en visitgjende.no) — no se puede aparcar en el muelle de Gjendesheim. A ≈1,7 km del embarcadero. Coordenadas: 61.4954256, 8.8092086. Desde el parking tomad la lanzadera gratuita (shuttle Gjendebåtene) hasta el muelle — calculad 20-30 min extra." },
             { name: "Crucero por las Aguas Esmeralda del Lago Gjende", image: "assets/images/day2_gjende_lake.png", desc: "IDA: Gjendesheim (15:25) -> Gjendebu (16:10). VUELTA: Gjendebu (16:25) -> Gjendesheim (17:15). Navegación inolvidable rodeada de imponentes montañas alpinas. El margen de 15 minutos en Gjendebu es solo para embarque/desembarque." }
           ]
         }
@@ -87,6 +88,7 @@ const NORWAY_TRAVEL_DATA = {
         adrenaline: "Beitostølen Sommerpark (Bobsleigh de verano a 70-80 NOK/viaje, Karts de montaña Olabilløypa, Rutas a caballo con caballos islandeses en Fjellrittet)."
       },
       tips: [
+        "⚠️ RESERVA OBLIGATORIA: Antes del viaje hay que reservar online en visitgjende.no el parking Gjendeosen-Reinsvangen + shuttle lanzadera + billete de barco. Sin reserva previa no podréis embarcar. Las plazas son muy limitadas en agosto.",
         "La meteorología en Jotunheimen es impredecible. Llevad siempre una mochila con chaqueta impermeable, ropa de abrigo por capas, agua y algo de comida, incluso si solo hacéis la excursión en barco."
       ],
       schedule: [
@@ -753,6 +755,7 @@ const NORWAY_TRAVEL_DATA = {
     ],
     bookings: [
       { day: 2, date: "02/08/2026", place: "Jotunheimen", item: "Barco Gjende (Gjendebåtene)", time: "15:25", price: "22€ - 31€", url: "gjende.no", reserved: true },
+      { day: 2, date: "02/08/2026", place: "Reinsvangen", item: "Parking Gjende (Falta matrícula coche)", time: "14:15", price: "??", url: "https://gjende.no/en/parking-shuttle/", reserved: false },
       { day: 5, date: "05/08/2026", place: "Geiranger", item: "Ferry Hellesylt-Geiranger (con coche)", time: "09:30", price: "40€ - 60€", url: "geirangerfjord.no", reserved: true },
       { day: 6, date: "06/08/2026", place: "Nærøyfjord/Flåm", item: "Ferry Kaupanger-Gudvangen + Tren de Flåm", time: "12:30 y 18:25", price: "60€ - 90€", url: "norwaysbest.com", reserved: true },
       { day: 7, date: "07/08/2026", place: "Bergen", item: "Free Tour 'Mitos, Historia y Bryggen'", time: "13:00 / 14:00", price: "Gratis (Propina)", url: "guruwalk.com", reserved: false },
