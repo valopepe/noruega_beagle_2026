@@ -73,7 +73,7 @@ const NORWAY_TRAVEL_DATA = {
         {
           section: "Navegación y paseos cortos en Gjende",
           items: [
-            { name: "Logística del barco (Gjendebåtene)", desc: "No se puede aparcar en el muelle de Gjendesheim. Dejad el coche en el parking disuasorio de Reinsvangen (≈1,7 km) y tomad la lanzadera gratuita (sumar 30-40 min extra)." },
+            { name: "🅿️ Parking: Gjendeosen-Reinsvangen | Onepark", mapsUrl: "https://maps.app.goo.gl/B7EoVkiFx5UUJ9qq9", desc: "Aparcar aquí obligatoriamente — no se puede aparcar en el muelle de Gjendesheim. Parking Gjendeosen-Reinsvangen (Onepark), a ≈1,7 km del embarcadero. Coordenadas: 61.4954256, 8.8092086. Desde el parking tomad la lanzadera gratuita (Gjendebåtene shuttle) hasta el muelle — calculad 20-30 min extra para el trayecto lanzadera + espera." },
             { name: "Crucero por las Aguas Esmeralda del Lago Gjende", image: "assets/images/day2_gjende_lake.png", desc: "IDA: Gjendesheim (15:25) -> Gjendebu (16:10). VUELTA: Gjendebu (16:25) -> Gjendesheim (17:15). Navegación inolvidable rodeada de imponentes montañas alpinas. El margen de 15 minutos en Gjendebu es solo para embarque/desembarque." }
           ]
         }

@@ -310,11 +310,11 @@ document.addEventListener("DOMContentLoaded", () => {
                   ` : '';
                   return `
                     <div style="border-bottom: 1px solid var(--border-card); padding-bottom: 0.75rem;">
-                      <h4 style="color: var(--primary); font-size: 0.95rem; margin-bottom: 0.2rem;">
+                      <h4 style="color: var(--primary); font-size: var(--text-md); margin-bottom: 0.2rem;">
                         <a href="${placeUrl}" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">📍 ${item.name} ↗</a>
                       </h4>
                       ${imageHTML}
-                      <p style="font-size: 0.85rem; color: var(--text-main); line-height: 1.45;">${item.desc}</p>
+                      <p style="font-size: var(--text-sm); color: var(--text-main); line-height: 1.55;">${item.desc}</p>
                     </div>
                   `;
                 }).join("")}
