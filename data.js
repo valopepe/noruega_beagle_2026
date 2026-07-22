@@ -125,9 +125,9 @@ const NORWAY_TRAVEL_DATA = {
         {
           section: "Planes del Día",
           items: [
-            { name: "PLAN PRINCIPAL: Senderismo panorámico y accesible (Ruta del lago Bygdin)", desc: "Ruta lineal de 8 km ida y vuelta sin apenas desnivel. El terreno puede ser pedregoso o húmedo. Recomendable buen calzado y mochila con cortavientos. Al terminar, podéis disfrutar de café y gofres en la terraza del Bygdin Hoifellshotel." },
-            { name: "Alternativa Aventurera: Ascenso al Snøhorn", desc: "Para los más intrépidos, requiere experiencia en montaña y equipo de vía ferrata." },
-            { name: "Alternativa Ocio: Beitostølen Sommerpark", desc: "Bobsleigh de verano (Sommerakebakke) y karts de montaña (Olabilløypa). Podéis comprar billetes individuales (70-80 NOK) o pase de día completo (399 NOK). Se llega en 5-10 min a pie desde Hovi Cabins." }
+            { name: "PLAN PRINCIPAL: Senderismo panorámico y accesible (Ruta del lago Bygdin)", image: "assets/images/day3_jotunheimen.png", desc: "Ruta lineal de 8 km ida y vuelta sin apenas desnivel. El terreno puede ser pedregoso o húmedo. Recomendable buen calzado y mochila con cortavientos. Al terminar, podéis disfrutar de café y gofres en la terraza del Bygdin Hoifellshotel." },
+            { name: "Alternativa Aventurera: Ascenso al Snøhorn", image: "assets/images/image5.png", desc: "Para los más intrépidos, requiere experiencia en montaña y equipo de vía ferrata." },
+            { name: "Alternativa Ocio: Beitostølen Sommerpark", image: "assets/images/hovi_cabins.png", desc: "Bobsleigh de verano (Sommerakebakke) y karts de montaña (Olabilløypa). Podéis comprar billetes individuales (70-80 NOK) o pase de día completo (399 NOK). Se llega en 5-10 min a pie desde Hovi Cabins." }
           ]
         }
       ],
@@ -170,8 +170,8 @@ const NORWAY_TRAVEL_DATA = {
         {
           section: "Ruta Escénica de Rondane",
           items: [
-            { name: "La Carretera Nacional de Rondane", desc: "Atraviesa Venabygdsfjellet, una meseta alta donde las montañas de más de 2000m dominan el horizonte. Entorno salvaje, silencioso y sin árboles." },
-            { name: "Puntos clave de parada", desc: "Mirador de Sohlbergplassen (vistas al lago Atnsjøen, icónica foto). Área de descanso de Venabygdsfjellet. Folldal Gruver (complejo minero del siglo XVIII reconvertido)." }
+            { name: "La Carretera Nacional de Rondane", image: "assets/images/image6.png", desc: "Atraviesa Venabygdsfjellet, una meseta alta donde las montañas de más de 2000m dominan el horizonte. Entorno salvaje, silencioso y sin árboles." },
+            { name: "Puntos clave de parada", image: "assets/images/day3_jotunheimen.png", desc: "Mirador de Sohlbergplassen (vistas al lago Atnsjøen, icónica foto). Área de descanso de Venabygdsfjellet. Folldal Gruver (complejo minero del siglo XVIII reconvertido)." }
           ]
         }
       ],
@@ -223,17 +223,17 @@ const NORWAY_TRAVEL_DATA = {
         {
           section: "Crucero por el Fiordo de Geiranger",
           items: [
-            { name: "Ferry Hellesylt → Geiranger", desc: "Navegación confirmada de las 09:30 a las 10:35 (duración 1h 05min) con coche a bordo. Cruza el fiordo declarado Patrimonio de la Humanidad." },
-            { name: "Cascadas en ruta", desc: "Observación directa de las cascadas de Las Siete Hermanas (De syv søstre), El Pretendiente (Friaren) y las antiguas granjas colgadas de los acantilados." }
+            { name: "Ferry Hellesylt → Geiranger", image: "assets/images/day5_geiranger_fjord.png", desc: "Navegación confirmada de las 09:30 a las 10:35 (duración 1h 05min) con coche a bordo. Cruza el fiordo declarado Patrimonio de la Humanidad." },
+            { name: "Cascadas en ruta", image: "assets/images/day5_geiranger_fjord.png", desc: "Observación directa de las cascadas de Las Siete Hermanas (De syv søstre), El Pretendiente (Friaren) y las antiguas granjas colgadas de los acantilados." }
           ]
         },
         {
           section: "Miradores y Carretera de los Trolls",
           items: [
-            { name: "Mirador Flydalsjuvet", desc: "Impresionantes vistas del fiordo y la famosa roca que vuela sobre el abismo." },
-            { name: "Geiranger Skywalker (Dalsnibba)", desc: "Plataforma de observación a 1.500 metros sobre el nivel del mar. Carretera privada con peaje en taquilla. Paisaje alpino de alta montaña con parches de nieve." },
-            { name: "Mirador Ørnesvingen (Curva del Águila)", desc: "Plataforma de rejilla de acero suspendida sobre la última curva de la subida, con panorámica del fiordo." },
-            { name: "Trollstigen (La Carretera de los Trolls)", desc: "Circuito de 11 curvas de horquilla de gran pendiente. Visita al moderno Centro de Visitantes y pasarelas metálicas sobre el desfiladero y la cascada Stigfossen." }
+            { name: "Mirador Flydalsjuvet", image: "assets/images/day5_geiranger_fjord.png", desc: "Impresionantes vistas del fiordo y la famosa roca que vuela sobre el abismo." },
+            { name: "Geiranger Skywalker (Dalsnibba)", image: "assets/images/image7.png", desc: "Plataforma de observación a 1.500 metros sobre el nivel del mar. Carretera privada con peaje en taquilla. Paisaje alpino de alta montaña con parches de nieve." },
+            { name: "Mirador Ørnesvingen (Curva del Águila)", image: "assets/images/day5_geiranger_fjord.png", desc: "Plataforma de rejilla de acero suspendida sobre la última curva de la subida, con panorámica del fiordo." },
+            { name: "Trollstigen (La Carretera de los Trolls)", image: "assets/images/day5_trollstigen.png", desc: "Circuito de 11 curvas de horquilla de gran pendiente. Visita al moderno Centro de Visitantes y pasarelas metálicas sobre el desfiladero y la cascada Stigfossen." }
           ]
         }
       ],
@@ -279,9 +279,9 @@ const NORWAY_TRAVEL_DATA = {
         {
           section: "Navegación Nærøyfjord y Tren de Flåm",
           items: [
-            { name: "Ferry Kaupanger → Gudvangen", desc: "Reserva confirmada con vehículo. Salida a las 12:30 con llegada a Gudvangen a las 15:00 (duración 2h 30min). Recorrido por el fiordo más estrecho y vertical de Noruega." },
-            { name: "Paseo por Flåm", desc: "Breve trayecto en coche desde Gudvangen a Flåm (20 min). Tiempo libre para visitar el pueblo, cafeterías locales o subir al mirador Stegastein si vais bien de tiempo." },
-            { name: "Tren de Flåm (Flåmsbana)", desc: "Navegación ferroviaria emblemática de gran pendiente. IDA: Flåm (18:25) -> Myrdal (19:20). VUELTA: Myrdal (19:35) -> Flåm (20:30). Parada corta en la cascada Kjosfossen para tomar fotos de su caída de 200m." }
+            { name: "Ferry Kaupanger → Gudvangen", image: "assets/images/image8.png", desc: "Reserva confirmada con vehículo. Salida a las 12:30 con llegada a Gudvangen a las 15:00 (duración 2h 30min). Recorrido por el fiordo más estrecho y vertical de Noruega." },
+            { name: "Paseo por Flåm", image: "assets/images/image8.png", desc: "Breve trayecto en coche desde Gudvangen a Flåm (20 min). Tiempo libre para visitar el pueblo, cafeterías locales o subir al mirador Stegastein si vais bien de tiempo." },
+            { name: "Tren de Flåm (Flåmsbana)", image: "assets/images/day5_trollstigen.png", desc: "Navegación ferroviaria emblemática de gran pendiente. IDA: Flåm (18:25) -> Myrdal (19:20). VUELTA: Myrdal (19:35) -> Flåm (20:30). Parada corta en la cascada Kjosfossen para tomar fotos de su caída de 200m." }
           ]
         }
       ],
@@ -332,10 +332,10 @@ const NORWAY_TRAVEL_DATA = {
         {
           section: "Ruta a pie por Bergen",
           items: [
-            { name: "Barrio histórico de Bryggen", desc: "Antiguo puerto de la Liga Hanseática. Edificaciones coloridas de madera declaradas Patrimonio de la Humanidad. Preciosos callejones estrechos llenos de tiendas de artesanos." },
-            { name: "Funicular Fløibanen", desc: "Ascensor sobre raíles al monte Fløyen (320m). Comprad billetes online para evitar las enormes colas. Excelentes vistas de la ciudad, los muelles y las islas." },
-            { name: "Fisketorget (Mercado de Pescado)", desc: "Puestos callejeros al aire libre frente al puerto. Podéis probar brochetas de salmón, cangrejo real o pescado local en un ambiente muy animado." },
-            { name: "Tour Recomendado", desc: "Tour histórico guiado a pie 'Mitos, Historia y Bryggen' ( GuruWalk / Nordic Freedom Tours ). Reservad las 4 plazas online con antelación. Duración 1.5 - 2 h." }
+            { name: "Barrio histórico de Bryggen", image: "assets/images/image9.png", desc: "Antiguo puerto de la Liga Hanseática. Edificaciones coloridas de madera declaradas Patrimonio de la Humanidad. Preciosos callejones estrechos llenos de tiendas de artesanos." },
+            { name: "Funicular Fløibanen", image: "assets/images/image9.png", desc: "Ascensor sobre raíles al monte Fløyen (320m). Comprad billetes online para evitar las enormes colas. Excelentes vistas de la ciudad, los muelles y las islas." },
+            { name: "Fisketorget (Mercado de Pescado)", image: "assets/images/image9.png", desc: "Puestos callejeros al aire libre frente al puerto. Podéis probar brochetas de salmón, cangrejo real o pescado local en un ambiente muy animado." },
+            { name: "Tour Recomendado", image: "assets/images/image9.png", desc: "Tour histórico guiado a pie 'Mitos, Historia y Bryggen' ( GuruWalk / Nordic Freedom Tours ). Reservad las 4 plazas online con antelación. Duración 1.5 - 2 h." }
           ]
         }
       ],
@@ -387,10 +387,10 @@ const NORWAY_TRAVEL_DATA = {
         {
           section: "Hardanger y Vøringsfossen",
           items: [
-            { name: "Puente de Hardanger (Hardangerbrua)", desc: "Espectacular cruce por el puente colgante más largo de Noruega. Destaca la entrada y salida directa a túneles con rotondas iluminadas excavadas dentro de la montaña." },
-            { name: "Pueblo de Eidfjord", desc: "Precioso enclave a orillas del Hardangerfjord. Lugar ideal para estirar las piernas y tomar un café frente al agua." },
-            { name: "Cascada Vøringsfossen (Måbødalen)", desc: "Una de las caídas de agua más espectaculares de Noruega con 180 metros. Visitad las espectaculares pasarelas de acero diseñadas por Carl-Viggo Hølmebakk suspendidas sobre el abismo." },
-            { name: "Valle de Hallingdal", desc: "Recorrido escénico rodeado de bosques y ríos. En el pueblo de Gol podéis hacer una pausa para ver la réplica de una Stavkirke vikinga." }
+            { name: "Puente de Hardanger (Hardangerbrua)", image: "assets/images/image10.png", desc: "Espectacular cruce por el puente colgante más largo de Noruega. Destaca la entrada y salida directa a túneles con rotondas iluminadas excavadas dentro de la montaña." },
+            { name: "Pueblo de Eidfjord", image: "assets/images/day5_geiranger_fjord.png", desc: "Precioso enclave a orillas del Hardangerfjord. Lugar ideal para estirar las piernas y tomar un café frente al agua." },
+            { name: "Cascada Vøringsfossen (Måbødalen)", image: "assets/images/day2_gjende_lake.png", desc: "Una de las caídas de agua más espectaculares de Noruega con 180 metros. Visitad las espectaculares pasarelas de acero diseñadas por Carl-Viggo Hølmebakk suspendidas sobre el abismo." },
+            { name: "Valle de Hallingdal", image: "assets/images/day3_jotunheimen.png", desc: "Recorrido escénico rodeado de bosques y ríos. En el pueblo de Gol podéis hacer una pausa para ver la réplica de una Stavkirke vikinga." }
           ]
         }
       ],
