@@ -1,0 +1,897 @@
+const NORWAY_TRAVEL_DATA = {
+  tripInfo: {
+    title: "Viaje a Noruega",
+    subtitle: "Itinerario detallado · Oslo — Jotunheimen — Fiordos — Bergen — Oslo",
+    dates: "1 – 10 de agosto de 2026 · 10 días · 4 adultos",
+    lastUpdated: "Revisado y verificado — última actualización: julio de 2026"
+  },
+  days: [
+    {
+      dayNum: 1,
+      title: "Día 1 — Llegada a Oslo",
+      date: "SÁBADO, 1 DE AGOSTO DE 2026",
+      subHeader: "Aeropuerto de Oslo (Gardermoen)",
+      image: "assets/images/image3.png",
+      accommodation: {
+        name: "Thon Hotel Oslo Airport",
+        address: "Balder Allè 22, 2060 Gardermoen, Noruega",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Thon+Hotel+Oslo+Airport,+Balder+All%C3%A8+22,+2060+Gardermoen,+Noruega",
+        details: "2 habitaciones dobles (twin) con desayuno incluido · hotel ecológico a 7 km del aeropuerto"
+      },
+      summary: "Llegada al aeropuerto de Oslo (Gardermoen), recogida del coche de alquiler y traslado inmediato al hotel situado en las inmediaciones del aeropuerto para descansar tras el vuelo.",
+      goal: "Resolver la logística inicial del viaje (vehículo y descanso) sin el estrés de entrar en la ciudad, dejando todo listo para empezar la ruta por carretera a la mañana siguiente.",
+      nature: {
+        flora: "Composiciones fitocenóticas dominadas por el bosque boreal (taiga) de coníferas.",
+        geology: "Presencia de depósitos morénicos y sedimentación glaciar correspondientes al Pleistoceno."
+      },
+      travelTimes: [],
+      itinerary: [
+        { time: "23:55", activity: "Llegada al Aeropuerto de Oslo (OSL) el sábado 01/08." },
+        { time: "00:30", activity: "Recogida del coche de alquiler tras el equipaje." },
+        { time: "Noche", activity: "Check-in en Thon Hotel Oslo Airport." }
+      ],
+      detailsText: "El hotel dispone de wifi gratuita y gimnasio de acceso gratuito. Si llegáis cansados, se puede solicitar el traslado del hotel desde el aeropuerto (con suplemento) para evitar complicaciones.",
+      tips: [
+        "Noruega tiene numerosos radares fijos, habitualmente señalizados con antelación, y las multas por exceso de velocidad son muy elevadas. Encontraréis el detalle completo de normas de conducción en el apartado de 'Consideraciones generales' — es la única nota que no repetiremos cada día."
+      ],
+      schedule: [
+        { time: "23:55 (01/08)", desc: "Llegada al Aeropuerto de Oslo (OSL)." },
+        { time: "00:30 (02/08)", desc: "Recogida del coche de alquiler tras el equipaje." },
+        { time: "Noche", desc: "Alojamiento en el Thon Hotel Oslo Airport." }
+      ]
+    },
+    {
+      dayNum: 2,
+      title: "Día 2 — Hacia las montañas: Beitostølen y el Lago de Gjende",
+      date: "DOMINGO, 2 DE AGOSTO DE 2026",
+      subHeader: "Oslo (Gardermoen) → Beitostølen → Lago de Gjende",
+      image: "assets/images/image4.png",
+      accommodation: {
+        name: "Hovi Cabins",
+        address: "Bygdinvegen 3760, 2953 Beitostølen, Noruega",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Hovi+Cabins,+Bygdinvegen+3760,+2953+Beitost%C3%B8len,+Noruega",
+        details: "1 cabaña para 4 adultos (2 camas individuales + 1 litera) · comida no incluida"
+      },
+      summary: "El viaje en coche comienza dirigiéndose hacia el noroeste para adentrarse en el Parque Nacional de Jotunheimen. La ruta incluye una experiencia en barco por las aguas esmeraldas del lago Gjende antes de instalarse en la cabaña.",
+      goal: "Hacer la transición de las llanuras del este a la alta montaña noruega, experimentando el primer gran impacto natural del viaje en el corazón de Jotunheimen.",
+      nature: {
+        flora: "Ecosistemas de tundra alpina con presencia de taxones especialistas como Ranunculus glacialis.",
+        geology: "Manifestaciones de la orogenia caledoniana y unidades tectónicas alóctonas (estructuras de cabalgamiento o nappes)."
+      },
+      travelTimes: [
+        { from: "Aeropuerto de Oslo", to: "Beitostølen", desc: "≈ 210 km · 3 h 15 min sin contar paradas" },
+        { from: "Beitostølen", to: "Gjendesheim (muelle del lago Gjende)", desc: "≈ 34 km · 30 min por la carretera panorámica de montaña (Ruta 51)" }
+      ],
+      itinerary: [
+        {
+          section: "Paradas culturales en ruta",
+          items: [
+            { name: "Kistefos Museum y 'The Twist' (Jevnaker)", image: "assets/images/day2_the_twist_kistefos.png", desc: "Poco más de una hora desde el aeropuerto. Antiguo aserradero convertido en uno de los parques de esculturas contemporáneas más importantes de Europa. Su joya es 'The Twist' (BIG group): museo, escultura y puente peatonal que cruza el río. Abre 10:00-11:00 en verano; entrada ≈ 200 NOK (18-20 €); calculad 1,5-2 h de visita." },
+            { name: "Museo Folclórico de Valdres (Fagernes)", image: "assets/images/day2_valdres_stave_church.png", desc: "≈ 45 min antes de llegar a la cabaña. Cuarto museo al aire libre más grande de Noruega, con más de 100 edificios históricos de madera. Buen lugar para parar a comer en su cafetería de platos tradicionales; entrada ≈ 150 NOK (13 €)." }
+          ]
+        },
+        {
+          section: "Navegación y paseos cortos en Gjende",
+          items: [
+            { name: "Logística del barco (Gjendebåtene)", desc: "No se puede aparcar en el muelle de Gjendesheim. Dejad el coche en el parking disuasorio de Reinsvangen (≈1,7 km) y tomad la lanzadera gratuita (sumar 30-40 min extra)." },
+            { name: "Crucero por las Aguas Esmeralda del Lago Gjende", image: "assets/images/day2_gjende_lake.png", desc: "IDA: Gjendesheim (15:25) -> Gjendebu (16:10). VUELTA: Gjendebu (16:25) -> Gjendesheim (17:15). Navegación inolvidable rodeada de imponentes montañas alpinas. El margen de 15 minutos en Gjendebu es solo para embarque/desembarque." }
+          ]
+        }
+      ],
+      cityGuide: {
+        shopping: "SPAR Beitostølen (calle Bygdinvegen): cuenta con mostrador de comida fresca, platos para llevar, barra de ensaladas y productos locales. Kiwi y Coop Extra también disponibles (Kiwi es el más económico).",
+        breakfast: "Caféen Beitostølen: bistró acogedor con buen café y platos vegetarianos adaptados.",
+        eating: "Peppes Pizza (menú vegetariano/vegano adaptado, 250-400 NOK/persona). Lodge 900 (estilo alpino, menús elaborados, 300-500 NOK/persona).",
+        drinks: "Svingen Pub (pub rústico de montaña, cervezas locales, 80-120 NOK). Caféen (gran selección de vinos y coctelería, 100-150 NOK/copa).",
+        whatToSee: "Capilla de las Luces (Lyskapellet) a 2km, Liastølen (granjas tradicionales) e Iglesia de madera de Hegge (Hegge Stave Church, del siglo XIII, a 11 km).",
+        adrenaline: "Beitostølen Sommerpark (Bobsleigh de verano a 70-80 NOK/viaje, Karts de montaña Olabilløypa, Rutas a caballo con caballos islandeses en Fjellrittet)."
+      },
+      tips: [
+        "La meteorología en Jotunheimen es impredecible. Llevad siempre una mochila con chaqueta impermeable, ropa de abrigo por capas, agua y algo de comida, incluso si solo hacéis la excursión en barco."
+      ],
+      schedule: [
+        { time: "08:30–09:30", desc: "Desayuno tranquilo en Gardermoen y recogida del coche." },
+        { time: "09:30–12:45", desc: "Viaje hasta Beitostølen, con paradas culturales recomendadas (Kistefos o Valdres)." },
+        { time: "12:45–13:45", desc: "Check-in en cabañas Hovi y compra de provisiones en SPAR." },
+        { time: "13:45–14:15", desc: "Conducción desde la cabaña hasta el parking de Gjendesheim." },
+        { time: "14:15–15:00", desc: "Aparcamiento en Reinsvangen, bus lanzadera al muelle." },
+        { time: "15:25–17:15", desc: "Crucero de ida y vuelta Gjendesheim ↔ Gjendebu (Disfrutad del paisaje de alta montaña)." },
+        { time: "19:00", desc: "Regreso a la cabaña en Beitostølen para cenar y descansar." }
+      ]
+    },
+    {
+      dayNum: 3,
+      title: "Día 3 — Naturaleza activa en el Parque Nacional de Jotunheimen",
+      date: "LUNES, 3 DE AGOSTO DE 2026",
+      subHeader: "Beitostølen y Parque Nacional de Jotunheimen",
+      image: "assets/images/image5.png",
+      accommodation: {
+        name: "Hovi Cabins",
+        address: "Bygdinvegen 3760, 2953 Beitostølen, Noruega",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Hovi+Cabins,+Bygdinvegen+3760,+2953+Beitost%C3%B8len,+Noruega",
+        details: "segunda noche · comida no incluida"
+      },
+      summary: "Un día dedicado a explorar los alrededores de Beitostølen con calma. El plan principal es una ruta de senderismo muy accesible bordeando el inmenso lago Bygdin.",
+      goal: "Disfrutar de la naturaleza a un ritmo pausado, respirar el aire puro de la montaña y aprovechar las comodidades de la cabaña para fomentar el espíritu de grupo.",
+      nature: {
+        flora: "Líquenes y musgos pioneros de la tundra alpina.",
+        fauna: "Potencial detección de ejemplares de Rangifer tarandus (renos) en nichos ecológicos de montaña.",
+        geology: "Evidencias geomorfológicas derivadas de procesos de erosión glaciar cuaternaria."
+      },
+      travelTimes: [
+        { from: "Cabaña Hovi", to: "Lago Bygdin (Bygdin Hoifellshotel)", desc: "≈ 12 km · 15 min en coche hacia el norte por la Ruta 51" }
+      ],
+      itinerary: [
+        {
+          section: "Planes del Día",
+          items: [
+            { name: "PLAN PRINCIPAL: Senderismo panorámico y accesible (Ruta del lago Bygdin)", desc: "Ruta lineal de 8 km ida y vuelta sin apenas desnivel. El terreno puede ser pedregoso o húmedo. Recomendable buen calzado y mochila con cortavientos. Al terminar, podéis disfrutar de café y gofres en la terraza del Bygdin Hoifellshotel." },
+            { name: "Alternativa Aventurera: Ascenso al Snøhorn", desc: "Para los más intrépidos, requiere experiencia en montaña y equipo de vía ferrata." },
+            { name: "Alternativa Ocio: Beitostølen Sommerpark", desc: "Bobsleigh de verano (Sommerakebakke) y karts de montaña (Olabilløypa). Podéis comprar billetes individuales (70-80 NOK) o pase de día completo (399 NOK). Se llega en 5-10 min a pie desde Hovi Cabins." }
+          ]
+        }
+      ],
+      tips: [
+        "Preparad el picnic antes de salir del pueblo (mostrador de comida fresca del SPAR). Junto al agua encontraréis rocas grandes y suaves perfectas para sentarse a comer en plena naturaleza."
+      ],
+      schedule: [
+        { time: "09:00–10:00", desc: "Desayuno relajado en la cabaña Hovi." },
+        { time: "10:30–11:00", desc: "Desplazamiento en coche hasta el lago Bygdin (12 km)." },
+        { time: "11:00–14:00", desc: "Senderismo por el lago Bygdin (8 km ida y vuelta, ritmo tranquilo)." },
+        { time: "14:00–15:30", desc: "Picnic junto al lago o comida ligera en el Bygdin Hoifellshotel." },
+        { time: "15:30–16:00", desc: "Café y gofres noruegos (vafler) en la terraza del hotel Bygdin." },
+        { time: "16:30–18:30", desc: "Regreso a Beitostølen y tiempo libre para descansar o ir al Sommerpark." },
+        { time: "19:00", desc: "Algo de beber en el centro (Caféen) y cena tranquila en el pueblo." }
+      ]
+    },
+    {
+      dayNum: 4,
+      title: "Día 4 — La gran travesía hacia los fiordos",
+      date: "MARTES, 4 DE AGOSTO DE 2026",
+      subHeader: "Beitostølen → Parque Nacional de Rondane → Stryn",
+      image: "assets/images/image6.png",
+      accommodation: {
+        name: "Havila Hotel Raftevold",
+        address: "Fjordvegen 5, 6763 Hornindal, Noruega",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Havila+Hotel+Raftevold,+Fjordvegen+5,+6763+Hornindal,+Noruega",
+        details: "2 habitaciones dobles estándar (twin), desayuno incluido · junto al lago Hornindalsvatnet"
+      },
+      summary: "Etapa de conducción espectacular cruzando las mesetas del Parque Nacional de Rondane y bajando por valles históricos hasta llegar a Stryn, a orillas del lago más profundo de Europa.",
+      goal: "Vivir el cambio de paisaje desde la aridez de la alta montaña y la tundra de Rondane hasta el verde exuberante y húmedo de la región de los fiordos occidentales.",
+      nature: {
+        flora: "Ecosistema de tundra de alta montaña con una comunidad relevante de líquenes crustosos y foliosos sobre sustratos líticos.",
+        fauna: "Hábitat de poblaciones silvestres de Rangifer tarandus.",
+        geology: "Afloramientos litológicos de anortosita y secuencias de rocas sedimentarias con deformaciones tectónicas acusadas."
+      },
+      travelTimes: [
+        { from: "Beitostølen", to: "Hornindal (Stryn)", desc: "≈ 6 h 30 min de conducción total estimada por la ruta escénica" }
+      ],
+      itinerary: [
+        {
+          section: "Ruta Escénica de Rondane",
+          items: [
+            { name: "La Carretera Nacional de Rondane", desc: "Atraviesa Venabygdsfjellet, una meseta alta donde las montañas de más de 2000m dominan el horizonte. Entorno salvaje, silencioso y sin árboles." },
+            { name: "Puntos clave de parada", desc: "Mirador de Sohlbergplassen (vistas al lago Atnsjøen, icónica foto). Área de descanso de Venabygdsfjellet. Folldal Gruver (complejo minero del siglo XVIII reconvertido)." }
+          ]
+        }
+      ],
+      cityGuide: {
+        shopping: "Stryn cuenta con buenas tiendas de material deportivo de montaña. En Hornindal tenéis el propio hotel y comercios locales.",
+        breakfast: "Havila Hotel Raftevold: buffet de desayuno incluido en la estancia. Stryn Bakeri & Konditori (panadería con skillingsboller clásicos).",
+        eating: "Stryn Kaffebar & Vertshus (ensaladas generosas, sopas y sándwiches, 200-350 NOK). Brasserie Posthuset (pastas y platos modernos, 300-450 NOK).",
+        drinks: "Hotel Raftevold Bar (vistas impresionantes al lago Hornindalsvatnet, 90-130 NOK). Visnes Hotel (Stryn, encanto histórico y salón clásico, 100-140 NOK).",
+        whatToSee: "Lago Hornindalsvatnet (el lago más profundo de Europa: 514 m, aguas cristalinas). Glaciar Jostedalsbreen (centro de interpretación). Carretera panorámica Gamle Strynefjellsvegen (carretera de piedra histórica). Cascada Glomnesfossen (impresionante caída visible en el valle)."
+      },
+      tips: [
+        "Aseguraos de que vuestra acompañante vegetariana lleve snacks suficientes en el coche, ya que en la ruta montañosa de Rondane las opciones sin carne son escasas en los kioscos de carretera.",
+        "Las temperaturas en Rondane pueden descender rápidamente incluso en agosto. Llevad chaquetas de abrigo a mano."
+      ],
+      schedule: [
+        { time: "08:00–08:30", desc: "Salida puntual de Beitostølen con maletas cargadas." },
+        { time: "08:30–10:30", desc: "Conducción hacia la meseta de Venabygdsfjellet." },
+        { time: "10:30–12:30", desc: "Recorrido por la Ruta de Rondane con paradas fotográficas." },
+        { time: "12:30–13:30", desc: "Almuerzo ligero o picnic en la ruta." },
+        { time: "13:30–14:30", desc: "Visita externa o rápida a las minas de Folldal Gruver." },
+        { time: "14:30–18:30", desc: "Largo tramo de coche hacia el oeste, bajando a los fiordos hasta Stryn/Hornindal." },
+        { time: "18:30–19:00", desc: "Check-in en el Havila Hotel Raftevold." },
+        { time: "19:30", desc: "Paseo por las orillas del lago Hornindalsvatnet y cena en el hotel." }
+      ]
+    },
+    {
+      dayNum: 5,
+      title: "Día 5 — Gigantes de agua y piedra: Geiranger y Trollstigen",
+      date: "MIÉRCOLES, 5 DE AGOSTO DE 2026",
+      subHeader: "Stryn ↔ Fiordo de Geiranger ↔ Carretera de los Trolls",
+      image: "assets/images/image7.png",
+      accommodation: {
+        name: "Havila Hotel Raftevold",
+        address: "Fjordvegen 5, 6763 Hornindal, Noruega",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Havila+Hotel+Raftevold,+Fjordvegen+5,+6763+Hornindal,+Noruega",
+        details: "segunda noche · desayuno incluido"
+      },
+      summary: "Navegación en ferry por el icónico fiordo de Geiranger flanqueando cascadas legendarias, seguida de la ascensión en coche por las vertiginosas curvas de la Carretera de los Trolls (Trollstigen).",
+      goal: "Experimentar dos de las postales más famosas de Noruega en un solo día, combinando la majestuosidad natural del fiordo con la ingeniería civil extrema de Trollstigen.",
+      nature: {
+        flora: "Variabilidad en la biodiversidad vegetal en respuesta a marcados gradientes altitudinales.",
+        geology: "Análisis de la génesis de fiordos, valles de artesa (valles en U) y sistemas de valles suspendidos."
+      },
+      travelTimes: [
+        { from: "Hornindal (Hotel)", to: "Hellesylt (Puerto)", desc: "≈ 45 km · 50 min en coche" },
+        { from: "Geiranger", to: "Trollstigen (Ruta de ida y vuelta)", desc: "≈ 200 km de carreteras sinuosas · 4 a 5 h de conducción neta" }
+      ],
+      itinerary: [
+        {
+          section: "Crucero por el Fiordo de Geiranger",
+          items: [
+            { name: "Ferry Hellesylt → Geiranger", desc: "Navegación confirmada de las 09:30 a las 10:35 (duración 1h 05min) con coche a bordo. Cruza el fiordo declarado Patrimonio de la Humanidad." },
+            { name: "Cascadas en ruta", desc: "Observación directa de las cascadas de Las Siete Hermanas (De syv søstre), El Pretendiente (Friaren) y las antiguas granjas colgadas de los acantilados." }
+          ]
+        },
+        {
+          section: "Miradores y Carretera de los Trolls",
+          items: [
+            { name: "Mirador Flydalsjuvet", desc: "Impresionantes vistas del fiordo y la famosa roca que vuela sobre el abismo." },
+            { name: "Geiranger Skywalker (Dalsnibba)", desc: "Plataforma de observación a 1.500 metros sobre el nivel del mar. Carretera privada con peaje en taquilla. Paisaje alpino de alta montaña con parches de nieve." },
+            { name: "Mirador Ørnesvingen (Curva del Águila)", desc: "Plataforma de rejilla de acero suspendida sobre la última curva de la subida, con panorámica del fiordo." },
+            { name: "Trollstigen (La Carretera de los Trolls)", desc: "Circuito de 11 curvas de horquilla de gran pendiente. Visita al moderno Centro de Visitantes y pasarelas metálicas sobre el desfiladero y la cascada Stigfossen." }
+          ]
+        }
+      ],
+      tips: [
+        "Llevad una bolsa térmica en el coche con provisiones vegetales extra, ya que en las zonas de alta montaña y los ferrys las opciones sin carne son muy limitadas.",
+        "Conducción defensiva en Trollstigen: usad marchas cortas al bajar para no fatigar ni calentar los frenos. Siguid la estela de los autobuses locales si os sentís inseguros."
+      ],
+      schedule: [
+        { time: "08:00–09:00", desc: "Traslado temprano desde el hotel en Hornindal al puerto de Hellesylt." },
+        { time: "09:30–10:35", desc: "Embarque y crucero panorámico por el Fiordo de Geiranger." },
+        { time: "10:35–12:00", desc: "Desembarque, subida al mirador Flydalsjuvet y desvío al Dalsnibba (Skywalker)." },
+        { time: "12:00–14:00", desc: "Ruta en coche hacia Trollstigen pasando por la Curva del Águila (Ørnesvingen)." },
+        { time: "14:00–15:30", desc: "Llegada a Trollstigen, paseo por las pasarelas del mirador y comida en la cafetería." },
+        { time: "15:30–19:30", desc: "Largo pero espectacular regreso por carretera de montaña hacia Hornindal/Stryn." },
+        { time: "20:00", desc: "Cena en el hotel o en el pueblo de Hornindal." }
+      ]
+    },
+    {
+      dayNum: 6,
+      title: "Día 6 — Navegación estrecha y raíles históricos",
+      date: "JUEVES, 6 DE AGOSTO DE 2026",
+      subHeader: "Stryn → Nærøyfjord → Tren de Flåm → Voss",
+      image: "assets/images/image8.png",
+      accommodation: {
+        name: "Voss Resort Bavallstunet",
+        address: "Bavallsvegen 227, 5710 Skulestadmo, Noruega",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Voss+Resort+Bavallstunet,+Bavallsvegen+227,+5710+Skulestadmo,+Noruega",
+        details: "1 cabaña (modelo Bavallstunet 65) para 4 adultos con sauna privada · comida no incluida"
+      },
+      summary: "La etapa más intensa logísticamente del viaje: trayecto en barco por el estrechísimo Nærøyfjord, seguido del histórico y empinado Tren de Flåm, terminando el día en Voss, la capital noruega de la adrenalina.",
+      goal: "Sumergirse en el fiordo más salvaje y estrecho del país (Patrimonio de la Humanidad) y disfrutar de uno de los viajes en tren más bellos del mundo.",
+      nature: {
+        flora: "Comunidades de bosque caducifolio húmedo en los valles encajados.",
+        fauna: "Comunidades de avifauna marina y especies especialistas en biotopos de acantilados costeros.",
+        geology: "Unidades estratigráficas del Precámbrico y evolución geomorfológica de la cuenca del Sognefjord."
+      },
+      travelTimes: [
+        { from: "Hornindal (Stryn)", to: "Kaupanger (Puerto)", desc: "≈ 135 km · 2 h 30 min en coche" },
+        { from: "Gudvangen", to: "Flåm", desc: "≈ 21 km · 20 min en coche a través de túneles" },
+        { from: "Flåm", to: "Voss Resort", desc: "≈ 65 km · 1 h en coche" }
+      ],
+      itinerary: [
+        {
+          section: "Navegación Nærøyfjord y Tren de Flåm",
+          items: [
+            { name: "Ferry Kaupanger → Gudvangen", desc: "Reserva confirmada con vehículo. Salida a las 12:30 con llegada a Gudvangen a las 15:00 (duración 2h 30min). Recorrido por el fiordo más estrecho y vertical de Noruega." },
+            { name: "Paseo por Flåm", desc: "Breve trayecto en coche desde Gudvangen a Flåm (20 min). Tiempo libre para visitar el pueblo, cafeterías locales o subir al mirador Stegastein si vais bien de tiempo." },
+            { name: "Tren de Flåm (Flåmsbana)", desc: "Navegación ferroviaria emblemática de gran pendiente. IDA: Flåm (18:25) -> Myrdal (19:20). VUELTA: Myrdal (19:35) -> Flåm (20:30). Parada corta en la cascada Kjosfossen para tomar fotos de su caída de 200m." }
+          ]
+        }
+      ],
+      cityGuide: {
+        shopping: "REMA 1000 y Kiwi en Skulestadmoen (cerca del alojamiento) excelentes para compras de comida. Centro comercial AMFI Voss en el pueblo con tienda Vinmonopolet para bebidas.",
+        breakfast: "Tre Brør Kafé y Bar (café de especialidad y panes artesanos en el pueblo). Vangen Café (desayunos abundantes con vistas al lago).",
+        eating: "Hangurstoppen Restaurant (vistas de montaña, comida local fina). Inside Voss Bryggeri (hamburguesas y opciones vegetarianas). Tre Brør (menús de estilo bistró rústico, 250-400 NOK).",
+        drinks: "Ski Bar Bula (ubicado en el resort, copas por la tarde/noche). Tre Brør (excelente selección de cervezas artesanales locales).",
+        whatToSee: "Iglesia de piedra Vangskyrkja (de 1277, gótica/románica). Fleischer's Hotel (hotel histórico del siglo XIX estilo suizo al lado de la estación). Voss Gondol (teleférico moderno al monte Hanguren, 350-400 NOK). Túnel de viento Voss Vind."
+      },
+      tips: [
+        "El barco y el tren son sumamente puntuales. No arriesguéis los tiempos de conducción de la mañana. Salid del hotel de Stryn a las 08:30 sin demora.",
+        "Aprovechad la sauna privada de la cabaña al llegar a Voss para relajaros de un día tan completo."
+      ],
+      schedule: [
+        { time: "08:30–09:30", desc: "Desayuno y check-out en el Havila Hotel Raftevold." },
+        { time: "09:30–12:00", desc: "Conducción desde Stryn hasta el muelle de Kaupanger." },
+        { time: "12:30–15:00", desc: "Navegación en ferry por el Nærøyfjord (Kaupanger a Gudvangen)." },
+        { time: "15:00–15:30", desc: "Trayecto en coche desde Gudvangen a Flåm." },
+        { time: "15:30–18:00", desc: "Almuerzo tardío en Flåm (se recomienda Ægir BrewPub) o visita a Stegastein." },
+        { time: "18:25–20:30", desc: "Viaje de ida y vuelta en el espectacular Tren de Flåm." },
+        { time: "20:45–21:45", desc: "Trayecto final por carretera de Flåm a Voss." },
+        { time: "22:00", desc: "Check-in en el Voss Resort y sesión de sauna privada." }
+      ]
+    },
+    {
+      dayNum: 7,
+      title: "Día 7 — Bergen, la Puerta de los Fiordos",
+      date: "VIERNES, 7 DE AGOSTO DE 2026",
+      subHeader: "Excursión de día completo Voss ↔ Bergen",
+      image: "assets/images/image9.png",
+      accommodation: {
+        name: "Voss Resort Bavallstunet",
+        address: "Bavallsvegen 227, 5710 Skulestadmo, Noruega",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Voss+Resort+Bavallstunet,+Bavallsvegen+227,+5710+Skulestadmo,+Noruega",
+        details: "segunda noche · sauna privada · comida no incluida"
+      },
+      summary: "Excursión de día completo desde Voss hasta la ciudad costera de Bergen: los callejones de madera de Bryggen, el mercado de pescado y el funicular al monte Fløyen.",
+      goal: "Cambiar el entorno salvaje por el encanto urbano e histórico de la 'Puerta de los Fiordos', comprendiendo la importancia del comercio marítimo y la Liga Hanseática en la historia de Noruega.",
+      nature: {
+        flora: "Representación de selva templada costera (bosque caducifolio atlántico).",
+        geology: "Estudio del complejo metamórfico de la región de Bergen (pliegues y gneises)."
+      },
+      travelTimes: [
+        { from: "Voss Resort", to: "Bergen (Centro)", desc: "≈ 100 km · 1 h 30 min por la carretera E16" }
+      ],
+      itinerary: [
+        {
+          section: "Ruta a pie por Bergen",
+          items: [
+            { name: "Barrio histórico de Bryggen", desc: "Antiguo puerto de la Liga Hanseática. Edificaciones coloridas de madera declaradas Patrimonio de la Humanidad. Preciosos callejones estrechos llenos de tiendas de artesanos." },
+            { name: "Funicular Fløibanen", desc: "Ascensor sobre raíles al monte Fløyen (320m). Comprad billetes online para evitar las enormes colas. Excelentes vistas de la ciudad, los muelles y las islas." },
+            { name: "Fisketorget (Mercado de Pescado)", desc: "Puestos callejeros al aire libre frente al puerto. Podéis probar brochetas de salmón, cangrejo real o pescado local en un ambiente muy animado." },
+            { name: "Tour Recomendado", desc: "Tour histórico guiado a pie 'Mitos, Historia y Bryggen' ( GuruWalk / Nordic Freedom Tours ). Reservad las 4 plazas online con antelación. Duración 1.5 - 2 h." }
+          ]
+        }
+      ],
+      cityGuide: {
+        shopping: "Bryggen cuenta con tiendas de recuerdos tradicionales (Dale of Norway, cortadores de queso, trolls). En el centro hay grandes almacenes de ropa de abrigo y diseño nórdico.",
+        eating: "Daily Pot (boles saludables y nutritivos, opciones veganas excelentes, 180-280 NOK). Pingvinen (comida tradicional noruega muy casera, 280-450 NOK). Kafé Spesial (pizzas, pastas e ingredientes locales, 180-300 NOK).",
+        drinks: "Bares en el puerto de Bryggen o locales de café de especialidad por el barrio de Nordnes.",
+        whatToSee: "Iglesia de Santa María (Marienkirke, del siglo XII, románica). Museo Hanseático y de Bryggen (para conocer la vida de los comerciantes alemanes en la Edad Media)."
+      },
+      tips: [
+        "Bergen es famosa por ser la ciudad más lluviosa de Noruega. Los tours no se cancelan por mal tiempo: llevad paraguas e impermeable siempre a mano.",
+        "Aparcar en la calle en Bergen es casi imposible y requiere permisos de residentes. Conducid directamente a parkings subterráneos grandes como ByGarasjen o KlosterGarasjen."
+      ],
+      schedule: [
+        { time: "08:30–09:30", desc: "Desayuno tranquilo en la cocina de la cabaña Hovi en Voss." },
+        { time: "09:30–11:00", desc: "Conducción en coche hasta Bergen (carretera E16) y estacionamiento en KlosterGarasjen." },
+        { time: "11:00–13:00", desc: "Paseo a pie por Bryggen, visita a Marienkirke y miradores del puerto." },
+        { time: "13:00–14:30", desc: "Comida en el centro (Daily Pot o mercado de pescado)." },
+        { time: "14:30–16:30", desc: "Subida en el funicular Fløibanen, mirador del monte Fløyen y paseos cortos." },
+        { time: "16:30–18:30", desc: "Paseo libre por las calles empedradas de Nordnes o compras en el centro." },
+        { time: "18:30–20:00", desc: "Conducción de regreso a Voss Resort." },
+        { time: "20:00", desc: "Llegada, sesión de sauna reparadora y cena de salmón fresco en la cabaña." }
+      ]
+    },
+    {
+      dayNum: 8,
+      title: "Día 8 — El gran cruce y la cascada indomable",
+      date: "SÁBADO, 8 DE AGOSTO DE 2026",
+      subHeader: "Voss → Puente de Hardanger → Vøringsfossen → Oslo",
+      image: "assets/images/image10.png",
+      accommodation: {
+        name: "Comfort Hotel Grand Central",
+        address: "Østbanehallen, Jernbanetorget 1, 0154 Oslo, Noruega",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Grand+Central,+%C3%98stbanehallen,+Jernbanetorget+1,+0154+Oslo,+Noruega",
+        details: "2 habitaciones dobles (twin), desayuno incluido · situado dentro de la propia estación central de Oslo"
+      },
+      summary: "El viaje de regreso hacia el este atraviesa el impresionante puente de Hardanger y sube por el valle hasta la imponente cascada Vøringsfossen, culminando con la llegada a Oslo y la devolución del vehículo de alquiler.",
+      goal: "Despedirse de la región de los fiordos con una ruta de conducción escénica incomparable y realizar una transición suave y de devolución puntual del coche en la capital.",
+      nature: {
+        flora: "Ecología de transición a la tundra subalpina en la meseta de Hardangervidda.",
+        geology: "Dinámica de procesos fluviales post-glaciares en el sistema de la cascada Vøringsfossen y análisis del basamento Precámbrico (rocas ígneas y metamórficas antiguas)."
+      },
+      travelTimes: [
+        { from: "Voss", to: "Eidfjord", desc: "≈ 55 km · 1 h conduciendo" },
+        { from: "Eidfjord", to: "Cascada Vøringsfossen", desc: "≈ 20 km · 20 min de fuerte ascenso" },
+        { from: "Vøringsfossen", to: "Oslo Central (Estación)", desc: "≈ 300 km · 4 h 30 min por la ruta nacional Rv7" }
+      ],
+      itinerary: [
+        {
+          section: "Hardanger y Vøringsfossen",
+          items: [
+            { name: "Puente de Hardanger (Hardangerbrua)", desc: "Espectacular cruce por el puente colgante más largo de Noruega. Destaca la entrada y salida directa a túneles con rotondas iluminadas excavadas dentro de la montaña." },
+            { name: "Pueblo de Eidfjord", desc: "Precioso enclave a orillas del Hardangerfjord. Lugar ideal para estirar las piernas y tomar un café frente al agua." },
+            { name: "Cascada Vøringsfossen (Måbødalen)", desc: "Una de las caídas de agua más espectaculares de Noruega con 180 metros. Visitad las espectaculares pasarelas de acero diseñadas por Carl-Viggo Hølmebakk suspendidas sobre el abismo." },
+            { name: "Valle de Hallingdal", desc: "Recorrido escénico rodeado de bosques y ríos. En el pueblo de Gol podéis hacer una pausa para ver la réplica de una Stavkirke vikinga." }
+          ]
+        }
+      ],
+      cityGuide: {
+        shopping: "Cafetería y tienda de recuerdos en el Fossli Hotel (junto a Vøringsfossen). Supermercados y cafeterías en Gol.",
+        eating: "Olivia en Østbanehallen (excelentes pizzas y platos italianos con opciones vegetarianas en el complejo de la estación, 280-450 NOK). Cafetería del hotel Fossli para comidas ligeras.",
+        drinks: "Barception del Comfort Hotel Grand Central (moderno bar en la recepción)."
+      },
+      tips: [
+        "¡CRÍTICO!: Devolución del coche de alquiler a las 19:00 en la estación central de Oslo (Oslo Railway Station). Debe coincidir exactamente con la hora de recogida del Día 1 para evitar cargos de días extra.",
+        "Es un trayecto largo de coche. Preparad provisiones y tentempiés para la carretera, sobre todo para la acompañante vegetariana."
+      ],
+      schedule: [
+        { time: "08:00–09:00", desc: "Desayuno en la cabaña de Voss, equipaje y check-out." },
+        { time: "09:00–10:00", desc: "Conducción hacia Eidfjord, cruzando el puente de Hardanger." },
+        { time: "10:00–10:30", desc: "Paseo por el puerto de Eidfjord y café rápido." },
+        { time: "10:30–11:00", desc: "Ascenso por el desfiladero de Måbødalen hasta Vøringsfossen." },
+        { time: "11:00–12:30", desc: "Visita de los miradores y pasarelas de la cascada Vøringsfossen." },
+        { time: "12:30–14:30", desc: "Travesía por la meseta de Hardangervidda y el valle de Hallingdal." },
+        { time: "14:30–15:30", desc: "Parada para almorzar en el pueblo de Gol." },
+        { time: "15:30–18:00", desc: "Tramo final de conducción hacia la ciudad de Oslo." },
+        { time: "18:00–18:45", desc: "Devolución oficial del coche de alquiler en el punto concertado de la estación." },
+        { time: "19:00", desc: "Check-in en el Comfort Hotel Grand Central." },
+        { time: "20:00", desc: "Cena relajada en Olivia (Østbanehallen), justo al lado del hotel." }
+      ]
+    },
+    {
+      dayNum: 9,
+      title: "Día 9 — Explorando Oslo",
+      date: "DOMINGO, 9 DE AGOSTO DE 2026",
+      subHeader: "Oslo — día completo a pie y en transporte público",
+      image: "assets/images/image11.png",
+      accommodation: {
+        name: "Comfort Hotel Grand Central",
+        address: "Østbanehallen, Jernbanetorget 1, 0154 Oslo, Noruega",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Grand+Central,+%C3%98stbanehallen,+Jernbanetorget+1,+0154+Oslo,+Noruega",
+        details: "segunda noche · desayuno incluido"
+      },
+      summary: "Día íntegramente dedicado a explorar la capital utilizando el transporte público y los barcos del puerto: la península de los museos (Bygdøy), el centro de la ciudad y el monumental Parque de las Esculturas de Vigeland.",
+      goal: "Absorber la cultura nacional a través de sus barcos vikingos y expediciones polares, disfrutando del diseño nórdico, la gastronomía y la vibrante vida de las calles de Oslo.",
+      nature: {
+        flora: "Ecosistemas mixtos caducifolios y de coníferas característicos del Oslofjord.",
+        geology: "Análisis del 'Oslo Graben', una fosa tectónica con importantes registros sedimentarios paleozoicos y abundancia de fósiles marinos."
+      },
+      travelTimes: [
+        { from: "Oslo Centro", to: "Península de Bygdøy", desc: "≈ 15 min en ferry regular desde el puerto de Rådhusbrygge" }
+      ],
+      itinerary: [
+        {
+          section: "Explorando Oslo",
+          items: [
+            { name: "Península de los Museos (Bygdøy)", image: "assets/images/facilitatrip_oslo_harbor.jpg", desc: "Acceso en barco regular. Visita a museos de fama mundial: Museo Fram (expedición polar y barco de madera), Museo de Barcos Vikingos (piezas arqueológicas del s. IX), y el Museo al aire libre del Folklore Noruego (con réplica de iglesia de madera stave church)." },
+            { name: "Karl Johans gate", image: "assets/images/facilitatrip_oslo_skyline.jpg", desc: "La arteria principal de la ciudad que une la estación con el Palacio Real. Vista exterior del Parlamento y del Teatro Nacional." },
+            { name: "Parque de las Esculturas Vigeland", image: "assets/images/facilitatrip_vigeland_statue.jpg", desc: "Enorme parque público con más de 200 esculturas creadas por Gustav Vigeland en bronce y granito, incluyendo el famoso Monolito." },
+            { name: "Ópera de Oslo", image: "assets/images/facilitatrip_oslo_opera.jpg", desc: "Impresionante edificio de mármol blanco de Carrara inclinado que emerge del fiordo. Se puede caminar libremente por su tejado." },
+            { name: "Holmenkollen", image: "assets/images/facilitatrip_holmenkollen.jpg", desc: "Subida en tranvía de montaña hasta el histórico trampolín de salto de esquí para disfrutar del atardecer con vistas panorámicas sobre el fiordo y la capital." }
+          ]
+        }
+      ],
+      cityGuide: {
+        shopping: "Calles comerciales en torno a Karl Johan y zona alternativa en Grünerløkka.",
+        eating: "Nordvegan (platos basados 100% en plantas, 220-350 NOK). Kumi (brunch orgánico vegetariano, diseño japonés/nórdico en el muelle, 250-400 NOK). Oslo Street Food (mercado gastronómico con puestos internacionales, 180-350 NOK).",
+        drinks: "Himkok (coctelería de autor premium, galardonada internacionalmente, 150-200 NOK). Kulturhuset (cerveza, vino y juegos de mesa en ambiente alternativo). Grünerløkka (distrito hipster con microcervecerías como Schouskjelleren)."
+      },
+      tips: [
+        "Comprad la Oslo Pass (Oslo Card): incluye transporte público ilimitado y entradas gratuitas a la mayoría de los museos de Bygdøy.",
+        "Reservad las entradas para los museos de Bygdøy con antelación. En agosto suele haber colas muy largas."
+      ],
+      schedule: [
+        { time: "08:30–09:30", desc: "Desayuno buffet completo en el hotel." },
+        { time: "09:30–10:00", desc: "Paseo hacia el puerto y barco contemplando la Ópera de Oslo." },
+        { time: "10:00–13:30", desc: "Visita a los museos de la península de Bygdøy (Fram, Vikingos y Folklore)." },
+        { time: "13:30–15:00", desc: "Regreso al centro y almuerzo en el mercado cubierto Oslo Street Food." },
+        { time: "15:00–16:30", desc: "Paseo guiado por el centro histórico y la calle Karl Johan." },
+        { time: "16:30–18:00", desc: "Visita al Parque Vigeland para ver las esculturas monumentales." },
+        { time: "18:00–19:30", desc: "Viaje en metro/tranvía hasta Holmenkollen para contemplar el atardecer." },
+        { time: "20:00", desc: "Regreso al centro para una cena de despedida y copas por Grünerløkka." }
+      ]
+    },
+    {
+      dayNum: 10,
+      title: "Día 10 — Despedida nórdica y regreso a casa",
+      date: "LUNES, 10 DE AGOSTO DE 2026",
+      subHeader: "Oslo → Aeropuerto de Gardermoen → Vuelo de regreso",
+      image: "assets/images/image12.png",
+      accommodation: {
+        name: "Salida del hotel",
+        address: "Comfort Hotel Grand Central, Oslo",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Grand+Central,+%C3%98stbanehallen,+Jernbanetorget+1,+0154+Oslo,+Noruega",
+        details: "check-out y fin del viaje"
+      },
+      summary: "Última mañana en Oslo para realizar compras de última hora o un breve paseo por los alrededores de la estación central, seguido del traslado rápido y directo en tren hacia el aeropuerto de Gardermoen.",
+      goal: "Cerrar el viaje de forma relajada y eficiente, aprovechando la excelente ubicación del alojamiento para garantizar un trayecto al aeropuerto libre de estrés.",
+      nature: {
+        flora: "Ecosistemas del litoral del fiordo de Oslo.",
+        geology: "Conclusión sobre la relevancia científica y la necesidad de monitoreo biológico sistemático para la conservación de la resiliencia en ecosistemas nórdicos."
+      },
+      travelTimes: [
+        { from: "Oslo Central (S)", to: "Aeropuerto de Oslo (Gardermoen)", desc: "≈ 45 km · 22 min en tren rápido" }
+      ],
+      itinerary: [
+        {
+          section: "Traslado al Aeropuerto",
+          items: [
+            { name: "Opción Premium: Flytoget", desc: "Tren rápido de alta frecuencia cada 10-20 minutos. Tarda exactamente 22 minutos al aeropuerto." },
+            { name: "Opción Inteligente: Tren Regional (Vy)", desc: "Tren regular de cercanías. Tarda 23 minutos (solo 1 min más) y el precio es aproximadamente la mitad de la tarifa del Flytoget. Ideal para un grupo de 4 adultos." }
+          ]
+        }
+      ],
+      tips: [
+        "Comprad los billetes de Vy o Flytoget a través de las apps oficiales (Ruter/Vy) o en las máquinas de la estación central para evitar retrasos de última hora."
+      ],
+      schedule: [
+        { time: "08:30–09:30", desc: "Último desayuno en el hotel y check-out." },
+        { time: "09:30–11:30", desc: "Tiempo libre para compras de recuerdos de última hora por Karl Johan." },
+        { time: "11:30–12:00", desc: "Tomar el Tren Regional de cercanías (Vy) en la estación central directo a Gardermoen." },
+        { time: "12:30", desc: "Facturación de maletas en el aeropuerto de Oslo y preparación para el vuelo de regreso." }
+      ]
+    }
+  ],
+  accommodationsSummary: [
+    { day: "1 (1 ago)", city: "Oslo — Aeropuerto", name: "Thon Hotel Oslo Airport", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Thon+Hotel+Oslo+Airport,+Balder+All%C3%A8+22,+2060+Gardermoen,+Noruega", details: "2 hab. dobles twin · desayuno incluido" },
+    { day: "2 (2 ago)", city: "Beitostølen", name: "Hovi Cabins", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Hovi+Cabins,+Bygdinvegen+3760,+2953+Beitost%C3%B8len,+Noruega", details: "1 cabaña 4 adultos (2 individuales + litera) · sin comida" },
+    { day: "3 (3 ago)", city: "Beitostølen", name: "Hovi Cabins", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Hovi+Cabins,+Bygdinvegen+3760,+2953+Beitost%C3%B8len,+Noruega", details: "2ª noche" },
+    { day: "4 (4 ago)", city: "Stryn / Hornindal", name: "Havila Hotel Raftevold", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Havila+Hotel+Raftevold,+Fjordvegen+5,+6763+Hornindal,+Noruega", details: "2 hab. dobles twin · desayuno incluido" },
+    { day: "5 (5 ago)", city: "Stryn / Hornindal", name: "Havila Hotel Raftevold", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Havila+Hotel+Raftevold,+Fjordvegen+5,+6763+Hornindal,+Noruega", details: "2ª noche" },
+    { day: "6 (6 ago)", city: "Voss", name: "Voss Resort Bavallstunet", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Voss+Resort+Bavallstunet,+Bavallsvegen+227,+5710+Skulestadmo,+Noruega", details: "1 cabaña 4 adultos, sauna privada · sin comida" },
+    { day: "7 (7 ago)", city: "Voss", name: "Voss Resort Bavallstunet", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Voss+Resort+Bavallstunet,+Bavallsvegen+227,+5710+Skulestadmo,+Noruega", details: "2ª noche" },
+    { day: "8 (8 ago)", city: "Oslo — Centro", name: "Comfort Hotel Grand Central", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Grand+Central,+%C3%98stbanehallen,+Jernbanetorget+1,+0154+Oslo,+Noruega", details: "2 hab. dobles twin · desayuno incluido" },
+    { day: "9 (9 ago)", city: "Oslo — Centro", name: "Comfort Hotel Grand Central", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Grand+Central,+%C3%98stbanehallen,+Jernbanetorget+1,+0154+Oslo,+Noruega", details: "2ª noche" },
+    { day: "10 (10 ago)", city: "Fin del viaje", name: "—", details: "Traslado al aeropuerto y vuelo de regreso" }
+  ],
+  accommodationsDetailed: [
+    {
+      id: "thon-gardermoen",
+      name: "Thon Hotel Oslo Airport",
+      stayDays: "Día 1 (1 de Agosto)",
+      location: "Gardermoen (Aeropuerto de Oslo)",
+      address: "Balder Allè 22, 2060 Gardermoen, Noruega",
+      image: "assets/images/hotel_thon_gardermoen.png",
+      gallery: [
+        { url: "assets/images/hotel_thon_gardermoen.png", caption: "🏢 Fachada Exterior Thon Hotel Oslo Airport" },
+        { url: "assets/images/thon_oslo_airport_room.png", caption: "🛏️ Habitación Doble Twin Confortable" },
+        { url: "assets/images/facilitatrip_oslo_harbor.jpg", caption: "🌊 Entorno y Puerto de Oslo (Tourist Forum)" }
+      ],
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Thon+Hotel+Oslo+Airport,+Balder+All%C3%A8+22,+2060+Gardermoen,+Noruega",
+      roomType: "2 Habitaciones Dobles (Twin)",
+      mealPlan: "Desayuno buffet completo incluido",
+      amenities: [
+        "🍳 Desayuno buffet nórdico incluido",
+        "📶 WiFi gratuita de alta velocidad",
+        "🏋️ Gimnasio de acceso libre 24h",
+        "🌱 Certificado Ecológico Sostenible",
+        "🚌 Bus shuttle aeropuerto (a 7 km)",
+        "🅿️ Aparcamiento propio en el hotel"
+      ],
+      description: "Hotel ecológico moderno a 7 km del Aeropuerto de Oslo (Gardermoen). Ideal para descansar la noche de llegada tras recoger el coche de alquiler sin el estrés de entrar en la capital."
+    },
+    {
+      id: "hovi-cabins",
+      name: "Hovi Cabins",
+      stayDays: "Días 2 y 3 (2 y 3 de Agosto)",
+      location: "Beitostølen (Jotunheimen)",
+      address: "Bygdinvegen 3760, 2953 Beitostølen, Noruega",
+      image: "assets/images/hovi_user_5.jpg",
+      gallery: [
+        { url: "assets/images/hovi_user_5.jpg", caption: "🏡 Cabaña Tradicional Hovi (Foto Real)" },
+        { url: "assets/images/hovi_user_1.jpg", caption: "🌲 Entorno de Montaña en Beitostølen" },
+        { url: "assets/images/hovi_user_2.jpg", caption: "🛋️ Salón y Zonas Comunes de la Cabaña" },
+        { url: "assets/images/hovi_user_3.jpg", caption: "🏔️ Vistas de Jotunheimen desde la Terraza" },
+        { url: "assets/images/hovi_user_4.jpg", caption: "🍳 Cocina Equipada Cabaña" }
+      ],
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Hovi+Cabins,+Bygdinvegen+3760,+2953+Beitost%C3%B8len,+Noruega",
+      roomType: "1 Cabaña Completa para 4 Adultos (2 camas ind. + litera)",
+      mealPlan: "Cocina propia totalmente equipada",
+      amenities: [
+        "🍳 Cocina propia 100% equipada",
+        "🏔️ Vistas a las montañas de Jotunheimen",
+        "🛋️ Salón rústico tradicional de madera",
+        "🛒 A 5 min a pie del supermercado SPAR",
+        "🅿️ Aparcamiento privado junto a la puerta",
+        "🔥 Calefacción acogedora de montaña"
+      ],
+      description: "Cabañas tradicionales noruegas situadas en la estación alpina de Beitostølen. Cuentan con cocina propia para preparar cenas de grupo, ambiente de montaña auténtico y proximidad a las rutas del lago Bygdin y Gjende."
+    },
+    {
+      id: "hotel-raftevold",
+      name: "Havila Hotel Raftevold",
+      stayDays: "Días 4 y 5 (4 y 5 de Agosto)",
+      location: "Hornindal / Stryn",
+      address: "Fjordvegen 5, 6763 Hornindal, Noruega",
+      image: "assets/images/hotel_raftevold.png",
+      gallery: [
+        { url: "assets/images/hotel_raftevold.png", caption: "🌊 Havila Hotel Raftevold a orillas del Lago Hornindal" },
+        { url: "assets/images/image2.png", caption: "🏔️ Vistas Panorámicas de los Fiordos de Stryn" }
+      ],
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Havila+Hotel+Raftevold,+Fjordvegen+5,+6763+Hornindal,+Noruega",
+      roomType: "2 Habitaciones Dobles Estándar (Twin)",
+      mealPlan: "Desayuno buffet nórdico incluido",
+      amenities: [
+        "🍳 Desayuno buffet nórdico incluido",
+        "🌊 A orillas del lago Hornindalsvatnet",
+        "🍷 Bar con terraza panorámica sobre el lago",
+        "🍽️ Restaurante gastronómico de platos locales",
+        "📶 WiFi gratuita en todas las estancias",
+        "🅿️ Aparcamiento gratuito en el hotel"
+      ],
+      description: "Hotel histórico con encanto situado a orillas del lago Hornindalsvatnet (el lago más profundo de Europa: 514m). Ubicación tranquila y perfecta como base para las excursiones a Geiranger y Trollstigen."
+    },
+    {
+      id: "voss-resort",
+      name: "Voss Resort Bavallstunet",
+      stayDays: "Días 6 y 7 (6 y 7 de Agosto)",
+      location: "Voss (Capital de la Adrenalina)",
+      address: "Bavallsvegen 227, 5710 Skulestadmo, Noruega",
+      image: "assets/images/voss_resort_cabin.png",
+      gallery: [
+        { url: "assets/images/voss_resort_cabin.png", caption: "🏡 Cabaña de Madera de Gran Tamaño Bavallstunet" },
+        { url: "assets/images/image6.png", caption: "🧖‍♀️ Sauna Privada y Ambiente de Montaña" }
+      ],
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Voss+Resort+Bavallstunet,+Bavallsvegen+227,+5710+Skulestadmo,+Noruega",
+      roomType: "1 Cabaña de Madera Grande (Bavallstunet 65)",
+      mealPlan: "Cocina propia equipada con electrodomésticos",
+      amenities: [
+        "🧖‍♀️ SAUNA PRIVADA de madera en la cabaña",
+        "🔥 Chimenea / estufa de leña tradicional",
+        "🍽️ Cocina completa con vitro y lavavajillas",
+        "🌲 Terraza panorámica con vistas alpinas",
+        "🧼 Lavadora y secadora propia",
+        "🅿️ Aparcamiento privado en la misma puerta"
+      ],
+      description: "Espectacular cabaña nórdica de alta gama con sauna privada integrada y chimenea. Ideal para relajarse tras los recorridos por el Nærøyfjord, Tren de Flåm y la excursión a Bergen."
+    },
+    {
+      id: "comfort-oslo",
+      name: "Comfort Hotel Grand Central",
+      stayDays: "Días 8 y 9 (8 y 9 de Agosto)",
+      location: "Oslo Centro (Estación Central)",
+      address: "Østbanehallen, Jernbanetorget 1, 0154 Oslo, Noruega",
+      image: "assets/images/comfort_hotel_oslo.png",
+      gallery: [
+        { url: "assets/images/comfort_hotel_oslo.png", caption: "🏬 Comfort Hotel Grand Central (Østbanehallen)" },
+        { url: "assets/images/facilitatrip_oslo_skyline.jpg", caption: "🌆 Skyline Panorámico de Oslo (Tourist Forum)" },
+        { url: "assets/images/facilitatrip_oslo_opera.jpg", caption: "🏛️ Ópera de Oslo a 2 minutos a pie (Tourist Forum)" }
+      ],
+      mapsUrl: "https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Grand+Central,+%C3%98stbanehallen,+Jernbanetorget+1,+0154+Oslo,+Noruega",
+      roomType: "2 Habitaciones Dobles (Twin)",
+      mealPlan: "Desayuno buffet orgánico premium incluido",
+      amenities: [
+        "🍳 Desayuno buffet orgánico premium",
+        "🚆 Dentro de la Estación Central (Østbanehallen)",
+        "🚶‍♂️ A 2 min a pie de la Ópera y Karl Johan",
+        "🏋️ Gimnasio 24h moderno",
+        "📶 WiFi ultra-rápida gratuita",
+        "🍸 Barception moderno en el vestíbulo"
+      ],
+      description: "Hotel boutique urbano de diseño vanguardista dentro del edificio histórico Østbanehallen de la Estación Central de Oslo. Ubicación inigualable para explorar la capital a pie y tomar el tren rápido al aeropuerto el último día."
+    }
+  ],
+  generalRules: {
+    driving: [
+      "Horario de devolución: Devolver el coche antes de las 19:00 del 08-08-2026 en Oslo Railway Station para evitar cargos de un día extra completo.",
+      "Límites de velocidad: Estrictos de 80 km/h en carreteras nacionales y 50 km/h o inferior en zonas urbanas. Hay numerosos radares fijos indicados con antelación.",
+      "Animales en calzada: Frecuente presencia de ovejas, cabras y renos descansando o cruzando las carreteras de montaña.",
+      "Peajes (AutoPass): Registrados automáticamente por el lector del coche de alquiler. La agencia los facturará al finalizar el viaje.",
+      "EasyPark: Descargar e instalar la app antes de viajar. Gestiona el aparcamiento en el 90% de los estacionamientos de Noruega cobrando exactamente por los minutos de estancia."
+    ],
+    parkings: [
+      {
+        day: "Día 2",
+        name: "Parking Disuasorio de Reinsvangen",
+        location: "Gjendesheim / Jotunheimen",
+        notes: "Obligatorio para el barco de Gjende (lanzadera gratuita al muelle incluidos).",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Reinsvangen+Parkering+Gjendesheim"
+      },
+      {
+        day: "Día 3",
+        name: "Bygdin Høyfjellshotell Parkering",
+        location: "Lago Bygdin (Ruta 51)",
+        notes: "Aparcamiento cómodo frente al lago Bygdin para la ruta a pie.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Bygdin+Hoyfjellshotell+Parkering"
+      },
+      {
+        day: "Día 3",
+        name: "Beitostølen Skisenter Parkering",
+        location: "Beitostølen (Sommerpark)",
+        notes: "Estacionamiento gratuito en la base de las pistas del Sommerpark.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Beitostolen+Skisenter+Parkering"
+      },
+      {
+        day: "Día 4",
+        name: "Sohlbergplassen Parkering",
+        location: "Ruta Escénica de Rondane",
+        notes: "Aparcamiento del mirador sobre el lago Atnsjøen.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Sohlbergplassen+Parkering"
+      },
+      {
+        day: "Día 5",
+        name: "Hellesylt Ferjekai Parkering",
+        location: "Puerto de Hellesylt",
+        notes: "Zona de espera y embarque para el ferry de Geiranger.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Hellesylt+Ferjekai"
+      },
+      {
+        day: "Día 5",
+        name: "Flydalsjuvet & Ørnesvingen Parkering",
+        location: "Miradores de Geiranger",
+        notes: "Aparcamientos habilitados en las plataformas panorámicas del fiordo.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Flydalsjuvet+Parkering"
+      },
+      {
+        day: "Día 5",
+        name: "Trollstigen Besøkssenter Parkering",
+        location: "Carretera de los Trolls",
+        notes: "Aparcamiento del centro de visitantes y pasarelas metálicas.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Trollstigen+Parkering"
+      },
+      {
+        day: "Día 6",
+        name: "Kaupanger Ferjekai Parkering",
+        location: "Puerto de Kaupanger",
+        notes: "Zona de embarque del ferry panorámico por el Nærøyfjord.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Kaupanger+Kai"
+      },
+      {
+        day: "Día 6",
+        name: "Flåm Stasjon Parkering",
+        location: "Flåm",
+        notes: "Aparcamiento principal junto a la estación del Tren de Flåm.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Flam+Stasjon+Parkering"
+      },
+      {
+        day: "Día 6",
+        name: "Stegastein Utsiktspunkt Parkering",
+        location: "Mirador de Stegastein",
+        notes: "Aparcamiento junto al mirador colgado sobre el Aurlandsfjord.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Stegastein+Parkering"
+      },
+      {
+        day: "Día 7",
+        name: "KlosterGarasjen / ByGarasjen",
+        location: "Bergen Centro",
+        notes: "Parkings subterráneos (P-hus) recomendados para evitar multas de residentes.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=KlosterGarasjen+Bergen"
+      },
+      {
+        day: "Día 8",
+        name: "Vøringsfossen Parkering (Fossli)",
+        location: "Cascada Vøringsfossen",
+        notes: "Aparcamiento del mirador de la cascada y pasarela suspendida.",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Voringfossen+Parkering"
+      },
+      {
+        day: "Día 8",
+        name: "Devolución Coche - Oslo Sentralstasjon",
+        location: "Estación Central de Oslo",
+        notes: "Punto oficial de entrega del vehículo de alquiler (antes de las 19:00).",
+        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Oslo+Central+Station+Car+Rental+Return"
+      }
+    ],
+    bookings: [
+      { day: 2, date: "02/08/2026", place: "Jotunheimen", item: "Barco Gjende (Gjendebåtene)", time: "15:25", price: "22€ - 31€", url: "gjende.no", reserved: true },
+      { day: 5, date: "05/08/2026", place: "Geiranger", item: "Ferry Hellesylt-Geiranger (con coche)", time: "09:30", price: "40€ - 60€", url: "geirangerfjord.no", reserved: true },
+      { day: 6, date: "06/08/2026", place: "Nærøyfjord/Flåm", item: "Ferry Kaupanger-Gudvangen + Tren de Flåm", time: "12:30 y 18:25", price: "60€ - 90€", url: "norwaysbest.com", reserved: true },
+      { day: 7, date: "07/08/2026", place: "Bergen", item: "Free Tour 'Mitos, Historia y Bryggen'", time: "13:00 / 14:00", price: "Gratis (Propina)", url: "guruwalk.com", reserved: false },
+      { day: 9, date: "09/08/2026", place: "Oslo", item: "Oslo Pass / Entradas Museos Bygdøy", time: "10:00", price: "15€ - 20€", url: "visitoslo.com", reserved: false }
+    ],
+    packing: [
+      "Clima muy cambiante: Desde 25°C soleados en Oslo hasta 10°C con viento y lluvia intensa en miradores de montaña o Bergen.",
+      "El sistema de tres capas es obligatorio: Primera capa transpirable, segunda de abrigo (forro polar o jersey ligero) y tercera cortavientos/impermeable.",
+      "Calzado técnico: Zapatillas de trekking impermeables o de senderismo con buen dibujo antideslizante."
+    ],
+    finance: [
+      "Sociedad cashless: Prácticamente sin efectivo. Se puede pagar con tarjeta absolutamente todo (desde baños públicos hasta gofres de montaña).",
+      "Tarjetas recomendadas: Llevar al menos dos tarjetas de bancos distintos sin comisiones de cambio de divisa extranjera (por si hay bloqueos de seguridad)."
+    ],
+    alcohol: [
+      "Restricciones: En los supermercados normales solo se vende cerveza de hasta 4.7% de alcohol antes de las 20:00 (18:00 los sábados).",
+      "Tiendas estatales (Vinmonopolet): El alcohol de graduación superior (vino, ginebra, licores) solo se vende en tiendas estatales con horarios muy reducidos y cerradas los domingos."
+    ],
+    health: [
+      "Tarjeta Sanitaria Europea (TSE): Noruega pertenece al Espacio Económico Europeo, la TSE española es válida en toda la red pública de salud.",
+      "Mosquitos: En las zonas de lagos y humedales de Jotunheimen en agosto hay abundancia de mosquitos. Llevar repelente eficaz en el neceser."
+    ]
+  },
+  gastronomy: {
+    omnivore: [
+      { name: "Laks (Salmón noruego)", desc: "Salmón ahumado (røykelaks) o fresco cocinado a la plancha. El mercado de pescado de Bergen es el sitio ideal para degustarlo." },
+      { name: "Skrei (Bacalao ártico)", desc: "El bacalao noruego salvaje, valorado por la firmeza y calidad de su carne blanca." },
+      { name: "Kjøttkaker", desc: "Albóndigas tradicionales de carne noruegas servidas con salsa marrón, puré de guisantes y mermelada dulce de arándanos rojos." },
+      { name: "Pølse med lompe", desc: "El tentempié rápido noruego por excelencia. Perrito caliente envuelto en una tortita blanda de patata." }
+    ],
+    vegetarian: [
+      { name: "Brunost (Queso marrón)", desc: "Queso de suero de leche dulce caramelizado. De sabor similar al toffee salado. Perfecto cortado fino sobre gofres noruegos o tostadas." },
+      { name: "Vafler (Gofres noruegos)", desc: "Gofres en forma de corazones, esponjosos y tiernos, que tradicionalmente se sirven con mermelada y crema agria (rømme)." },
+      { name: "Skillingsbolle", desc: "El tradicional rollo de canela y azúcar noruego, una delicia de panadería muy popular especialmente en Bergen." },
+      { name: "Multekrem", desc: "Postre tradicional elaborado a base de moras árticas (cloudberries, recolectadas en alta montaña) mezcladas con nata montada azucarada." }
+    ],
+    drinks: [
+      { name: "Aquavit (Akevitt)", desc: "El licor nacional destilado de patata aromatizado con alcaravea, hinojo y comino. Tradicional para ayudar a digerir comidas copiosas." },
+      { name: "Sidra de Hardanger (Hardangersider)", desc: "Llamada el 'champán de los fiordos'. Sidra de manzana artesana con denominación de origen protegida de calidad superior." },
+      { name: "Cerveza Artesana", desc: "Excelente oferta en microcervecerías locales. Son muy populares las firmas como Ægir (en Flåm) o las cervecerías artesanales de Oslo y Voss." },
+      { name: "Kaffe (Café de filtro)", desc: "Noruega es de los mayores consumidores per cápita del mundo. Un café solo de calidad es la combinación tradicional con los gofres en cada parada." }
+    ]
+  },
+  souvenirs: [
+    { name: "Dale of Norway", desc: "Jerséis de lana tradicionales noruegos de la más alta calidad y diseños geométricos clásicos. Extremadamente duraderos y abrigados." },
+    { name: "Ostehøvel (Cortador de queso)", desc: "Invento noruego clásico. Utensilio metálico de cocina para cortar láminas finas y perfectas de Brunost." },
+    { name: "Trolls de madera", desc: "Pequeñas figuras mitológicas. Los tallados a mano en madera tradicional tienen un valor artesanal único en comparación con los de resina." },
+    { name: "Joyas de plata (Sølje)", desc: "Hermosos broches de plata de filigrana tradicionales que visten los trajes regionales Bunad en ocasiones especiales." },
+    { name: "Mermelada de moras árticas (Multe)", desc: "Delicatessen gourmet difícil de conseguir debido a que las moras árticas solo crecen silvestres en turberas de alta montaña." },
+    { name: "Chocolate Freia y Kvikk Lunsj", desc: "La marca nacional de chocolate. El Kvikk Lunsj (cuatro barritas de barquillo) es el snack obligatorio de todo senderista en Noruega." },
+    { name: "Objetos de Diseño Nórdico", desc: "Piezas de vajilla de marcas tradicionales como Hadeland Glassverk o cerámicas minimalistas de autor." }
+  ],
+  recommendedApps: [
+    { name: "EasyPark", category: "Navegación y Aparcamiento", desc: "La aplicación indispensable para pagar los estacionamientos públicos en casi todos los municipios de Noruega." },
+    { name: "Vegvesen Trafikk", category: "Navegación y Aparcamiento", desc: "Aplicación oficial de carreteras. Informa de obras, cortes de carreteras (como Trollstigen) y horarios de ferris en tiempo real." },
+    { name: "Google Maps (Offline)", category: "Navegación y Aparcamiento", desc: "Descargad la zona oeste previamente. En los valles cerrados y túneles largos se pierde la señal GPS/móvil por completo." },
+    { name: "Yr.no", category: "Meteorología", desc: "Aplicación meteorológica oficial de Noruega. De alta precisión para valles y microclimas de montaña." },
+    { name: "HappyCow", category: "Gastronomía", desc: "Imprescindible para ubicar cafeterías, supermercados y restaurantes con buenas opciones veganas y vegetarianas en zonas rurales." },
+    { name: "Ruter", category: "Transporte y Utilidades", desc: "App de transporte urbano de Oslo para comprar billetes de metro, tranvía y ferris locales." },
+    { name: "XE Currency", category: "Transporte y Utilidades", desc: "Conversor de divisas para calcular rápidamente las compras de Coronas Noruegas (NOK) a Euros (EUR)." },
+    { name: "Google Translate (Cámara)", category: "Transporte y Utilidades", desc: "Muy útil en el supermercado para traducir los ingredientes alimenticios en los envases (para la dieta vegetariana) o carteles de aparcamiento." }
+  ],
+  weatherDestinations: [
+    {
+      id: "oslo",
+      name: "Oslo / Gardermoen",
+      category: "ciudades",
+      region: "Capital & Aeropuerto",
+      days: "Día 1, 8, 9 y 10",
+      lat: 59.9139,
+      lon: 10.7522,
+      clothingTip: "Clima más suave y templado (18-24°C). Manga corta/larga y chaqueta ligera por la noche.",
+      image: "assets/images/hotel_thon_gardermoen.png"
+    },
+    {
+      id: "beitostolen",
+      name: "Beitostølen & Jotunheimen",
+      category: "montana",
+      region: "Parque Nacional de Alta Montaña",
+      days: "Días 2 y 3",
+      lat: 61.2486,
+      lon: 8.9056,
+      clothingTip: "Clima alpino cambiante. Obligatorio sistema de 3 capas: térmica, forro polar e impermeable cortavientos.",
+      image: "assets/images/hovi_cabins.png"
+    },
+    {
+      id: "stryn",
+      name: "Stryn & Hornindal",
+      category: "fiordos",
+      region: "Valles & Lago Hornindalsvatnet",
+      days: "Días 4 y 5",
+      lat: 61.9042,
+      lon: 6.7228,
+      clothingTip: "Ambiente húmedo de lago. Fresco de mañana (10-14°C) y templado a mediodía.",
+      image: "assets/images/hotel_raftevold.png"
+    },
+    {
+      id: "geiranger",
+      name: "Fiordo de Geiranger & Trollstigen",
+      category: "fiordos",
+      region: "Fiordo Patrimonio Mundial & Miradores",
+      days: "Día 5 (Excursión)",
+      lat: 62.1008,
+      lon: 7.2059,
+      clothingTip: "Sensación térmica muy fría en la cubierta del ferry y en el mirador Dalsnibba (1500m). Llevar gorro y cortavientos.",
+      image: "assets/images/image7.png"
+    },
+    {
+      id: "flam",
+      name: "Nærøyfjord & Flåm",
+      category: "fiordos",
+      region: "Fiordo Estrecho & Tren Histórico",
+      days: "Día 6",
+      lat: 60.8637,
+      lon: 7.1132,
+      clothingTip: "Viento marino constante durante la navegación por el fiordo. Chaqueta cortavientos imprescindible.",
+      image: "assets/images/image8.png"
+    },
+    {
+      id: "voss",
+      name: "Voss Resort",
+      category: "montana",
+      region: "Interior Alpino & Ríos",
+      days: "Días 6 y 7",
+      lat: 60.6288,
+      lon: 6.4258,
+      clothingTip: "Noches frescas de montaña. Ideal para ropa cómoda tras disfrutar de la sauna privada.",
+      image: "assets/images/voss_resort_cabin.png"
+    },
+    {
+      id: "bergen",
+      name: "Bergen (Puerta de los Fiordos)",
+      category: "ciudades",
+      region: "Costa Atlántica",
+      days: "Día 7 (Excursión)",
+      lat: 60.3913,
+      lon: 5.3221,
+      clothingTip: "Alta frecuencia de lluvias atlánticas. Chubasquero técnico con capucha, paraguas resistente y calzado impermeable.",
+      image: "assets/images/image9.png"
+    }
+  ]
+};

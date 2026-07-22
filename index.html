@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noruega Beagle 2026 - Guía de Viaje</title>
+  <!-- Google Fonts: Outfit & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="index.css">
+  <!-- PWA Manifest & App Icons -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0b0f19">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="assets/images/icon-192.png">
+</head>
+<body class="dark-theme">
+
+  <!-- Mobile Overlay -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="logo-container">
+        <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke-linejoin="round"/>
+          <path d="M22 2L11 13" stroke-linecap="round"/>
+        </svg>
+        <div class="logo-text">
+          <span class="logo-title">Noruega Beagle</span>
+          <span class="logo-subtitle">Agosto 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-btn active" data-section="home">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Inicio</span>
+      </button>
+      <button class="nav-btn" data-section="itinerary">
+        <span class="nav-icon">📅</span>
+        <span class="nav-label">Itinerario</span>
+      </button>
+      <button class="nav-btn" data-section="accommodations">
+        <span class="nav-icon">🏨</span>
+        <span class="nav-label">Alojamientos</span>
+      </button>
+      <button class="nav-btn" data-section="weather">
+        <span class="nav-icon">🌤️</span>
+        <span class="nav-label">Meteorología</span>
+      </button>
+      <button class="nav-btn" data-section="gastronomy">
+        <span class="nav-icon">🍲</span>
+        <span class="nav-label">Gastronomía</span>
+      </button>
+      <button class="nav-btn" data-section="souvenirs">
+        <span class="nav-icon">🎁</span>
+        <span class="nav-label">Recuerdos</span>
+      </button>
+      <button class="nav-btn" data-section="logistics">
+        <span class="nav-icon">🚗</span>
+        <span class="nav-label">Logística</span>
+      </button>
+      <button class="nav-btn" data-section="apps">
+        <span class="nav-icon">📱</span>
+        <span class="nav-label">Aplicaciones</span>
+      </button>
+      <button class="nav-btn" data-section="tools">
+        <span class="nav-icon">🛠️</span>
+        <span class="nav-label">Herramientas</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="theme-toggle-container">
+        <span class="theme-label">Modo Claro</span>
+        <label class="switch">
+          <input type="checkbox" id="themeToggle">
+          <span class="slider round"></span>
+        </label>
+      </div>
+      <p class="footer-credit">© 2026 Noruega Beagle App</p>
+    </div>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="main-content">
+    
+    <!-- Top Bar -->
+    <header class="top-bar">
+      <button class="menu-toggle" id="menuToggle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="3" y1="12" x2="21" y2="12" stroke-linecap="round"/>
+          <line x1="3" y1="6" x2="21" y2="6" stroke-linecap="round"/>
+          <line x1="3" y1="18" x2="21" y2="18" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <h1 class="section-title" id="mainSectionTitle">Inicio</h1>
+      <div class="top-bar-actions">
+        <!-- Quick stats in top bar if needed -->
+        <span class="badge badge-accent">1 - 10 Ago 2026</span>
+      </div>
+    </header>
+
+    <!-- Scrollable Content Window -->
+    <div class="content-body">
+
+      <!-- SECTION: HOME -->
+      <section class="content-section active" id="section-home">
+        <div class="hero-banner">
+          <img src="assets/images/image1.png" alt="HMS Beagle" class="hero-img">
+          <div class="hero-overlay">
+            <span class="hero-badge">Ruta Escénica & Guía Activa</span>
+            <h2 class="hero-title">Oslo — Jotunheimen — Fiordos — Bergen — Oslo</h2>
+            <p class="hero-desc">Una expedición científica y paisajística de 10 días para 4 adultos por el corazón indómito del reino nórdico.</p>
+            <div class="countdown-container" id="countdown">
+              <div class="countdown-item">
+                <span class="countdown-num" id="cd-days">--</span>
+                <span class="countdown-label">Días</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-num" id="cd-hours">--</span>
+                <span class="countdown-label">Horas</span>
+              </div>
+              <div class="countdown-item">
+                <span class="countdown-num" id="cd-mins">--</span>
+                <span class="countdown-label">Minutos</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-grid">
+          <!-- Overview Cards -->
+          <div class="card card-glass stats-card">
+            <h3 class="card-title">Resumen del Viaje</h3>
+            <div class="stats-grid">
+              <div class="stat-box">
+                <span class="stat-value">10</span>
+                <span class="stat-label">Días Totales</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-value">4</span>
+                <span class="stat-label">Viajeros</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-value">4.8<sub>MB</sub></span>
+                <span class="stat-label">Datos Guía</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-value">0<sub>€</sub></span>
+                <span class="stat-label">Efectivo Necesario</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bookings Progress Card -->
+          <div class="card card-glass progress-card">
+            <h3 class="card-title">Reservas Críticas</h3>
+            <p class="card-desc">Estado de reservas para ferrys, trenes y tours clave antes de partir:</p>
+            <div class="progress-bar-container">
+              <div class="progress-bar-fill" id="bookingProgressFill" style="width: 0%"></div>
+            </div>
+            <div class="progress-text-container">
+              <span id="bookingProgressText">0 de 5 completadas</span>
+              <button class="btn btn-secondary btn-sm" id="btnGoToLogistics">Verificar Reservas</button>
+            </div>
+          </div>
+
+          <!-- Next Destination card -->
+          <div class="card card-glass next-destination-card">
+            <h3 class="card-title">Inicio de Aventura</h3>
+            <div class="dest-info">
+              <span class="dest-icon">🚗</span>
+              <div>
+                <h4 class="dest-name" id="homeNextDestName">Día 1: Vuelo a Oslo</h4>
+                <p class="dest-detail" id="homeNextDestDetail">Recogida de coche y <a href="https://www.google.com/maps/search/?api=1&query=Thon+Hotel+Oslo+Airport,+Balder+All%C3%A8+22,+2060+Gardermoen,+Noruega" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline;">Thon Hotel Oslo Airport ↗</a>.</p>
+              </div>
+            </div>
+            <button class="btn btn-primary" id="btnStartItinerary">Comenzar Ruta</button>
+          </div>
+        </div>
+
+        <!-- Accommodations Overview Section on Home Screen -->
+        <div class="accommodations-home-section" style="margin-top: 2rem;">
+          <div style="display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 1.25rem;">
+            <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-main);">🏠 Alojamientos del Viaje</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Las 5 estancias reservadas para las 10 noches de ruta por Noruega, con equipamiento detallado y mapa:</p>
+          </div>
+          <div class="cards-grid" id="homeAccommodationsGrid">
+            <!-- Dynamically populated cards with photos, amenities, and details -->
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION: ITINERARY -->
+      <section class="content-section" id="section-itinerary">
+        <!-- Horizontal Day Selector Bar -->
+        <div class="day-selector-bar" id="daySelectorBar">
+          <!-- Dynamically populated Days buttons 1-10 -->
+        </div>
+
+        <!-- Selected Day Main Container -->
+        <div class="day-detail-container" id="dayDetailContainer">
+          <!-- Dynamically Rendered Day Content goes here -->
+        </div>
+      </section>
+
+      <!-- SECTION: ACCOMMODATIONS -->
+      <section class="content-section" id="section-accommodations">
+        <div class="intro-card card card-glass">
+          <div class="intro-content">
+            <h2>🏨 Alojamientos del Viaje (10 Noches)</h2>
+            <p>Guía detallada de las 5 estancias reservadas para los 4 adultos durante la expedición por Noruega. Incluye fotografías, distribución de habitaciones, servicios, equipamiento y ubicación en Google Maps.</p>
+          </div>
+        </div>
+
+        <!-- Accommodations Summary Table Card -->
+        <div class="card card-glass" style="margin-bottom: 1.5rem;">
+          <h3 class="card-title">📋 Resumen de Noches y Alojamientos</h3>
+          <div class="table-responsive">
+            <table class="bookings-table">
+              <thead>
+                <tr>
+                  <th>Noche</th>
+                  <th>Ciudad / Destino</th>
+                  <th>Alojamiento</th>
+                  <th>Distribución y Régimen</th>
+                  <th>Ubicación</th>
+                </tr>
+              </thead>
+              <tbody id="accommodationsTableBody">
+                <!-- Dynamically populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Detailed Accommodations Cards Grid -->
+        <h3 class="section-subtitle" style="margin-bottom: 1rem;">✨ Fichas Detalladas de Alojamientos</h3>
+        <div class="cards-grid" id="accommodationsSectionGrid">
+          <!-- Dynamically populated cards -->
+        </div>
+      </section>
+
+      <!-- SECTION: WEATHER / METEOROLOGÍA -->
+      <section class="content-section" id="section-weather">
+        <div class="intro-card card card-glass">
+          <div class="intro-content" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h2>🌤️ Previsión Meteorológica a 3 Días</h2>
+              <p>Predicción meteorológica en tiempo real obtenida de estaciones oficiales para cada uno de los destinos del viaje. La previsión se actualiza automáticamente cada 30 minutos.</p>
+            </div>
+            <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem;">
+              <button class="btn btn-secondary btn-sm" id="btnRefreshWeather" style="gap: 0.35rem;">
+                🔄 Actualizar Ahora
+              </button>
+              <span style="font-size: 0.75rem; color: var(--text-muted);" id="weatherLastUpdatedText">Cargando datos...</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="filter-bar" id="weatherFilterBar">
+          <button class="filter-btn weather-filter-btn active" data-weather-filter="all">Todos los Destinos</button>
+          <button class="filter-btn weather-filter-btn" data-weather-filter="montana">Alta Montaña</button>
+          <button class="filter-btn weather-filter-btn" data-weather-filter="fiordos">Fiordos & Navegación</button>
+          <button class="filter-btn weather-filter-btn" data-weather-filter="ciudades">Ciudades (Oslo / Bergen)</button>
+        </div>
+
+        <div class="cards-grid" id="weatherGrid" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
+          <!-- Dynamically populated Weather Cards with 3-day forecast -->
+        </div>
+      </section>
+
+      <!-- SECTION: GASTRONOMY -->
+      <section class="content-section" id="section-gastronomy">
+        <div class="intro-card card card-glass">
+          <div class="intro-content">
+            <h2>Gastronomía Nórdica</h2>
+            <p>Noruega combina ingredientes frescos de calidad marina con una rica tradición culinaria local. Hemos preparado una selección de platos típicos omnívoros, fabulosas opciones vegetarianas y bebidas locales que no os podéis perder.</p>
+          </div>
+        </div>
+
+        <div class="filter-bar">
+          <button class="filter-btn active" data-filter="all">Todos</button>
+          <button class="filter-btn" data-filter="omnivore">Tradicional</button>
+          <button class="filter-btn" data-filter="vegetarian">Vegetariano</button>
+          <button class="filter-btn" data-filter="drinks">Bebidas</button>
+        </div>
+
+        <div class="cards-grid" id="gastronomyGrid">
+          <!-- Dynamically populated cards -->
+        </div>
+      </section>
+
+      <!-- SECTION: SOUVENIRS -->
+      <section class="content-section" id="section-souvenirs">
+        <div class="intro-card card card-glass">
+          <div class="intro-content">
+            <h2>Souvenirs & Recuerdos</h2>
+            <p>Desde prendas tradicionales de lana hasta prácticos utensilios e ingredientes árticos exquisitos. Estos son los mejores recuerdos auténticos de Noruega para llevarte a casa.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid" id="souvenirsGrid">
+          <!-- Dynamically populated cards -->
+        </div>
+      </section>
+
+      <!-- SECTION: LOGISTICS -->
+      <section class="content-section" id="section-logistics">
+        <div class="logistics-container">
+          
+          <!-- Critical Bookings Card -->
+          <div class="card card-glass">
+            <h2 class="section-subtitle">📋 Reservas Críticas (Agosto 2026)</h2>
+            <p class="card-desc">Marca las reservas a medida que las realices. El progreso se actualizará en la pantalla de inicio.</p>
+            <div class="table-responsive">
+              <table class="bookings-table">
+                <thead>
+                  <tr>
+                    <th>Día</th>
+                    <th>Elemento</th>
+                    <th>Hora</th>
+                    <th>Precio Aprox.</th>
+                    <th>Enlace</th>
+                    <th class="text-center">Estado</th>
+                  </tr>
+                </thead>
+                <tbody id="bookingsTableBody">
+                  <!-- Dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Driving rules and parking -->
+          <div class="card card-glass">
+            <h2 class="section-subtitle">🚗 Conducción y Normas viales</h2>
+            <ul class="bullet-list" id="drivingRulesList">
+              <!-- Dynamically populated -->
+            </ul>
+          </div>
+
+          <!-- Recommended Parkings Card -->
+          <div class="card card-glass">
+            <h2 class="section-subtitle">🅿️ Parkings Recomendados y Estacionamiento</h2>
+            <p class="card-desc">Ubicaciones exactas de los aparcamientos clave en cada etapa de la ruta con enlace directo a Google Maps:</p>
+            <div class="table-responsive">
+              <table class="bookings-table">
+                <thead>
+                  <tr>
+                    <th>Etapa</th>
+                    <th>Aparcamiento / Punto</th>
+                    <th>Ubicación</th>
+                    <th>Notas</th>
+                    <th>Mapa</th>
+                  </tr>
+                </thead>
+                <tbody id="parkingsTableBody">
+                  <!-- Dynamically populated -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Packing & Layers -->
+          <div class="card card-glass">
+            <h2 class="section-subtitle">🧥 Clima y Sistema de Capas</h2>
+            <div class="packing-grid">
+              <div class="pack-box">
+                <div class="pack-icon">👕</div>
+                <h4>Capa 1: Transpirable</h4>
+                <p>Camisetas térmicas o técnicas. Mantienen el sudor alejado de la piel.</p>
+              </div>
+              <div class="pack-box">
+                <div class="pack-icon">🧥</div>
+                <h4>Capa 2: Aislamiento</h4>
+                <p>Forros polares o jerséis ligeros. Retienen el calor corporal.</p>
+              </div>
+              <div class="pack-box">
+                <div class="pack-icon">🌧️</div>
+                <h4>Capa 3: Protección</h4>
+                <p>Chaqueta cortavientos e impermeable (Gore-Tex o similar). Protege de la lluvia y del viento.</p>
+              </div>
+            </div>
+            <div class="alert alert-info">
+              <strong>Consejo de equipaje:</strong> Calzado técnico de trekking impermeable y repelente de insectos son indispensables en Jotunheimen.
+            </div>
+          </div>
+
+          <!-- Other logistics -->
+          <div class="grid-2col">
+            <div class="card card-glass">
+              <h3 class="card-title">💳 Finanzas y Pagos</h3>
+              <p>Noruega es una sociedad prácticamente <strong>cashless</strong>. Se puede pagar con tarjeta absolutamente todo, desde gofres en cabañas de montaña hasta baños públicos. Es prudente llevar dos tarjetas distintas (para evitar bloqueos) y verificar comisiones de cambio de divisa.</p>
+            </div>
+            <div class="card card-glass">
+              <h3 class="card-title">🍷 Alcohol (Vinmonopolet)</h3>
+              <p>La cerveza de hasta 4.7% se vende en supermercados antes de las 20:00 (18:00 los sábados). Las bebidas con graduación superior (vino, ginebra, licores) solo están disponibles en las tiendas del gobierno estatal <strong>Vinmonopolet</strong>, con horarios muy restringidos.</p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- SECTION: APPS -->
+      <section class="content-section" id="section-apps">
+        <div class="intro-card card card-glass">
+          <div class="intro-content">
+            <h2>Aplicaciones Móviles Recomendadas</h2>
+            <p>Descarga estas aplicaciones antes de tu viaje. Te ayudarán a navegar por las carreteras noruegas, gestionar los pagos de aparcamientos y predecir el clima cambiante de las montañas.</p>
+          </div>
+        </div>
+
+        <div class="cards-grid" id="appsGrid">
+          <!-- Dynamically populated apps -->
+        </div>
+      </section>
+
+      <!-- SECTION: TOOLS -->
+      <section class="content-section" id="section-tools">
+        <div class="grid-2col">
+          
+          <!-- Currency Converter -->
+          <div class="card card-glass converter-card">
+            <h2 class="card-title">💶 Conversor de Divisas (NOK / EUR)</h2>
+            <p class="card-desc">Introduce el importe en coronas noruegas (NOK) o euros (EUR) para calcular al instante.</p>
+            <div class="converter-inputs">
+              <div class="input-group">
+                <label for="inputNok">Coronas Noruegas (NOK)</label>
+                <input type="number" id="inputNok" placeholder="0" min="0">
+              </div>
+              <div class="converter-divider">
+                <span>⇄</span>
+              </div>
+              <div class="input-group">
+                <label for="inputEur">Euros (EUR)</label>
+                <input type="number" id="inputEur" placeholder="0" min="0">
+              </div>
+            </div>
+            <div class="rate-info">
+              Tasa de cambio aplicada: <strong id="exchangeRateText">1 EUR = 11.50 NOK</strong>
+            </div>
+          </div>
+
+          <!-- Translation Cheat Sheet -->
+          <div class="card card-glass">
+            <h2 class="card-title">🗣️ Vocabulario Útil</h2>
+            <div class="translation-list">
+              <div class="trans-item">
+                <span class="nor-word">Takk</span>
+                <span class="esp-word">Gracias</span>
+              </div>
+              <div class="trans-item">
+                <span class="nor-word">Tusen takk</span>
+                <span class="esp-word">Muchas gracias</span>
+              </div>
+              <div class="trans-item">
+                <span class="nor-word">God morgen</span>
+                <span class="esp-word">Buenos días</span>
+              </div>
+              <div class="trans-item">
+                <span class="nor-word">Hei / Hallo</span>
+                <span class="esp-word">Hola</span>
+              </div>
+              <div class="trans-item">
+                <span class="nor-word">Har dere noe vegetaralternativ?</span>
+                <span class="esp-word">¿Tienen alguna opción vegetariana?</span>
+              </div>
+              <div class="trans-item">
+                <span class="nor-word">Hvor mye koster det?</span>
+                <span class="esp-word">¿Cuánto cuesta esto?</span>
+              </div>
+              <div class="trans-item">
+                <span class="nor-word">Kaffe</span>
+                <span class="esp-word">Café</span>
+              </div>
+              <div class="trans-item">
+                <span class="nor-word">Vann</span>
+                <span class="esp-word">Agua</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Online Translator Card -->
+          <div class="card card-glass translator-card" style="grid-column: 1 / -1; margin-top: 0.5rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
+              <h2 class="card-title" style="margin:0;">🌐 Traductor en Línea Instantáneo (Noruego ⇄ Español)</h2>
+              <span class="badge badge-accent">Traducción API en Tiempo Real</span>
+            </div>
+            
+            <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.25rem;">
+              Escribe o pega cualquier palabra, cartel, ingrediente de supermercado o frase en noruego u español para obtener la traducción inmediata.
+            </p>
+
+            <!-- Camera & Lens Translation Action Box -->
+            <div style="background: rgba(var(--primary-rgb), 0.08); border: 1px solid rgba(var(--primary-rgb), 0.25); border-radius: var(--border-radius-sm); padding: 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+              <div style="display: flex; align-items: center; gap: 0.75rem; flex: 1; min-width: 260px;">
+                <span style="font-size: 2rem;">📷</span>
+                <div>
+                  <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin: 0;">Traducción de Carteles con Cámara (Google Lens)</h4>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0.2rem 0 0 0;">Apunta con la cámara de tu móvil a cualquier cartel, menú de restaurante o envase para traducir en tiempo real de Noruego a Español.</p>
+                </div>
+              </div>
+              
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <button class="btn btn-primary btn-sm" id="btnLaunchGoogleLens" style="gap: 0.4rem; font-weight: 600; padding: 0.5rem 1rem;">
+                  🔍 Abrir Google Lens / Cámara ↗
+                </button>
+                <button class="btn btn-secondary btn-sm" id="btnScanPhotoApp" style="gap: 0.4rem; font-weight: 600; padding: 0.5rem 1rem;">
+                  📸 Hacer Foto / Escanear
+                </button>
+                <input type="file" id="lensPhotoInput" capture="environment" accept="image/*" style="display: none;">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: start;">
+              <!-- Source Input -->
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                  <label id="transSourceLangLabel" style="font-weight: 700; font-size: 0.85rem; color: var(--primary);">🇳🇴 Noruego (Norsk)</label>
+                  <button class="btn btn-secondary btn-sm" id="btnClearTrans" style="padding: 2px 8px; font-size: 0.75rem;">Limpiar</button>
+                </div>
+                <textarea id="transSourceText" placeholder="Escribe o pega texto aquí... (ej. Hvor er toalettet? / Røykelaks / Parkering forbudt)" rows="4" style="width: 100%; padding: 0.75rem; border-radius: var(--border-radius-sm); border: 1px solid var(--border-card); background: var(--bg-card); color: var(--text-main); font-family: inherit; font-size: 0.9rem; resize: vertical; outline: none;"></textarea>
+              </div>
+
+              <!-- Switch Direction Button -->
+              <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding-top: 1.8rem;">
+                <button class="btn btn-secondary" id="btnSwapLang" title="Cambiar idioma (Noruego ⇄ Español)" style="border-radius: 50%; width: 44px; height: 44px; padding: 0; font-size: 1.1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+                  🔄
+                </button>
+              </div>
+
+              <!-- Target Output -->
+              <div>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                  <label id="transTargetLangLabel" style="font-weight: 700; font-size: 0.85rem; color: var(--accent);">🇪🇸 Español</label>
+                  <button class="btn btn-secondary btn-sm" id="btnCopyTrans" style="padding: 2px 8px; font-size: 0.75rem;">📋 Copiar</button>
+                </div>
+                <div id="transTargetText" style="min-height: 102px; padding: 0.75rem; border-radius: var(--border-radius-sm); border: 1px solid var(--border-card); background: rgba(var(--primary-rgb), 0.05); color: var(--text-main); font-size: 0.95rem; line-height: 1.4; word-break: break-word;">
+                  <span style="color: var(--text-muted); font-style: italic;">La traducción aparecerá aquí automáticamente...</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Phrase Shortcuts -->
+            <div style="margin-top: 1.25rem; border-top: 1px solid var(--border-card); padding-top: 0.85rem;">
+              <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">⚡ Frases rápidas de ejemplo:</span>
+              <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;" id="transQuickPhrases">
+                <button class="badge badge-primary trans-chip" data-text="Hvor er toalettet?" style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">🚽 Hvor er toalettet?</button>
+                <button class="badge badge-primary trans-chip" data-text="Har dere noe vegetaralternativ?" style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">🥗 Vegetaralternativ?</button>
+                <button class="badge badge-primary trans-chip" data-text="Hvor mye koster det?" style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">💳 Hvor mye koster det?</button>
+                <button class="badge badge-primary trans-chip" data-text="Parkering forbudt" style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">🚗 Parkering forbudt</button>
+                <button class="badge badge-primary trans-chip" data-text="Røykelaks og egg" style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">🐟 Røykelaks og egg</button>
+                <button class="badge badge-primary trans-chip" data-text="Kan jeg betale med kort?" style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">💳 Betale med kort?</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Load Data and Main JS logic -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <!-- Service Worker Registration -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js')
+          .then(reg => console.log('Service Worker registered successfully:', reg.scope))
+          .catch(err => console.error('Service Worker registration failed:', err));
+      });
+    }
+  </script>
+</body>
+</html>

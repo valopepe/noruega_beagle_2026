@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+extract_assets.py
+*.json.bak
+
+# Temp files
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
