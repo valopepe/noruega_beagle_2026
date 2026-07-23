@@ -303,7 +303,7 @@ document.addEventListener("DOMContentLoaded", () => {
               <div style="display: flex; flex-direction: column; gap: 1.25rem; margin-top: 0.75rem;">
                 ${sec.items.map(item => {
                   const placeUrl = item.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.name)}`;
-                  const imageHTML = (item.image && sectionImages.length <= 1) ? `
+                  const imageHTML = item.image ? `
                     <div style="width: 100%; height: 200px; overflow: hidden; border-radius: 8px; margin: 0.5rem 0 0.6rem 0;">
                       <img src="${item.image}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease;" onmouseover="this.style.transform='scale(1.03)'" onmouseout="this.style.transform='scale(1)'">
                     </div>
@@ -493,8 +493,14 @@ document.addEventListener("DOMContentLoaded", () => {
     itemsToRender.forEach(item => {
       const card = document.createElement("div");
       card.className = "card card-glass item-card";
+      const imageHTML = item.image ? `
+        <div style="width: 100%; height: 160px; overflow: hidden; border-radius: 8px; margin: 0.5rem 0 0.6rem 0;">
+          <img src="${item.image}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      ` : '';
       card.innerHTML = `
         <span class="badge ${item.badgeClass} item-badge">${item.badgeText}</span>
+        ${imageHTML}
         <h3 class="item-name">${item.name}</h3>
         <p class="item-desc">${item.desc}</p>
       `;
@@ -518,8 +524,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const icon = icons[idx % icons.length];
       const card = document.createElement("div");
       card.className = "card card-glass item-card";
+      const imageHTML = souvenir.image ? `
+        <div style="width: 100%; height: 160px; overflow: hidden; border-radius: 8px; margin: 0.5rem 0 0.6rem 0;">
+          <img src="${souvenir.image}" alt="${souvenir.name}" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+      ` : `<span style="font-size: 2.25rem; margin-bottom: 0.5rem;">${icon}</span>`;
       card.innerHTML = `
-        <span style="font-size: 2.25rem; margin-bottom: 0.5rem;">${icon}</span>
+        ${imageHTML}
         <h3 class="item-name">${souvenir.name}</h3>
         <p class="item-desc">${souvenir.desc}</p>
       `;

@@ -67,25 +67,32 @@ const NORWAY_TRAVEL_DATA = {
           section: "Paradas culturales en ruta",
           items: [
             { name: "Kistefos Museum y 'The Twist' (Jevnaker)", image: "assets/images/day2_the_twist_kistefos.png", desc: "Poco más de una hora desde el aeropuerto. Antiguo aserradero convertido en uno de los parques de esculturas contemporáneas más importantes de Europa. Su joya es 'The Twist' (BIG group): museo, escultura y puente peatonal que cruza el río. Abre 10:00-11:00 en verano; entrada ≈ 200 NOK (18-20 €); calculad 1,5-2 h de visita." },
-            { name: "Museo Folclórico de Valdres (Fagernes)", image: "assets/images/day2_valdres_stave_church.png", desc: "≈ 45 min antes de llegar a la cabaña. Cuarto museo al aire libre más grande de Noruega, con más de 100 edificios históricos de madera. Buen lugar para parar a comer en su cafetería de platos tradicionales; entrada ≈ 150 NOK (13 €)." }
+            { name: "Museo Folclórico de Valdres (Fagernes)", image: "assets/images/dia2-valdres.png", desc: "≈ 45 min antes de llegar a la cabaña. Cuarto museo al aire libre más grande de Noruega, con más de 100 edificios históricos de madera. Buen lugar para parar a comer en su cafetería de platos tradicionales; entrada ≈ 150 NOK (13 €)." }
+          ]
+        },
+        {
+          section: "Sitios que ver en Beitostølen y alrededores",
+          items: [
+            { name: "Capilla de las Luces (Lyskapellet)", image: "assets/images/Dia2-Lyskapellet.png", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Lyskapellet+Beitostolen", desc: "Singular capilla ecuménica de madera y cristal a 2 km de Beitostølen, perfectamente integrada en el bosque alpino. Destaca por sus magníficas vidrieras y su ambiente sereno de paz." },
+            { name: "Liastølen (Granjas tradicionales de montaña)", image: "assets/images/dia2-Liastølen.png", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Liastolen+Beitostolen", desc: "Asentamiento tradicional de pastoreo de alta montaña (seter) cercano a Beitostølen. Un recorrido fascinante entre cabañas históricas y prados alpinos." }
           ]
         },
         {
           section: "Navegación y paseos cortos en Gjende",
           items: [
             { name: "⚠️ RESERVA PREVIA OBLIGATORIA — Parking + Shuttle + Barco", bookingUrl: "https://visitgjende.no/", desc: "Es imprescindible reservar con antelación en visitgjende.no el pack completo: parking Gjendeosen-Reinsvangen (Onepark) + lanzadera shuttle + billete de barco. Sin reserva previa no podréis embarcar. Reservad cuanto antes ya que las plazas son limitadas en agosto." },
-            { name: "🅿️ Parking: Gjendeosen-Reinsvangen | Onepark", mapsUrl: "https://maps.app.goo.gl/B7EoVkiFx5UUJ9qq9", desc: "Aparcar aquí obligatoriamente (reservado en visitgjende.no) — no se puede aparcar en el muelle de Gjendesheim. A ≈1,7 km del embarcadero. Coordenadas: 61.4954256, 8.8092086. Desde el parking tomad la lanzadera gratuita (shuttle Gjendebåtene) hasta el muelle — calculad 20-30 min extra." },
+            { name: "🅿️ Parking: Gjendeosen-Reinsvangen | Onepark", mapsUrl: "https://www.google.com/maps/place/Reinsvangen+parkering/@61.4863745,8.8275523,17z/data=!3m1!4b1!4m6!3m5!1s0x46153f9a3ff2dd47:0x114d3f7e1a621516!8m2!3d61.486372!4d8.8324232!16s%2Fg%2F11g2xrpwkf?entry=ttu", desc: "Aparcar aquí obligatoriamente (reservado en visitgjende.no) — no se puede aparcar en el muelle de Gjendesheim. A ≈1,7 km del embarcadero. Coordenadas: 61.486372, 8.8324232. Desde el parking tomad la lanzadera gratuita (shuttle Gjendebåtene) hasta el muelle — calculad 20-30 min extra." },
             { name: "Crucero por las Aguas Esmeralda del Lago Gjende", image: "assets/images/day2_gjende_lake.png", desc: "IDA: Gjendesheim (15:25) -> Gjendebu (16:10). VUELTA: Gjendebu (16:25) -> Gjendesheim (17:15). Navegación inolvidable rodeada de imponentes montañas alpinas. El margen de 15 minutos en Gjendebu es solo para embarque/desembarque." }
           ]
         }
       ],
       cityGuide: {
-        shopping: "SPAR Beitostølen (calle Bygdinvegen): cuenta con mostrador de comida fresca, platos para llevar, barra de ensaladas y productos locales. Kiwi y Coop Extra también disponibles (Kiwi es el más económico).",
-        breakfast: "Caféen Beitostølen: bistró acogedor con buen café y platos vegetarianos adaptados.",
-        eating: "Peppes Pizza (menú vegetariano/vegano adaptado, 250-400 NOK/persona). Lodge 900 (estilo alpino, menús elaborados, 300-500 NOK/persona).",
-        drinks: "Svingen Pub (pub rústico de montaña, cervezas locales, 80-120 NOK). Caféen (gran selección de vinos y coctelería, 100-150 NOK/copa).",
-        whatToSee: "Capilla de las Luces (Lyskapellet) a 2km, Liastølen (granjas tradicionales) e Iglesia de madera de Hegge (Hegge Stave Church, del siglo XIII, a 11 km).",
-        adrenaline: "Beitostølen Sommerpark (Bobsleigh de verano a 70-80 NOK/viaje, Karts de montaña Olabilløypa, Rutas a caballo con caballos islandeses en Fjellrittet)."
+        shopping: "<a href='https://www.google.com/maps/search/?api=1&query=SPAR+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 SPAR Beitostølen ↗</a> (calle Bygdinvegen): cuenta con mostrador de comida fresca, platos para llevar, barra de ensaladas y productos locales. <a href='https://www.google.com/maps/search/?api=1&query=Kiwi+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Kiwi Beitostølen ↗</a> y <a href='https://www.google.com/maps/search/?api=1&query=Coop+Extra+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Coop Extra ↗</a> también disponibles (Kiwi es el más económico).",
+        breakfast: "<a href='https://www.google.com/maps/search/?api=1&query=Cafeen+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Caféen Beitostølen ↗</a>: bistró acogedor con buen café y platos vegetarianos adaptados.",
+        eating: "<a href='https://www.google.com/maps/search/?api=1&query=Peppes+Pizza+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Peppes Pizza ↗</a> (menú vegetariano/vegano adaptado, 250-400 NOK/persona). <a href='https://www.google.com/maps/search/?api=1&query=Lodge+900+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Lodge 900 ↗</a> (estilo alpino, menús elaborados, 300-500 NOK/persona).",
+        drinks: "<a href='https://www.google.com/maps/search/?api=1&query=Svingen+Pub+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Svingen Pub ↗</a> (pub rústico de montaña, cervezas locales, 80-120 NOK). <a href='https://www.google.com/maps/search/?api=1&query=Cafeen+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Caféen ↗</a> (gran selección de vinos y coctelería, 100-150 NOK/copa).",
+        whatToSee: "<a href='https://www.google.com/maps/search/?api=1&query=Lyskapellet+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Capilla de las Luces (Lyskapellet) ↗</a> a 2km, <a href='https://www.google.com/maps/search/?api=1&query=Liastolen+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Liastølen ↗</a> (granjas tradicionales) e <a href='https://www.google.com/maps/search/?api=1&query=Hegge+Stave+Church+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Iglesia de madera de Hegge ↗</a> (del siglo XIII, a 11 km).",
+        adrenaline: "<a href='https://www.google.com/maps/search/?api=1&query=Beitostolen+Sommerpark+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Beitostølen Sommerpark ↗</a> (Bobsleigh de verano a 70-80 NOK/viaje, Karts de montaña Olabilløypa, Rutas a caballo con caballos islandeses en <a href='https://www.google.com/maps/search/?api=1&query=Fjellrittet+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Fjellrittet ↗</a>)."
       },
       tips: [
         "⚠️ RESERVA OBLIGATORIA: Antes del viaje hay que reservar online en visitgjende.no el parking Gjendeosen-Reinsvangen + shuttle lanzadera + billete de barco. Sin reserva previa no podréis embarcar. Las plazas son muy limitadas en agosto.",
@@ -178,11 +185,11 @@ const NORWAY_TRAVEL_DATA = {
         }
       ],
       cityGuide: {
-        shopping: "Stryn cuenta con buenas tiendas de material deportivo de montaña. En Hornindal tenéis el propio hotel y comercios locales.",
-        breakfast: "Havila Hotel Raftevold: buffet de desayuno incluido en la estancia. Stryn Bakeri & Konditori (panadería con skillingsboller clásicos).",
-        eating: "Stryn Kaffebar & Vertshus (ensaladas generosas, sopas y sándwiches, 200-350 NOK). Brasserie Posthuset (pastas y platos modernos, 300-450 NOK).",
-        drinks: "Hotel Raftevold Bar (vistas impresionantes al lago Hornindalsvatnet, 90-130 NOK). Visnes Hotel (Stryn, encanto histórico y salón clásico, 100-140 NOK).",
-        whatToSee: "Lago Hornindalsvatnet (el lago más profundo de Europa: 514 m, aguas cristalinas). Glaciar Jostedalsbreen (centro de interpretación). Carretera panorámica Gamle Strynefjellsvegen (carretera de piedra histórica). Cascada Glomnesfossen (impresionante caída visible en el valle)."
+        shopping: "<a href='https://www.google.com/maps/search/?api=1&query=Stryn+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Stryn ↗</a> cuenta con buenas tiendas de material deportivo de montaña. En <a href='https://www.google.com/maps/search/?api=1&query=Hornindal+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Hornindal ↗</a> tenéis el propio hotel y comercios locales.",
+        breakfast: "<a href='https://www.google.com/maps/search/?api=1&query=Havila+Hotel+Raftevold+Hornindal+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Havila Hotel Raftevold ↗</a>: buffet de desayuno incluido en la estancia. <a href='https://www.google.com/maps/search/?api=1&query=Stryn+Bakeri+Konditori+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Stryn Bakeri & Konditori ↗</a> (panadería con skillingsboller clásicos).",
+        eating: "<a href='https://www.google.com/maps/search/?api=1&query=Stryn+Kaffebar+Vertshus+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Stryn Kaffebar & Vertshus ↗</a> (ensaladas generosas, sopas y sándwiches, 200-350 NOK). <a href='https://www.google.com/maps/search/?api=1&query=Brasserie+Posthuset+Stryn+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Brasserie Posthuset ↗</a> (pastas y platos modernos, 300-450 NOK).",
+        drinks: "<a href='https://www.google.com/maps/search/?api=1&query=Hotel+Raftevold+Hornindal+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Hotel Raftevold Bar ↗</a> (vistas impresionantes al lago Hornindalsvatnet, 90-130 NOK). <a href='https://www.google.com/maps/search/?api=1&query=Visnes+Hotel+Stryn+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Visnes Hotel ↗</a> (Stryn, encanto histórico y salón clásico, 100-140 NOK).",
+        whatToSee: "<a href='https://www.google.com/maps/search/?api=1&query=Hornindalsvatnet+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Lago Hornindalsvatnet ↗</a> (el lago más profundo de Europa: 514 m, aguas cristalinas). <a href='https://www.google.com/maps/search/?api=1&query=Jostedalsbreen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Glaciar Jostedalsbreen ↗</a> (centro de interpretación). <a href='https://www.google.com/maps/search/?api=1&query=Gamle+Strynefjellsvegen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Carretera panorámica Gamle Strynefjellsvegen ↗</a> (carretera de piedra histórica). <a href='https://www.google.com/maps/search/?api=1&query=Glomnesfossen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Cascada Glomnesfossen ↗</a> (impresionante caída visible en el valle)."
       },
       tips: [
         "Aseguraos de que vuestra acompañante vegetariana lleve snacks suficientes en el coche, ya que en la ruta montañosa de Rondane las opciones sin carne son escasas en los kioscos de carretera.",
@@ -281,18 +288,18 @@ const NORWAY_TRAVEL_DATA = {
         {
           section: "Navegación Nærøyfjord y Tren de Flåm",
           items: [
-            { name: "Ferry Kaupanger → Gudvangen", image: "assets/images/image8.png", desc: "Reserva confirmada con vehículo. Salida a las 12:30 con llegada a Gudvangen a las 15:00 (duración 2h 30min). Recorrido por el fiordo más estrecho y vertical de Noruega." },
-            { name: "Paseo por Flåm", image: "assets/images/image8.png", desc: "Breve trayecto en coche desde Gudvangen a Flåm (20 min). Tiempo libre para visitar el pueblo, cafeterías locales o subir al mirador Stegastein si vais bien de tiempo." },
-            { name: "Tren de Flåm (Flåmsbana)", image: "assets/images/day5_trollstigen.png", desc: "Navegación ferroviaria emblemática de gran pendiente. IDA: Flåm (18:25) -> Myrdal (19:20). VUELTA: Myrdal (19:35) -> Flåm (20:30). Parada corta en la cascada Kjosfossen para tomar fotos de su caída de 200m." }
+            { name: "Ferry Kaupanger → Gudvangen", image: "assets/images/day6_naeroyfjord_ferry.png", desc: "Reserva confirmada con vehículo. Salida a las 12:30 con llegada a Gudvangen a las 15:00 (duración 2h 30min). Recorrido por el fiordo más estrecho y vertical de Noruega." },
+            { name: "Paseo por Flåm", image: "assets/images/day6_flam_village.png", desc: "Breve trayecto en coche desde Gudvangen a Flåm (20 min). Tiempo libre para visitar el pueblo, cafeterías locales o subir al mirador Stegastein si vais bien de tiempo." },
+            { name: "Tren de Flåm (Flåmsbana)", image: "assets/images/day6_flamsbana_train.png", desc: "Navegación ferroviaria emblemática de gran pendiente. IDA: Flåm (18:25) -> Myrdal (19:20). VUELTA: Myrdal (19:35) -> Flåm (20:30). Parada corta en la cascada Kjosfossen para tomar fotos de su caída de 200m." }
           ]
         }
       ],
       cityGuide: {
-        shopping: "REMA 1000 y Kiwi en Skulestadmoen (cerca del alojamiento) excelentes para compras de comida. Centro comercial AMFI Voss en el pueblo con tienda Vinmonopolet para bebidas.",
-        breakfast: "Tre Brør Kafé y Bar (café de especialidad y panes artesanos en el pueblo). Vangen Café (desayunos abundantes con vistas al lago).",
-        eating: "Hangurstoppen Restaurant (vistas de montaña, comida local fina). Inside Voss Bryggeri (hamburguesas y opciones vegetarianas). Tre Brør (menús de estilo bistró rústico, 250-400 NOK).",
-        drinks: "Ski Bar Bula (ubicado en el resort, copas por la tarde/noche). Tre Brør (excelente selección de cervezas artesanales locales).",
-        whatToSee: "Iglesia de piedra Vangskyrkja (de 1277, gótica/románica). Fleischer's Hotel (hotel histórico del siglo XIX estilo suizo al lado de la estación). Voss Gondol (teleférico moderno al monte Hanguren, 350-400 NOK). Túnel de viento Voss Vind."
+        shopping: "<a href='https://www.google.com/maps/search/?api=1&query=REMA+1000+Skulestadmoen+Voss+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 REMA 1000 ↗</a> y <a href='https://www.google.com/maps/search/?api=1&query=Kiwi+Skulestadmoen+Voss+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Kiwi en Skulestadmoen ↗</a> (cerca del alojamiento) excelentes para compras de comida. Centro comercial <a href='https://www.google.com/maps/search/?api=1&query=AMFI+Voss+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 AMFI Voss ↗</a> en el pueblo con tienda <a href='https://www.google.com/maps/search/?api=1&query=Vinmonopolet+AMFI+Voss+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Vinmonopolet ↗</a> para bebidas.",
+        breakfast: "<a href='https://www.google.com/maps/search/?api=1&query=Tre+Bror+Kafe+Bar+Voss+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Tre Brør Kafé y Bar ↗</a> (café de especialidad y panes artesanos en el pueblo). <a href='https://www.google.com/maps/search/?api=1&query=Vangen+Cafe+Voss+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Vangen Café ↗</a> (desayunos abundantes con vistas al lago).",
+        eating: "<a href='https://www.google.com/maps/search/?api=1&query=Hangurstoppen+Restaurant+Voss+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Hangurstoppen Restaurant ↗</a> (vistas de montaña, comida local fina). <a href='https://www.google.com/maps/search/?api=1&query=Inside+Voss+Rock+Cafe+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Inside Voss Bryggeri ↗</a> (hamburguesas y opciones vegetarianas). <a href='https://www.google.com/maps/search/?api=1&query=Tre+Bror+Kafe+Bar+Voss+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Tre Brør ↗</a> (menús de estilo bistró rústico, 250-400 NOK).",
+        drinks: "<a href='https://www.google.com/maps/search/?api=1&query=Voss+Resort+Ski+Bar+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Ski Bar Bula ↗</a> (ubicado en el resort, copas por la tarde/noche). <a href='https://www.google.com/maps/search/?api=1&query=Tre+Bror+Kafe+Bar+Voss+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Tre Brør ↗</a> (excelente selección de cervezas artesanales locales).",
+        whatToSee: "<a href='https://www.google.com/maps/search/?api=1&query=Vangskyrkja+Voss+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Iglesia de piedra Vangskyrkja ↗</a> (de 1277, gótica/románica). <a href='https://www.google.com/maps/search/?api=1&query=Fleischer's+Hotel+Voss+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Fleischer's Hotel ↗</a> (hotel histórico del siglo XIX estilo suizo al lado de la estación). <a href='https://www.google.com/maps/search/?api=1&query=Voss+Gondol+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Voss Gondol ↗</a> (teleférico moderno al monte Hanguren, 350-400 NOK). <a href='https://www.google.com/maps/search/?api=1&query=Voss+Vind+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Túnel de viento Voss Vind ↗</a>."
       },
       tips: [
         "El barco y el tren son sumamente puntuales. No arriesguéis los tiempos de conducción de la mañana. Salid del hotel de Stryn a las 08:30 sin demora.",
@@ -334,18 +341,18 @@ const NORWAY_TRAVEL_DATA = {
         {
           section: "Ruta a pie por Bergen",
           items: [
-            { name: "Barrio histórico de Bryggen", image: "assets/images/image9.png", desc: "Antiguo puerto de la Liga Hanseática. Edificaciones coloridas de madera declaradas Patrimonio de la Humanidad. Preciosos callejones estrechos llenos de tiendas de artesanos." },
-            { name: "Funicular Fløibanen", image: "assets/images/image9.png", desc: "Ascensor sobre raíles al monte Fløyen (320m). Comprad billetes online para evitar las enormes colas. Excelentes vistas de la ciudad, los muelles y las islas." },
-            { name: "Fisketorget (Mercado de Pescado)", image: "assets/images/image9.png", desc: "Puestos callejeros al aire libre frente al puerto. Podéis probar brochetas de salmón, cangrejo real o pescado local en un ambiente muy animado." },
-            { name: "Tour Recomendado", image: "assets/images/image9.png", desc: "Tour histórico guiado a pie 'Mitos, Historia y Bryggen' ( GuruWalk / Nordic Freedom Tours ). Reservad las 4 plazas online con antelación. Duración 1.5 - 2 h." }
+            { name: "Barrio histórico de Bryggen", image: "assets/images/day7_bryggen.png", desc: "Antiguo puerto de la Liga Hanseática. Edificaciones coloridas de madera declaradas Patrimonio de la Humanidad. Preciosos callejones estrechos llenos de tiendas de artesanos." },
+            { name: "Funicular Fløibanen", image: "assets/images/day7_floibanen.png", desc: "Ascensor sobre raíles al monte Fløyen (320m). Comprad billetes online para evitar las enormes colas. Excelentes vistas de la ciudad, los muelles y las islas." },
+            { name: "Fisketorget (Mercado de Pescado)", image: "assets/images/day7_fisketorget.png", desc: "Puestos callejeros al aire libre frente al puerto. Podéis probar brochetas de salmón, cangrejo real o pescado local en un ambiente muy animado." },
+            { name: "Tour Recomendado", desc: "Tour histórico guiado a pie 'Mitos, Historia y Bryggen' ( GuruWalk / Nordic Freedom Tours ). Reservad las 4 plazas online con antelación. Duración 1.5 - 2 h." }
           ]
         }
       ],
       cityGuide: {
-        shopping: "Bryggen cuenta con tiendas de recuerdos tradicionales (Dale of Norway, cortadores de queso, trolls). En el centro hay grandes almacenes de ropa de abrigo y diseño nórdico.",
-        eating: "Daily Pot (boles saludables y nutritivos, opciones veganas excelentes, 180-280 NOK). Pingvinen (comida tradicional noruega muy casera, 280-450 NOK). Kafé Spesial (pizzas, pastas e ingredientes locales, 180-300 NOK).",
-        drinks: "Bares en el puerto de Bryggen o locales de café de especialidad por el barrio de Nordnes.",
-        whatToSee: "Iglesia de Santa María (Marienkirke, del siglo XII, románica). Museo Hanseático y de Bryggen (para conocer la vida de los comerciantes alemanes en la Edad Media)."
+        shopping: "<a href='https://www.google.com/maps/search/?api=1&query=Bryggen+Bergen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Bryggen ↗</a> cuenta con tiendas de recuerdos tradicionales (<a href='https://www.google.com/maps/search/?api=1&query=Dale+of+Norway+Bergen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Dale of Norway ↗</a>, cortadores de queso, trolls). En el centro hay grandes almacenes de ropa de abrigo y diseño nórdico.",
+        eating: "<a href='https://www.google.com/maps/search/?api=1&query=Daily+Pot+Bergen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Daily Pot ↗</a> (boles saludables y nutritivos, opciones veganas excelentes, 180-280 NOK). <a href='https://www.google.com/maps/search/?api=1&query=Pingvinen+Bergen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Pingvinen ↗</a> (comida tradicional noruega muy casera, 280-450 NOK). <a href='https://www.google.com/maps/search/?api=1&query=Kafe+Spesial+Bergen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Kafé Spesial ↗</a> (pizzas, pastas e ingredientes locales, 180-300 NOK).",
+        drinks: "Bares en el puerto de <a href='https://www.google.com/maps/search/?api=1&query=Bryggen+Bergen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Bryggen ↗</a> o locales de café de especialidad por el barrio de <a href='https://www.google.com/maps/search/?api=1&query=Nordnes+Bergen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Nordnes ↗</a>.",
+        whatToSee: "<a href='https://www.google.com/maps/search/?api=1&query=Marienkirke+Bergen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Iglesia de Santa María (Marienkirke) ↗</a> (del siglo XII, románica). <a href='https://www.google.com/maps/search/?api=1&query=Hanseatic+Museum+Bergen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Museo Hanseático y de Bryggen ↗</a> (para conocer la vida de los comerciantes alemanes en la Edad Media)."
       },
       tips: [
         "Bergen es famosa por ser la ciudad más lluviosa de Noruega. Los tours no se cancelan por mal tiempo: llevad paraguas e impermeable siempre a mano.",
@@ -397,9 +404,9 @@ const NORWAY_TRAVEL_DATA = {
         }
       ],
       cityGuide: {
-        shopping: "Cafetería y tienda de recuerdos en el Fossli Hotel (junto a Vøringsfossen). Supermercados y cafeterías en Gol.",
-        eating: "Olivia en Østbanehallen (excelentes pizzas y platos italianos con opciones vegetarianas en el complejo de la estación, 280-450 NOK). Cafetería del hotel Fossli para comidas ligeras.",
-        drinks: "Barception del Comfort Hotel Grand Central (moderno bar en la recepción)."
+        shopping: "Cafetería y tienda de recuerdos en el <a href='https://www.google.com/maps/search/?api=1&query=Fossli+Hotel+Voringsfossen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Fossli Hotel ↗</a> (junto a <a href='https://www.google.com/maps/search/?api=1&query=Voringsfossen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Vøringsfossen ↗</a>). Supermercados y cafeterías en <a href='https://www.google.com/maps/search/?api=1&query=Gol+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Gol ↗</a>.",
+        eating: "<a href='https://www.google.com/maps/search/?api=1&query=Olivia+Ostbanehallen+Oslo+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Olivia en Østbanehallen ↗</a> (excelentes pizzas y platos italianos con opciones vegetarianas en el complejo de la estación, 280-450 NOK). Cafetería del hotel <a href='https://www.google.com/maps/search/?api=1&query=Fossli+Hotel+Voringsfossen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Fossli ↗</a> para comidas ligeras.",
+        drinks: "Barception del <a href='https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Grand+Central+Oslo+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Comfort Hotel Grand Central ↗</a> (moderno bar en la recepción)."
       },
       tips: [
         "¡CRÍTICO!: Devolución del coche de alquiler a las 19:00 en la estación central de Oslo (Oslo Railway Station). Debe coincidir exactamente con la hora de recogida del Día 1 para evitar cargos de días extra.",
@@ -453,9 +460,9 @@ const NORWAY_TRAVEL_DATA = {
         }
       ],
       cityGuide: {
-        shopping: "Calles comerciales en torno a Karl Johan y zona alternativa en Grünerløkka.",
-        eating: "Nordvegan (platos basados 100% en plantas, 220-350 NOK). Kumi (brunch orgánico vegetariano, diseño japonés/nórdico en el muelle, 250-400 NOK). Oslo Street Food (mercado gastronómico con puestos internacionales, 180-350 NOK).",
-        drinks: "Himkok (coctelería de autor premium, galardonada internacionalmente, 150-200 NOK). Kulturhuset (cerveza, vino y juegos de mesa en ambiente alternativo). Grünerløkka (distrito hipster con microcervecerías como Schouskjelleren)."
+        shopping: "Calles comerciales en torno a <a href='https://www.google.com/maps/search/?api=1&query=Karl+Johans+gate+Oslo+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Karl Johan ↗</a> y zona alternativa en <a href='https://www.google.com/maps/search/?api=1&query=Grunerlokka+Oslo+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Grünerløkka ↗</a>.",
+        eating: "<a href='https://www.google.com/maps/search/?api=1&query=Nordvegan+Oslo+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Nordvegan ↗</a> (platos basados 100% en plantas, 220-350 NOK). <a href='https://www.google.com/maps/search/?api=1&query=Kumi+Oslo+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Kumi ↗</a> (brunch orgánico vegetariano, diseño japonés/nórdico en el muelle, 250-400 NOK). <a href='https://www.google.com/maps/search/?api=1&query=Oslo+Street+Food+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Oslo Street Food ↗</a> (mercado gastronómico con puestos internacionales, 180-350 NOK).",
+        drinks: "<a href='https://www.google.com/maps/search/?api=1&query=Himkok+Oslo+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Himkok ↗</a> (coctelería de autor premium, galardonada internacionalmente, 150-200 NOK). <a href='https://www.google.com/maps/search/?api=1&query=Kulturhuset+Oslo+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Kulturhuset ↗</a> (cerveza, vino y juegos de mesa en ambiente alternativo). <a href='https://www.google.com/maps/search/?api=1&query=Grunerlokka+Oslo+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Grünerløkka ↗</a> (distrito hipster con microcervecerías como <a href='https://www.google.com/maps/search/?api=1&query=Schouskjelleren+Mikrobryggeri+Oslo+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Schouskjelleren ↗</a>)."
       },
       tips: [
         "Comprad la Oslo Pass (Oslo Card): incluye transporte público ilimitado y entradas gratuitas a la mayoría de los museos de Bygdøy.",
@@ -666,7 +673,7 @@ const NORWAY_TRAVEL_DATA = {
         name: "Parking Disuasorio de Reinsvangen",
         location: "Gjendesheim / Jotunheimen",
         notes: "Obligatorio para el barco de Gjende (lanzadera gratuita al muelle incluidos).",
-        mapsUrl: "https://www.google.com/maps/search/?api=1&query=Reinsvangen+Parkering+Gjendesheim"
+        mapsUrl: "https://www.google.com/maps/place/Reinsvangen+parkering/@61.4863745,8.8275523,17z/data=!3m1!4b1!4m6!3m5!1s0x46153f9a3ff2dd47:0x114d3f7e1a621516!8m2!3d61.486372!4d8.8324232!16s%2Fg%2F11g2xrpwkf?entry=ttu"
       },
       {
         day: "Día 3",
@@ -781,15 +788,15 @@ const NORWAY_TRAVEL_DATA = {
   },
   gastronomy: {
     omnivore: [
-      { name: "Laks (Salmón noruego)", desc: "Salmón ahumado (røykelaks) o fresco cocinado a la plancha. El mercado de pescado de Bergen es el sitio ideal para degustarlo." },
+      { name: "Laks (Salmón noruego)", image: "assets/images/gastro_laks.png", desc: "Salmón ahumado (røykelaks) o fresco cocinado a la plancha. El mercado de pescado de Bergen es el sitio ideal para degustarlo." },
       { name: "Skrei (Bacalao ártico)", desc: "El bacalao noruego salvaje, valorado por la firmeza y calidad de su carne blanca." },
       { name: "Kjøttkaker", desc: "Albóndigas tradicionales de carne noruegas servidas con salsa marrón, puré de guisantes y mermelada dulce de arándanos rojos." },
       { name: "Pølse med lompe", desc: "El tentempié rápido noruego por excelencia. Perrito caliente envuelto en una tortita blanda de patata." }
     ],
     vegetarian: [
-      { name: "Brunost (Queso marrón)", desc: "Queso de suero de leche dulce caramelizado. De sabor similar al toffee salado. Perfecto cortado fino sobre gofres noruegos o tostadas." },
-      { name: "Vafler (Gofres noruegos)", desc: "Gofres en forma de corazones, esponjosos y tiernos, que tradicionalmente se sirven con mermelada y crema agria (rømme)." },
-      { name: "Skillingsbolle", desc: "El tradicional rollo de canela y azúcar noruego, una delicia de panadería muy popular especialmente en Bergen." },
+      { name: "Brunost (Queso marrón)", image: "assets/images/gastro_brunost.png", desc: "Queso de suero de leche dulce caramelizado. De sabor similar al toffee salado. Perfecto cortado fino sobre gofres noruegos o tostadas." },
+      { name: "Vafler (Gofres noruegos)", image: "assets/images/gastro_vafler.png", desc: "Gofres en forma de corazones, esponjosos y tiernos, que tradicionalmente se sirven con mermelada y crema agria (rømme)." },
+      { name: "Skillingsbolle", image: "assets/images/gastro_skillingsbolle.png", desc: "El tradicional rollo de canela y azúcar noruego, una delicia de panadería muy popular especialmente en Bergen." },
       { name: "Multekrem", desc: "Postre tradicional elaborado a base de moras árticas (cloudberries, recolectadas en alta montaña) mezcladas con nata montada azucarada." }
     ],
     drinks: [
@@ -800,9 +807,9 @@ const NORWAY_TRAVEL_DATA = {
     ]
   },
   souvenirs: [
-    { name: "Dale of Norway", desc: "Jerséis de lana tradicionales noruegos de la más alta calidad y diseños geométricos clásicos. Extremadamente duraderos y abrigados." },
+    { name: "Dale of Norway", image: "assets/images/souvenir_dale_sweater.png", desc: "Jerséis de lana tradicionales noruegos de la más alta calidad y diseños geométricos clásicos. Extremadamente duraderos y abrigados." },
     { name: "Ostehøvel (Cortador de queso)", desc: "Invento noruego clásico. Utensilio metálico de cocina para cortar láminas finas y perfectas de Brunost." },
-    { name: "Trolls de madera", desc: "Pequeñas figuras mitológicas. Los tallados a mano en madera tradicional tienen un valor artesanal único en comparación con los de resina." },
+    { name: "Trolls de madera", image: "assets/images/souvenir_troll.png", desc: "Pequeñas figuras mitológicas. Los tallados a mano en madera tradicional tienen un valor artesanal único en comparación con los de resina." },
     { name: "Joyas de plata (Sølje)", desc: "Hermosos broches de plata de filigrana tradicionales que visten los trajes regionales Bunad en ocasiones especiales." },
     { name: "Mermelada de moras árticas (Multe)", desc: "Delicatessen gourmet difícil de conseguir debido a que las moras árticas solo crecen silvestres en turberas de alta montaña." },
     { name: "Chocolate Freia y Kvikk Lunsj", desc: "La marca nacional de chocolate. El Kvikk Lunsj (cuatro barritas de barquillo) es el snack obligatorio de todo senderista en Noruega." },

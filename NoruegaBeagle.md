@@ -347,7 +347,7 @@ Con unas 3 horas de coche por delante, dos paradas estratégicas hacen el trayec
 
 ### ***Logística de los barcos (Gjendebåtene)*** {#logística-de-los-barcos-(gjendebåtene)}
 
-* **Aparcamiento:** no se puede aparcar en el muelle de Gjendesheim. Hay que dejar el coche en el [parking disuasorio de Reinsvangen](https://www.google.com/maps/search/?api=1&query=Reinsvangen+Parkering+Gjendesheim) (≈1,7 km) y tomar la lanzadera gratuita; Debéis sumar unos 30-40 minutos extra a vuestro cálculo horario para aparcar, pagar la tarifa del parking y tomar la lanzadera.
+* **Aparcamiento:** no se puede aparcar en el muelle de Gjendesheim. Hay que dejar el coche en el [parking disuasorio de Reinsvangen](https://www.google.com/maps/place/Reinsvangen+parkering/@61.4863745,8.8275523,17z/data=!3m1!4b1!4m6!3m5!1s0x46153f9a3ff2dd47:0x114d3f7e1a621516!8m2!3d61.486372!4d8.8324232!16s%2Fg%2F11g2xrpwkf?entry=ttu) (≈1,7 km) y tomar la lanzadera gratuita; Debéis sumar unos 30-40 minutos extra a vuestro cálculo horario para aparcar, pagar la tarifa del parking y tomar la lanzadera.
 
 * **Viaje:** 
 
@@ -1180,7 +1180,7 @@ A continuación se detallan los puntos de estacionamiento clave en cada jornada 
 
 | Día | Aparcamiento / Punto | Ubicación | Notas y Detalles |
 | :--- | :--- | :--- | :--- |
-| **Día 2** | [Parking Disuasorio de Reinsvangen](https://www.google.com/maps/search/?api=1&query=Reinsvangen+Parkering+Gjendesheim) | Gjendesheim / Jotunheimen | Obligatorio para el barco de Gjende (lanzadera gratuita al muelle incluida). |
+| **Día 2** | [Parking Disuasorio de Reinsvangen](https://www.google.com/maps/place/Reinsvangen+parkering/@61.4863745,8.8275523,17z/data=!3m1!4b1!4m6!3m5!1s0x46153f9a3ff2dd47:0x114d3f7e1a621516!8m2!3d61.486372!4d8.8324232!16s%2Fg%2F11g2xrpwkf?entry=ttu) | Gjendesheim / Jotunheimen | Obligatorio para el barco de Gjende (lanzadera gratuita al muelle incluida). |
 | **Día 3** | [Bygdin Høyfjellshotell Parkering](https://www.google.com/maps/search/?api=1&query=Bygdin+Hoyfjellshotell+Parkering) | Lago Bygdin (Ruta 51) | Aparcamiento cómodo frente al lago Bygdin para la ruta a pie. |
 | **Día 3** | [Beitostølen Skisenter Parkering](https://www.google.com/maps/search/?api=1&query=Beitostolen+Skisenter+Parkering) | Beitostølen | Estacionamiento gratuito en la base del Sommerpark (Bygdinvegen 3813). |
 | **Día 4** | [Sohlbergplassen Parkering](https://www.google.com/maps/search/?api=1&query=Sohlbergplassen+Parkering) | Ruta Escénica de Rondane | Aparcamiento del mirador panorámico sobre el lago Atnsjøen. |
