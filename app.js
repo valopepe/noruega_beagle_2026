@@ -204,13 +204,98 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function renderDayDetails(day) {
-    // Generate quick tags
+    // Helper to calculate total distance and time from day.travelTimes
+    function calculateDayTotals(travelTimes) {
+      let totalKm = 0;
+      let totalMins = 0;
+
+      travelTimes.forEach(t => {
+        if (!t.desc) return;
+        
+        // Extract kilometers
+        const kmMatch = t.desc.match(/(\d+(?:\.\d+)?)\s*km/i);
+        if (kmMatch) {
+          totalKm += parseFloat(kmMatch[1]);
+        }
+
+        // Extract hours and minutes
+        const hMatch = t.desc.match(/(\d+)\s*h/i);
+        const mMatch = t.desc.match(/(\d+)\s*min/i);
+
+        if (hMatch) totalMins += parseInt(hMatch[1], 10) * 60;
+        if (mMatch) totalMins += parseInt(mMatch[1], 10);
+      });
+
+      const hours = Math.floor(totalMins / 60);
+      const mins = totalMins % 60;
+      
+      let timeStr = "";
+      if (hours > 0 && mins > 0) {
+        timeStr = `${hours} h ${mins} min`;
+      } else if (hours > 0) {
+        timeStr = `${hours} h`;
+      } else if (mins > 0) {
+        timeStr = `${mins} min`;
+      } else {
+        timeStr = "--";
+      }
+
+      return {
+        km: Math.round(totalKm),
+        time: timeStr
+      };
+    }
+
+    // Generate quick tags & explicit Route Banner
     let quickTagsHTML = "";
+    let routeBannerHTML = "";
     if (day.travelTimes && day.travelTimes.length > 0) {
-      day.travelTimes.forEach(t => {
+      const totalLegs = day.travelTimes.length;
+      const startPoint = day.travelTimes[0].from;
+      const endPoint = day.travelTimes[totalLegs - 1].to;
+      const totals = calculateDayTotals(day.travelTimes);
+
+      const startUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(startPoint)}`;
+      const endUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(endPoint)}`;
+
+      routeBannerHTML = `
+        <div class="card card-glass day-route-banner" style="background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.15), rgba(var(--accent-rgb), 0.08)); border: 1px solid rgba(var(--primary-rgb), 0.3); padding: 1rem 1.25rem; border-radius: 14px; margin-bottom: 1rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+            <!-- INICIO -->
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="background: rgba(46, 204, 113, 0.25); color: #2ecc71; font-weight: 800; font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: 20px; text-transform: uppercase; border: 1px solid rgba(46, 204, 113, 0.4); letter-spacing: 0.03em;">🚩 PUNTO INICIAL</span>
+              <a href="${startUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); font-weight: 700; font-size: 0.95rem; text-decoration: underline;">${startPoint} ↗</a>
+            </div>
+
+            <!-- TOTAL METRICS -->
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); padding: 0.4rem 1.1rem; border-radius: 20px; border: 1px solid rgba(var(--primary-rgb), 0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+              <span style="font-size: 0.9rem; font-weight: 800; color: var(--accent);">📏 ${totals.km} km &nbsp;•&nbsp; ⏱️ ${totals.time}</span>
+              <span style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; font-weight: 600;">Recorrido Total de la Jornada</span>
+            </div>
+
+            <!-- FINAL -->
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="background: rgba(231, 76, 60, 0.25); color: #e74c3c; font-weight: 800; font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: 20px; text-transform: uppercase; border: 1px solid rgba(231, 76, 60, 0.4); letter-spacing: 0.03em;">🏁 PUNTO FINAL</span>
+              <a href="${endUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); font-weight: 700; font-size: 0.95rem; text-decoration: underline;">${endPoint} ↗</a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      day.travelTimes.forEach((t, idx) => {
         const fromUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.from)}`;
         const toUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.to)}`;
-        quickTagsHTML += `<span class="tag-label">🚗 De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>: ${t.desc}</span>`;
+        
+        let legBadge = "🚗";
+        if (idx === 0) {
+          legBadge = "🚩 INICIO:";
+        } else if (idx === totalLegs - 1) {
+          legBadge = "🏁 TRAMO FINAL:";
+        } else {
+          legBadge = `🔹 TRAMO ${idx + 1}:`;
+        }
+
+        quickTagsHTML += `<span class="tag-label"><strong style="color:var(--primary);">${legBadge}</strong> De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>: ${t.desc}</span>`;
       });
     }
 
@@ -387,6 +472,8 @@ document.addEventListener("DOMContentLoaded", () => {
           <h2 class="day-header-title">${day.title}</h2>
         </div>
       </div>
+
+      ${routeBannerHTML}
 
       <div class="day-quick-tags">${quickTagsHTML}</div>
 
@@ -1224,6 +1311,13 @@ document.addEventListener("DOMContentLoaded", () => {
       return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     }
 
+    function stripHtml(html) {
+      if (!html) return "";
+      const tmp = document.createElement("div");
+      tmp.innerHTML = html;
+      return (tmp.textContent || tmp.innerText || "").replace(/\s+/g, " ").trim();
+    }
+
     function performSearch(query) {
       const q = query.toLowerCase();
       const results = [];
@@ -1236,7 +1330,7 @@ document.addEventListener("DOMContentLoaded", () => {
             type: "itinerary",
             category: `📅 Día ${day.dayNum} — ${day.date}`,
             title: `Día ${day.dayNum}: ${day.title}`,
-            snippet: day.summary,
+            snippet: day.summary.substring(0, 120) + "...",
             dayNum: day.dayNum,
             icon: "🗓️"
           });
@@ -1257,23 +1351,27 @@ document.addEventListener("DOMContentLoaded", () => {
           }
         }
 
-        // Itinerary Items
-        if (day.itinerary) {
+        // Itinerary Items (handles both sections with items[] and flat time-based arrays)
+        if (day.itinerary && Array.isArray(day.itinerary)) {
           day.itinerary.forEach(sec => {
-            sec.items.forEach(item => {
-              const plainDesc = item.desc.replace(/<[^>]*>?/gm, '');
-              if (item.name.toLowerCase().includes(q) || plainDesc.toLowerCase().includes(q)) {
-                results.push({
-                  type: "itinerary",
-                  category: `📍 Día ${day.dayNum} (${sec.section})`,
-                  title: item.name,
-                  snippet: plainDesc,
-                  dayNum: day.dayNum,
-                  itemName: item.name,
-                  icon: "📍"
-                });
-              }
-            });
+            if (sec.section && Array.isArray(sec.items)) {
+              sec.items.forEach(item => {
+                if (!item.name) return;
+                const plainDesc = stripHtml(item.desc);
+                const searchableText = `${item.name} ${plainDesc}`.toLowerCase();
+                if (searchableText.includes(q)) {
+                  results.push({
+                    type: "itinerary",
+                    category: `📍 Día ${day.dayNum} (${sec.section})`,
+                    title: item.name,
+                    snippet: plainDesc.substring(0, 120),
+                    dayNum: day.dayNum,
+                    itemName: item.name,
+                    icon: "📍"
+                  });
+                }
+              });
+            }
           });
         }
 
@@ -1290,14 +1388,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
           guideCategories.forEach(cat => {
             if (day.cityGuide[cat.key]) {
-              const contentHtml = day.cityGuide[cat.key];
-              const plainText = contentHtml.replace(/<[^>]*>?/gm, '');
+              const plainText = stripHtml(day.cityGuide[cat.key]);
               if (plainText.toLowerCase().includes(q)) {
                 results.push({
                   type: "cityGuide",
                   category: `${cat.label} (Día ${day.dayNum})`,
                   title: `${cat.label} — Día ${day.dayNum}`,
-                  snippet: plainText,
+                  snippet: plainText.substring(0, 120),
                   dayNum: day.dayNum,
                   guideCategory: cat.key,
                   icon: "💡"
@@ -1326,7 +1423,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       }
 
-      // 3. Search Useful Locations (Parkings, Supermarkets, Sightseeing)
+      // 3. Search Useful Locations
       if (NORWAY_TRAVEL_DATA.usefulLocations) {
         const locTypes = [
           { key: "parkings", label: "🅿️ Aparcamientos", icon: "🅿️" },
@@ -1337,13 +1434,13 @@ document.addEventListener("DOMContentLoaded", () => {
         locTypes.forEach(t => {
           if (NORWAY_TRAVEL_DATA.usefulLocations[t.key]) {
             NORWAY_TRAVEL_DATA.usefulLocations[t.key].forEach(loc => {
-              const locText = `${loc.name} ${loc.location} ${loc.notes}`.toLowerCase();
+              const locText = `${loc.name || ""} ${loc.location || ""} ${loc.notes || ""}`.toLowerCase();
               if (locText.includes(q)) {
                 results.push({
                   type: "tools",
                   category: t.label,
                   title: loc.name,
-                  snippet: `${loc.location} — ${loc.notes}`,
+                  snippet: `${loc.location || ""} — ${loc.notes || ""}`,
                   icon: t.icon
                 });
               }
@@ -1361,7 +1458,7 @@ document.addEventListener("DOMContentLoaded", () => {
               type: "gastronomy",
               category: "🍲 Gastronomía",
               title: dish.name,
-              snippet: dish.desc,
+              snippet: (dish.desc || "").substring(0, 120),
               icon: "🍲"
             });
           }
@@ -1377,7 +1474,7 @@ document.addEventListener("DOMContentLoaded", () => {
               type: "souvenirs",
               category: "🎁 Recuerdos y Compras",
               title: item.name,
-              snippet: item.desc,
+              snippet: (item.desc || "").substring(0, 120),
               icon: "🎁"
             });
           }
@@ -1387,7 +1484,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // 6. Search Bookings / Ferries / Logistics
       if (NORWAY_TRAVEL_DATA.reservations && NORWAY_TRAVEL_DATA.reservations.bookings) {
         NORWAY_TRAVEL_DATA.reservations.bookings.forEach(b => {
-          const bookingText = `${b.item} ${b.place} ${b.details || ''}`.toLowerCase();
+          const bookingText = `${b.item} ${b.place} ${b.details || ""}`.toLowerCase();
           if (bookingText.includes(q)) {
             results.push({
               type: "logistics",
@@ -1429,6 +1526,8 @@ document.addEventListener("DOMContentLoaded", () => {
         itemEl.addEventListener("click", () => {
           navigateToResult(res);
           closeSearchResults();
+          searchInput.value = "";
+          if (clearBtn) clearBtn.style.display = "none";
         });
 
         resultsDropdown.appendChild(itemEl);
@@ -1448,55 +1547,68 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function navigateToResult(res) {
-      switchSection(res.type);
+      // Map result types to section IDs
+      const sectionMap = {
+        "itinerary": "itinerary",
+        "cityGuide": "itinerary",
+        "accommodations": "accommodations",
+        "tools": "tools",
+        "gastronomy": "gastronomy",
+        "souvenirs": "souvenirs",
+        "logistics": "logistics"
+      };
 
-      if (res.type === "itinerary" && res.dayNum) {
+      const targetSection = sectionMap[res.type] || res.type;
+      switchSection(targetSection);
+
+      if ((res.type === "itinerary" || res.type === "cityGuide") && res.dayNum) {
         activeDayNum = res.dayNum;
-        const dayBtn = Array.from(document.querySelectorAll(".day-btn")).find(b => b.textContent.includes(`Día ${res.dayNum}`));
+
+        // Find and click the correct day button
+        const dayBtn = Array.from(document.querySelectorAll(".day-btn")).find(b => {
+          return b.textContent.trim().includes(`Día ${res.dayNum}`) || b.getAttribute("data-day") == res.dayNum;
+        });
+
         if (dayBtn) {
           dayBtn.click();
+        } else {
+          // Fallback: manually render if no button found
+          const day = NORWAY_TRAVEL_DATA.days.find(d => d.dayNum === res.dayNum);
+          if (day) renderDayDetails(day);
         }
 
         setTimeout(() => {
-          if (res.itemName) {
-            const itemHeaders = document.querySelectorAll(".itinerary-item-title, .itinerary-item h4, h3, h4");
-            for (let h of itemHeaders) {
-              if (h.textContent.includes(res.itemName)) {
-                const parent = h.closest(".itinerary-item") || h.parentElement;
+          if (res.type === "itinerary" && res.itemName) {
+            // Scroll to and highlight the matching itinerary item
+            const allH4 = document.querySelectorAll("h4");
+            for (let h of allH4) {
+              if (h.textContent.includes(res.itemName.substring(0, 30))) {
+                const parent = h.closest("[style]") || h.parentElement;
                 parent.scrollIntoView({ behavior: "smooth", block: "center" });
-                parent.style.transition = "all 0.5s ease";
-                parent.style.boxShadow = "0 0 20px rgba(var(--primary-rgb), 0.8)";
-                parent.style.borderColor = "var(--primary)";
+                const prevShadow = parent.style.boxShadow;
+                const prevBorder = parent.style.outline;
+                parent.style.transition = "box-shadow 0.3s ease, outline 0.3s ease";
+                parent.style.boxShadow = "0 0 22px 4px rgba(var(--primary-rgb), 0.7)";
+                parent.style.outline = "2px solid var(--primary)";
                 setTimeout(() => {
-                  parent.style.boxShadow = "";
-                  parent.style.borderColor = "";
+                  parent.style.boxShadow = prevShadow;
+                  parent.style.outline = prevBorder;
                 }, 2500);
                 break;
               }
             }
-          }
-        }, 150);
-      } else if (res.type === "cityGuide" && res.dayNum) {
-        activeDayNum = res.dayNum;
-        const dayBtn = Array.from(document.querySelectorAll(".day-btn")).find(b => b.textContent.includes(`Día ${res.dayNum}`));
-        if (dayBtn) dayBtn.click();
-
-        setTimeout(() => {
-          if (res.guideCategory) {
-            const nestedBtn = document.querySelector(`.nested-tab-btn[data-nested="${res.guideCategory}"]`);
-            if (nestedBtn) nestedBtn.click();
-
-            const nestedContent = document.getElementById("nestedTabContent");
-            if (nestedContent) {
-              nestedContent.scrollIntoView({ behavior: "smooth", block: "center" });
-              nestedContent.style.transition = "all 0.5s ease";
-              nestedContent.style.boxShadow = "0 0 20px rgba(var(--primary-rgb), 0.8)";
-              setTimeout(() => {
-                nestedContent.style.boxShadow = "";
-              }, 2500);
+          } else if (res.type === "cityGuide" && res.guideCategory) {
+            // Activate the correct city guide tab
+            const tabBtn = document.querySelector(`.nested-tab-btn[data-day="${res.dayNum}"][data-tab="${res.guideCategory}"]`);
+            if (tabBtn) {
+              tabBtn.click();
+              tabBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+              tabBtn.style.transition = "box-shadow 0.3s ease";
+              tabBtn.style.boxShadow = "0 0 16px rgba(var(--primary-rgb), 0.8)";
+              setTimeout(() => { tabBtn.style.boxShadow = ""; }, 2500);
             }
           }
-        }, 200);
+        }, 350);
       }
     }
   }
