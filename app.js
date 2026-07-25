@@ -62,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupAccommodations();
     setupWeather();
     setupTranslator();
+    setupGlobalSearch();
     updateBookingProgress();
   }
 
@@ -1152,6 +1153,351 @@ document.addEventListener("DOMContentLoaded", () => {
           window.open("https://translate.google.com/?sl=no&tl=es&op=images", "_blank");
         }
       });
+    }
+  }
+
+  /* --- GLOBAL SEARCH ENGINE --- */
+  function setupGlobalSearch() {
+    const searchInput = document.getElementById("globalSearchInput");
+    const clearBtn = document.getElementById("clearSearchBtn");
+    const resultsDropdown = document.getElementById("searchResultsDropdown");
+
+    if (!searchInput || !resultsDropdown) return;
+
+    // Shortcut "/" to focus search box, "Escape" to close
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "/" && document.activeElement !== searchInput) {
+        e.preventDefault();
+        searchInput.focus();
+      } else if (e.key === "Escape") {
+        closeSearchResults();
+        searchInput.blur();
+      }
+    });
+
+    searchInput.addEventListener("input", (e) => {
+      const query = e.target.value.trim();
+      if (query.length > 0) {
+        if (clearBtn) clearBtn.style.display = "flex";
+        performSearch(query);
+      } else {
+        if (clearBtn) clearBtn.style.display = "none";
+        closeSearchResults();
+      }
+    });
+
+    searchInput.addEventListener("focus", () => {
+      const query = searchInput.value.trim();
+      if (query.length > 0) {
+        performSearch(query);
+      }
+    });
+
+    if (clearBtn) {
+      clearBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        clearBtn.style.display = "none";
+        closeSearchResults();
+        searchInput.focus();
+      });
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest(".search-container")) {
+        closeSearchResults();
+      }
+    });
+
+    function closeSearchResults() {
+      resultsDropdown.classList.remove("active");
+      resultsDropdown.innerHTML = "";
+    }
+
+    function highlightText(text, query) {
+      if (!text || !query) return text || "";
+      const regex = new RegExp(`(${escapeRegExp(query)})`, "gi");
+      return text.replace(regex, '<mark class="search-highlight">$1</mark>');
+    }
+
+    function escapeRegExp(string) {
+      return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    }
+
+    function performSearch(query) {
+      const q = query.toLowerCase();
+      const results = [];
+
+      // 1. Search Days & Itinerary Items & City Guide
+      NORWAY_TRAVEL_DATA.days.forEach(day => {
+        // Day Title & Summary
+        if (day.title.toLowerCase().includes(q) || day.summary.toLowerCase().includes(q) || day.subHeader.toLowerCase().includes(q)) {
+          results.push({
+            type: "itinerary",
+            category: `📅 Día ${day.dayNum} — ${day.date}`,
+            title: `Día ${day.dayNum}: ${day.title}`,
+            snippet: day.summary,
+            dayNum: day.dayNum,
+            icon: "🗓️"
+          });
+        }
+
+        // Accommodation for this Day
+        if (day.accommodation) {
+          const accText = `${day.accommodation.name} ${day.accommodation.address} ${day.accommodation.details}`.toLowerCase();
+          if (accText.includes(q)) {
+            results.push({
+              type: "accommodations",
+              category: `🏨 Alojamiento (Día ${day.dayNum})`,
+              title: day.accommodation.name,
+              snippet: `${day.accommodation.address} — ${day.accommodation.details}`,
+              dayNum: day.dayNum,
+              icon: "🏨"
+            });
+          }
+        }
+
+        // Itinerary Items
+        if (day.itinerary) {
+          day.itinerary.forEach(sec => {
+            sec.items.forEach(item => {
+              const plainDesc = item.desc.replace(/<[^>]*>?/gm, '');
+              if (item.name.toLowerCase().includes(q) || plainDesc.toLowerCase().includes(q)) {
+                results.push({
+                  type: "itinerary",
+                  category: `📍 Día ${day.dayNum} (${sec.section})`,
+                  title: item.name,
+                  snippet: plainDesc,
+                  dayNum: day.dayNum,
+                  itemName: item.name,
+                  icon: "📍"
+                });
+              }
+            });
+          });
+        }
+
+        // City Guide
+        if (day.cityGuide) {
+          const guideCategories = [
+            { key: "eating", label: "🍽️ Dónde Comer" },
+            { key: "drinks", label: "🍹 Bares y Cafés" },
+            { key: "breakfast", label: "☕ Desayunos" },
+            { key: "shopping", label: "🛍️ Compras" },
+            { key: "whatToSee", label: "👀 Qué Ver" },
+            { key: "adrenaline", label: "⚡ Aventura" }
+          ];
+
+          guideCategories.forEach(cat => {
+            if (day.cityGuide[cat.key]) {
+              const contentHtml = day.cityGuide[cat.key];
+              const plainText = contentHtml.replace(/<[^>]*>?/gm, '');
+              if (plainText.toLowerCase().includes(q)) {
+                results.push({
+                  type: "cityGuide",
+                  category: `${cat.label} (Día ${day.dayNum})`,
+                  title: `${cat.label} — Día ${day.dayNum}`,
+                  snippet: plainText,
+                  dayNum: day.dayNum,
+                  guideCategory: cat.key,
+                  icon: "💡"
+                });
+              }
+            }
+          });
+        }
+      });
+
+      // 2. Search Accommodations Detailed List
+      if (NORWAY_TRAVEL_DATA.accommodationsSummary) {
+        NORWAY_TRAVEL_DATA.accommodationsSummary.forEach(acc => {
+          const accFull = `${acc.name} ${acc.city} ${acc.details}`.toLowerCase();
+          if (accFull.includes(q)) {
+            if (!results.some(r => r.type === "accommodations" && r.title === acc.name)) {
+              results.push({
+                type: "accommodations",
+                category: "🏨 Alojamientos",
+                title: acc.name,
+                snippet: `${acc.city} — ${acc.details}`,
+                icon: "🏨"
+              });
+            }
+          }
+        });
+      }
+
+      // 3. Search Useful Locations (Parkings, Supermarkets, Sightseeing)
+      if (NORWAY_TRAVEL_DATA.usefulLocations) {
+        const locTypes = [
+          { key: "parkings", label: "🅿️ Aparcamientos", icon: "🅿️" },
+          { key: "supermarkets", label: "🛒 Supermercados", icon: "🛒" },
+          { key: "sightseeing", label: "📸 Puntos de Interés", icon: "📸" }
+        ];
+
+        locTypes.forEach(t => {
+          if (NORWAY_TRAVEL_DATA.usefulLocations[t.key]) {
+            NORWAY_TRAVEL_DATA.usefulLocations[t.key].forEach(loc => {
+              const locText = `${loc.name} ${loc.location} ${loc.notes}`.toLowerCase();
+              if (locText.includes(q)) {
+                results.push({
+                  type: "tools",
+                  category: t.label,
+                  title: loc.name,
+                  snippet: `${loc.location} — ${loc.notes}`,
+                  icon: t.icon
+                });
+              }
+            });
+          }
+        });
+      }
+
+      // 4. Search Gastronomy
+      if (NORWAY_TRAVEL_DATA.gastronomy && NORWAY_TRAVEL_DATA.gastronomy.dishes) {
+        NORWAY_TRAVEL_DATA.gastronomy.dishes.forEach(dish => {
+          const dishText = `${dish.name} ${dish.desc}`.toLowerCase();
+          if (dishText.includes(q)) {
+            results.push({
+              type: "gastronomy",
+              category: "🍲 Gastronomía",
+              title: dish.name,
+              snippet: dish.desc,
+              icon: "🍲"
+            });
+          }
+        });
+      }
+
+      // 5. Search Souvenirs
+      if (NORWAY_TRAVEL_DATA.souvenirs && NORWAY_TRAVEL_DATA.souvenirs.items) {
+        NORWAY_TRAVEL_DATA.souvenirs.items.forEach(item => {
+          const itemText = `${item.name} ${item.desc}`.toLowerCase();
+          if (itemText.includes(q)) {
+            results.push({
+              type: "souvenirs",
+              category: "🎁 Recuerdos y Compras",
+              title: item.name,
+              snippet: item.desc,
+              icon: "🎁"
+            });
+          }
+        });
+      }
+
+      // 6. Search Bookings / Ferries / Logistics
+      if (NORWAY_TRAVEL_DATA.reservations && NORWAY_TRAVEL_DATA.reservations.bookings) {
+        NORWAY_TRAVEL_DATA.reservations.bookings.forEach(b => {
+          const bookingText = `${b.item} ${b.place} ${b.details || ''}`.toLowerCase();
+          if (bookingText.includes(q)) {
+            results.push({
+              type: "logistics",
+              category: "🚗 Reservas y Logística",
+              title: b.item,
+              snippet: `${b.place} (${b.date})`,
+              icon: "🎫"
+            });
+          }
+        });
+      }
+
+      renderSearchResults(results, query);
+    }
+
+    function renderSearchResults(results, query) {
+      if (results.length === 0) {
+        resultsDropdown.innerHTML = `<div class="search-no-results">No se encontraron resultados para "<strong>${query}</strong>"</div>`;
+        resultsDropdown.classList.add("active");
+        return;
+      }
+
+      resultsDropdown.innerHTML = "";
+      const maxDisplay = 15;
+      const displayResults = results.slice(0, maxDisplay);
+
+      displayResults.forEach(res => {
+        const itemEl = document.createElement("div");
+        itemEl.className = "search-result-item";
+        itemEl.innerHTML = `
+          <span class="search-result-icon">${res.icon || '🔍'}</span>
+          <div class="search-result-content">
+            <div class="search-result-title">${highlightText(res.title, query)}</div>
+            <div class="search-result-snippet">${highlightText(res.snippet, query)}</div>
+            <div class="search-result-meta">${res.category}</div>
+          </div>
+        `;
+
+        itemEl.addEventListener("click", () => {
+          navigateToResult(res);
+          closeSearchResults();
+        });
+
+        resultsDropdown.appendChild(itemEl);
+      });
+
+      if (results.length > maxDisplay) {
+        const moreEl = document.createElement("div");
+        moreEl.className = "search-no-results";
+        moreEl.style.fontSize = "0.78rem";
+        moreEl.style.padding = "0.5rem";
+        moreEl.style.color = "var(--accent)";
+        moreEl.textContent = `+${results.length - maxDisplay} resultados más...`;
+        resultsDropdown.appendChild(moreEl);
+      }
+
+      resultsDropdown.classList.add("active");
+    }
+
+    function navigateToResult(res) {
+      switchSection(res.type);
+
+      if (res.type === "itinerary" && res.dayNum) {
+        activeDayNum = res.dayNum;
+        const dayBtn = Array.from(document.querySelectorAll(".day-btn")).find(b => b.textContent.includes(`Día ${res.dayNum}`));
+        if (dayBtn) {
+          dayBtn.click();
+        }
+
+        setTimeout(() => {
+          if (res.itemName) {
+            const itemHeaders = document.querySelectorAll(".itinerary-item-title, .itinerary-item h4, h3, h4");
+            for (let h of itemHeaders) {
+              if (h.textContent.includes(res.itemName)) {
+                const parent = h.closest(".itinerary-item") || h.parentElement;
+                parent.scrollIntoView({ behavior: "smooth", block: "center" });
+                parent.style.transition = "all 0.5s ease";
+                parent.style.boxShadow = "0 0 20px rgba(var(--primary-rgb), 0.8)";
+                parent.style.borderColor = "var(--primary)";
+                setTimeout(() => {
+                  parent.style.boxShadow = "";
+                  parent.style.borderColor = "";
+                }, 2500);
+                break;
+              }
+            }
+          }
+        }, 150);
+      } else if (res.type === "cityGuide" && res.dayNum) {
+        activeDayNum = res.dayNum;
+        const dayBtn = Array.from(document.querySelectorAll(".day-btn")).find(b => b.textContent.includes(`Día ${res.dayNum}`));
+        if (dayBtn) dayBtn.click();
+
+        setTimeout(() => {
+          if (res.guideCategory) {
+            const nestedBtn = document.querySelector(`.nested-tab-btn[data-nested="${res.guideCategory}"]`);
+            if (nestedBtn) nestedBtn.click();
+
+            const nestedContent = document.getElementById("nestedTabContent");
+            if (nestedContent) {
+              nestedContent.scrollIntoView({ behavior: "smooth", block: "center" });
+              nestedContent.style.transition = "all 0.5s ease";
+              nestedContent.style.boxShadow = "0 0 20px rgba(var(--primary-rgb), 0.8)";
+              setTimeout(() => {
+                nestedContent.style.boxShadow = "";
+              }, 2500);
+            }
+          }
+        }, 200);
+      }
     }
   }
 
