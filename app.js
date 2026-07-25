@@ -264,7 +264,7 @@ document.addEventListener("DOMContentLoaded", () => {
           `;
           tabContents += `
             <div class="nested-tab-content ${isFirst ? 'active' : ''}" id="tab-content-${day.dayNum}-${key}">
-              <p>${day.cityGuide[key]}</p>
+              ${day.cityGuide[key].startsWith('<p>') ? day.cityGuide[key] : `<p>${day.cityGuide[key]}</p>`}
             </div>
           `;
           isFirst = false;

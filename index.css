@@ -924,6 +924,14 @@ input:checked + .slider:before {
   display: block;
 }
 
+.nested-tab-content p {
+  margin-bottom: 0.75rem;
+}
+
+.nested-tab-content p:last-child {
+  margin-bottom: 0;
+}
+
 /* Tips list */
 .day-tips {
   background: rgba(var(--primary-rgb), 0.02);
