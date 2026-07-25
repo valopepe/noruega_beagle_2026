@@ -24,7 +24,9 @@ const NORWAY_TRAVEL_DATA = {
         flora: "Composiciones fitocenóticas dominadas por el bosque boreal (taiga) de coníferas.",
         geology: "Presencia de depósitos morénicos y sedimentación glaciar correspondientes al Pleistoceno."
       },
-      travelTimes: [],
+      travelTimes: [
+        { from: "Terminal Aeropuerto Oslo (OSL)", to: "Thon Hotel Oslo Airport", desc: "≈ 10 km · 12 min en coche / autobús shuttle" }
+      ],
       itinerary: [
         { time: "23:55", activity: "Llegada al Aeropuerto de Oslo (OSL) el sábado 01/08." },
         { time: "00:30", activity: "Recogida del coche de alquiler tras el equipaje." },
@@ -59,8 +61,11 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Manifestaciones de la orogenia caledoniana y unidades tectónicas alóctonas (estructuras de cabalgamiento o nappes)."
       },
       travelTimes: [
-        { from: "Aeropuerto de Oslo", to: "Beitostølen", desc: "≈ 210 km · 3 h 15 min sin contar paradas" },
-        { from: "Beitostølen", to: "Gjendesheim (muelle del lago Gjende)", desc: "≈ 34 km · 30 min por la carretera panorámica de montaña (Ruta 51)" }
+        { from: "Thon Hotel Oslo Airport", to: "Museo Kistefos / The Twist", desc: "≈ 65 km · 55 min en coche por la E16" },
+        { from: "Museo Kistefos", to: "Iglesia de Madera de Valdres", desc: "≈ 105 km · 1 h 30 min por la E16" },
+        { from: "Iglesia de Valdres", to: "Fagernes (Museo Folclórico)", desc: "≈ 30 km · 30 min en coche" },
+        { from: "Fagernes", to: "Beitostølen (Cabaña Hovi)", desc: "≈ 40 km · 40 min de ascenso montañoso" },
+        { from: "Beitostølen", to: "Lago Gjende (Gjendesheim)", desc: "≈ 34 km · 35 min por la carretera Fv51" }
       ],
       itinerary: [
         {
@@ -128,7 +133,9 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Evidencias geomorfológicas derivadas de procesos de erosión glaciar cuaternaria."
       },
       travelTimes: [
-        { from: "Cabaña Hovi", to: "Lago Bygdin (Bygdin Hoifellshotel)", desc: "≈ 12 km · 15 min en coche hacia el norte por la Ruta 51" }
+        { from: "Cabaña Hovi (Beitostølen)", to: "Lago Bygdin (Bygdin Høyfjellshotell)", desc: "≈ 12 km · 15 min por la carretera Fv51" },
+        { from: "Bygdin Høyfjellshotell", to: "Ruta Senderismo Lago Bygdin (Ida y Vuelta)", desc: "8 km totales · 2 h 30 min a pie" },
+        { from: "Lago Bygdin", to: "Beitostølen Skisenter / Sommerpark", desc: "≈ 12 km · 15 min de regreso" }
       ],
       itinerary: [
         {
@@ -173,7 +180,11 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Afloramientos litológicos de anortosita y secuencias de rocas sedimentarias con deformaciones tectónicas acusadas."
       },
       travelTimes: [
-        { from: "Beitostølen", to: "Hornindal (Stryn)", desc: "≈ 6 h 30 min de conducción total estimada por la ruta escénica" }
+        { from: "Beitostølen", to: "Venabygdsfjellet (Inicio Ruta Escénica Fv27)", desc: "≈ 115 km · 1 h 45 min por la E16 y Fv27" },
+        { from: "Venabygdsfjellet", to: "Área de Descanso Strombu", desc: "≈ 35 km · 30 min por la Fv27" },
+        { from: "Strombu", to: "Mirador Sohlbergplassen (Lago Atnsjøen)", desc: "≈ 7 km · 8 min por la Fv27" },
+        { from: "Sohlbergplassen", to: "Minas Históricas Folldal Gruver", desc: "≈ 33 km · 30 min por la Fv27" },
+        { from: "Folldal Gruver", to: "Hornindal / Stryn (Havila Hotel Raftevold)", desc: "≈ 245 km · 3 h 30 min descendiendo por la Rv15" }
       ],
       itinerary: [
         {
@@ -227,8 +238,13 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Análisis de la génesis de fiordos, valles de artesa (valles en U) y sistemas de valles suspendidos."
       },
       travelTimes: [
-        { from: "Hornindal (Hotel)", to: "Hellesylt (Puerto)", desc: "≈ 45 km · 50 min en coche" },
-        { from: "Geiranger", to: "Trollstigen (Ruta de ida y vuelta)", desc: "≈ 200 km de carreteras sinuosas · 4 a 5 h de conducción neta" }
+        { from: "Hornindal (Hotel Raftevold)", to: "Puerto de Hellesylt", desc: "≈ 45 km · 50 min en coche por la Fv60" },
+        { from: "Puerto de Hellesylt", to: "Muelle de Geiranger (Ferry con coche)", desc: "≈ 15 km en barco por el fiordo · 1 h 05 min de navegación" },
+        { from: "Geiranger", to: "Mirador Flydalsjuvet", desc: "≈ 4 km · 8 min subiendo la Fv63" },
+        { from: "Flydalsjuvet", to: "Geiranger Skywalker (Dalsnibba)", desc: "≈ 17 km · 25 min de fuerte ascenso de montaña" },
+        { from: "Dalsnibba", to: "Mirador Ørnesvingen (Curva del Águila)", desc: "≈ 24 km · 35 min por la Fv63" },
+        { from: "Ørnesvingen", to: "Trollstigen (Centro de Visitantes y Miradores)", desc: "≈ 50 km · 1 h por la Fv63" },
+        { from: "Trollstigen", to: "Hornindal (Regreso al Hotel)", desc: "≈ 135 km · 2 h 15 min de trayecto" }
       ],
       itinerary: [
         {
@@ -282,9 +298,10 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Unidades estratigráficas del Precámbrico y evolución geomorfológica de la cuenca del Sognefjord."
       },
       travelTimes: [
-        { from: "Hornindal (Stryn)", to: "Kaupanger (Puerto)", desc: "≈ 135 km · 2 h 30 min en coche" },
-        { from: "Gudvangen", to: "Flåm", desc: "≈ 21 km · 20 min en coche a través de túneles" },
-        { from: "Flåm", to: "Voss Resort", desc: "≈ 65 km · 1 h en coche" }
+        { from: "Hornindal (Hotel Raftevold)", to: "Puerto de Gudvangen (Nærøyfjord)", desc: "≈ 185 km · 2 h 45 min por la E39 y E16" },
+        { from: "Gudvangen", to: "Muelle de Flåm (Crucero Nærøyfjord)", desc: "≈ 16 km en barco por el fiordo · 2 h de navegación" },
+        { from: "Estación de Flåm", to: "Estación de Myrdal (Tren Flåmsbana)", desc: "≈ 20 km en tren · 50 min de trayecto en raíles" },
+        { from: "Flåm", to: "Voss Resort Bavallstunet (Cabaña Hovi)", desc: "≈ 65 km · 55 min en coche por la E16" }
       ],
       itinerary: [
         {
@@ -337,7 +354,11 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Estudio del complejo metamórfico de la región de Bergen (pliegues y gneises)."
       },
       travelTimes: [
-        { from: "Voss Resort", to: "Bergen (Centro)", desc: "≈ 100 km · 1 h 30 min por la carretera E16" }
+        { from: "Voss Resort", to: "Bergen Centro (Parking KlosterGarasjen)", desc: "≈ 100 km · 1 h 30 min por la carretera E16" },
+        { from: "Parking KlosterGarasjen", to: "Muelle de Bryggen y Marienkirke", desc: "≈ 0.8 km · 10 min a pie" },
+        { from: "Bryggen", to: "Estación Inferior Funicular Fløibanen", desc: "≈ 0.3 km · 4 min a pie" },
+        { from: "Estación Fløibanen", to: "Cumbre Monte Fløyen (Mirador)", desc: "844 m de vía · 6 min en funicular" },
+        { from: "Bergen Centro", to: "Voss Resort (Regreso a la Cabaña)", desc: "≈ 100 km · 1 h 30 min por la E16" }
       ],
       itinerary: [
         {
@@ -390,9 +411,11 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Dinámica de procesos fluviales post-glaciares en el sistema de la cascada Vøringsfossen y análisis del basamento Precámbrico (rocas ígneas y metamórficas antiguas)."
       },
       travelTimes: [
-        { from: "Voss", to: "Eidfjord", desc: "≈ 55 km · 1 h conduciendo" },
-        { from: "Eidfjord", to: "Cascada Vøringsfossen", desc: "≈ 20 km · 20 min de fuerte ascenso" },
-        { from: "Vøringsfossen", to: "Oslo Central (Estación)", desc: "≈ 300 km · 4 h 30 min por la ruta nacional Rv7" }
+        { from: "Voss Resort", to: "Puente de Hardanger (Hardangerbrua)", desc: "≈ 40 km · 40 min por la Rv13/E16" },
+        { from: "Puente de Hardanger", to: "Pueblo de Eidfjord", desc: "≈ 15 km · 15 min bordeando el fiordo" },
+        { from: "Eidfjord", to: "Cascada Vøringsfossen (Måbødalen)", desc: "≈ 20 km · 20 min de vertiginoso ascenso por la Rv7" },
+        { from: "Vøringsfossen", to: "Gol (Valle de Hallingdal)", desc: "≈ 130 km · 1 h 45 min por la meseta Rv7" },
+        { from: "Gol", to: "Estación Central de Oslo (Devolución del Coche)", desc: "≈ 170 km · 2 h 30 min por la Rv7 y E16" }
       ],
       itinerary: [
         {
@@ -447,7 +470,10 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Análisis del 'Oslo Graben', una fosa tectónica con importantes registros sedimentarios paleozoicos y abundancia de fósiles marinos."
       },
       travelTimes: [
-        { from: "Oslo Centro", to: "Península de Bygdøy", desc: "≈ 15 min en ferry regular desde el puerto de Rådhusbrygge" }
+        { from: "Comfort Hotel Grand Central (Estación)", to: "Muelle Rådhusbrygge 3 (Puerto)", desc: "≈ 1.2 km · 15 min paseo a pie por el centro" },
+        { from: "Muelle Rådhusbrygge", to: "Península de los Museos (Bygdøy)", desc: "≈ 3 km · 15 min en barco urbano / ferry municipal" },
+        { from: "Península de Bygdøy", to: "Parque de Esculturas de Vigeland", desc: "≈ 4 km · 15 min en autobús línea 30" },
+        { from: "Parque Vigeland", to: "Ópera de Oslo y Barrio de Bjørvika", desc: "≈ 3.5 km · 15 min en tranvía línea 12" }
       ],
       itinerary: [
         {
@@ -500,7 +526,7 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Conclusión sobre la relevancia científica y la necesidad de monitoreo biológico sistemático para la conservación de la resiliencia en ecosistemas nórdicos."
       },
       travelTimes: [
-        { from: "Oslo Central (S)", to: "Aeropuerto de Oslo (Gardermoen)", desc: "≈ 45 km · 22 min en tren rápido" }
+        { from: "Comfort Hotel Grand Central (Estación)", to: "Terminal Aeropuerto Oslo (OSL)", desc: "≈ 47 km · 19 min en tren exprés Flytoget / 22 min en Vy" }
       ],
       itinerary: [
         {
