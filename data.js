@@ -72,13 +72,13 @@ const NORWAY_TRAVEL_DATA = {
       },
       travelTimes: [
         { from: "Thon Hotel Oslo Airport", to: "Museo Kistefos / The Twist", desc: "≈ 65 km · 55 min en coche por la E16" },
-        { from: "Museo Kistefos", to: "Iglesia de Madera de Valdres", desc: "≈ 105 km · 1 h 30 min por la E16" },
-        { from: "Iglesia de Valdres", to: "Fagernes (Museo Folclórico)", desc: "≈ 30 km · 30 min en coche" },
+        { from: "Museo Kistefos", to: "Fagernes (Museo Folclórico)", desc: "≈ 135 km · 2 h en coche por la E16" },
         { from: "Fagernes", to: "Cabañas Hovi (Beitostølen)", desc: "≈ 40 km · 40 min de ascenso montañoso" }
       ],
       travelTimes2: [
         { from: "Cabañas Hovi (Beitostølen)", to: "Parking Reinsvangen (Gjendesheim)", desc: "≈ 34 km · 35 min por la carretera Fv51" }
       ],
+      mapEmbed: "https://www.google.com/maps/d/embed?mid=1AIO1Us-63EL0o4tYo69jYA2-ipNObQ0&ehbc=2E312F",
       itinerary: [
         {
           section: "Paradas culturales en ruta",
@@ -149,6 +149,7 @@ const NORWAY_TRAVEL_DATA = {
         { from: "Bygdin Høyfjellshotell", to: "Ruta Senderismo Lago Bygdin (Ida y Vuelta)", desc: "8 km totales · 2 h 30 min a pie" },
         { from: "Lago Bygdin", to: "Beitostølen Skisenter / Sommerpark", desc: "≈ 12 km · 15 min de regreso" }
       ],
+      mapEmbed: "https://www.google.com/maps/d/embed?mid=1hNfAJD4Phaw8iQFl8e0gQ-oaZxUC-UQ&ehbc=2E312F",
       itinerary: [
         {
           section: "Planes del Día",
@@ -206,6 +207,7 @@ const NORWAY_TRAVEL_DATA = {
         { from: "Sohlbergplassen", to: "Minas Históricas Folldal Gruver", desc: "≈ 33 km · 30 min por la Fv27" },
         { from: "Folldal Gruver", to: "Hornindal / Stryn (Havila Hotel Raftevold)", desc: "≈ 245 km · 3 h 30 min descendiendo por la Rv15" }
       ],
+      mapEmbed: "https://www.google.com/maps/d/embed?mid=1AdK72WjVbY0wz2G1x1-KfIGlZfJ337k&ehbc=2E312F",
       itinerary: [
         {
           section: "Ruta Escénica de Rondane",
@@ -268,6 +270,7 @@ const NORWAY_TRAVEL_DATA = {
         { from: "Ørnesvingen", to: "Trollstigen (Centro de Visitantes y Miradores)", desc: "≈ 50 km · 1 h por la Fv63" },
         { from: "Trollstigen", to: "Hornindal (Regreso al Hotel)", desc: "≈ 135 km · 2 h 15 min de trayecto" }
       ],
+      mapEmbed: "https://www.google.com/maps/d/embed?mid=1MTWR1g-Or9nsN4nh9WK8rbuEog1YNJc&ehbc=2E312F",
       itinerary: [
         {
           section: "Crucero por el Fiordo de Geiranger",
@@ -328,11 +331,13 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Unidades estratigráficas del Precámbrico y evolución geomorfológica de la cuenca del Sognefjord."
       },
       travelTimes: [
-        { from: "Hornindal (Hotel Raftevold)", to: "Puerto de Gudvangen (Nærøyfjord)", desc: "≈ 185 km · 2 h 45 min por la E39 y E16" },
-        { from: "Gudvangen", to: "Muelle de Flåm (Crucero Nærøyfjord)", desc: "≈ 16 km en barco por el fiordo · 2 h de navegación" },
+        { from: "Hornindal (Hotel Raftevold)", to: "Muelle de Kaupanger", desc: "≈ 135 km · 2 h 15 min por la Rv15 y Fv55" },
+        { from: "Kaupanger", to: "Gudvangen (Ferry Nærøyfjord)", desc: "Navegación panorámica de 2 h 30 min por el fiordo" },
+        { from: "Gudvangen", to: "Flåm", desc: "≈ 20 km · 20 min en coche por el túnel de Gudvanga" },
         { from: "Estación de Flåm", to: "Estación de Myrdal (Tren Flåmsbana)", desc: "≈ 20 km en tren · 50 min de trayecto en raíles" },
-        { from: "Flåm", to: "Voss Resort Bavallstunet (Cabaña Hovi)", desc: "≈ 65 km · 55 min en coche por la E16" }
+        { from: "Flåm", to: "Voss Resort Bavallstunet", desc: "≈ 65 km · 55 min en coche por la E16" }
       ],
+      mapEmbed: "https://www.google.com/maps/d/embed?mid=1kfH84PztDWqScvesZumet1hB3hVmKp0&ehbc=2E312F",
       itinerary: [
         {
           section: "Navegación Nærøyfjord y Tren de Flåm",
@@ -390,6 +395,7 @@ const NORWAY_TRAVEL_DATA = {
         { from: "Estación Fløibanen", to: "Cumbre Monte Fløyen (Mirador)", desc: "844 m de vía · 6 min en funicular" },
         { from: "Bergen Centro", to: "Voss Resort (Regreso a la Cabaña)", desc: "≈ 100 km · 1 h 30 min por la E16" }
       ],
+      mapEmbed: "https://www.google.com/maps/d/embed?mid=1zFZWn2D5XX04rpZQDY38IpetA0FkQis&ehbc=2E312F",
       itinerary: [
         {
           section: "Ruta a pie por Bergen",
@@ -447,6 +453,7 @@ const NORWAY_TRAVEL_DATA = {
         { from: "Vøringsfossen", to: "Gol (Valle de Hallingdal)", desc: "≈ 130 km · 1 h 45 min por la meseta Rv7" },
         { from: "Gol", to: "Estación Central de Oslo (Devolución del Coche)", desc: "≈ 170 km · 2 h 30 min por la Rv7 y E16" }
       ],
+      mapEmbed: "https://www.google.com/maps/d/embed?mid=1dXdzxBl35rEwBo-rrdFcm2X_befRoBw&ehbc=2E312F",
       itinerary: [
         {
           section: "Hardanger y Vøringsfossen",
