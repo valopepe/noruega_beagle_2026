@@ -345,6 +345,73 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    // Build Tramos Timeline Card (formatted in line with schedule timeline format)
+    let tramosTimelineItems = "";
+    if (day.travelTimes && day.travelTimes.length > 0) {
+      const totalLegs = day.travelTimes.length;
+      day.travelTimes.forEach((t, idx) => {
+        const fromUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.from)}`;
+        const toUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.to)}`;
+        
+        let legBadge = "";
+        let dotStyle = "";
+        if (idx === 0) {
+          legBadge = "🚩 PUNTO INICIAL";
+          dotStyle = `style="border-color:#2ecc71; background-color:rgba(46,204,113,0.3);"`;
+        } else if (idx === totalLegs - 1) {
+          legBadge = "🏁 TRAMO FINAL";
+          dotStyle = `style="border-color:#e74c3c; background-color:rgba(231,76,60,0.3);"`;
+        } else {
+          legBadge = `🔹 TRAMO ${idx + 1}`;
+        }
+
+        tramosTimelineItems += `
+          <div class="timeline-item">
+            <div class="timeline-dot" ${dotStyle}></div>
+            <div class="timeline-time">${legBadge} <span style="color:var(--text-muted); font-size:0.85rem; font-weight:normal; margin-left:0.3rem;">· ${t.desc}</span></div>
+            <div class="timeline-content">
+              De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    if (day.travelTimes2 && day.travelTimes2.length > 0) {
+      const totalLegs2 = day.travelTimes2.length;
+      tramosTimelineItems += `
+        <div style="font-size: 0.75rem; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin: 1.25rem 0 0.75rem -0.5rem; border-top: 1px dashed rgba(var(--accent-rgb), 0.3); padding-top: 0.75rem;">📍 RUTA 2: Desplazamiento al Embarcadero</div>
+      `;
+      day.travelTimes2.forEach((t, idx) => {
+        const fromUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.from)}`;
+        const toUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.to)}`;
+        const legBadge = idx === 0 ? "🚩 INICIO RUTA 2" : (idx === totalLegs2 - 1 ? "🏁 FINAL RUTA 2" : `🔹 TRAMO ${idx + 1}`);
+        const dotStyle = `style="border-color:var(--accent); background-color:rgba(var(--accent-rgb),0.3);"`;
+
+        tramosTimelineItems += `
+          <div class="timeline-item">
+            <div class="timeline-dot" ${dotStyle}></div>
+            <div class="timeline-time">${legBadge} <span style="color:var(--text-muted); font-size:0.85rem; font-weight:normal; margin-left:0.3rem;">· ${t.desc}</span></div>
+            <div class="timeline-content">
+              De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    let tramosCardHTML = "";
+    if (tramosTimelineItems) {
+      tramosCardHTML = `
+        <div class="card card-glass timeline-card">
+          <h3 class="card-title">🚘 Tiempos de Desplazamiento (Tramos)</h3>
+          <div class="timeline">
+            ${tramosTimelineItems}
+          </div>
+        </div>
+      `;
+    }
+
     // Build schedule / timeline
     let timelineHTML = "";
     if (day.schedule && day.schedule.length > 0) {
@@ -563,9 +630,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       ${routeBannerHTML}
 
-      <div class="day-quick-tags">${quickTagsHTML}</div>
-
-      ${routeBanner2HTML ? `${routeBanner2HTML}<div class="day-quick-tags">${quickTags2HTML}</div>` : ""}
+      ${routeBanner2HTML ? routeBanner2HTML : ""}
 
       <div class="day-grid">
         <!-- Left Column: Summary, Timeline, Detailed content -->
@@ -575,6 +640,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <p style="line-height: 1.5; font-size: 0.95rem; margin-bottom: 0.75rem;">${day.summary}</p>
             <p style="line-height: 1.5; font-size: 0.9rem; color: var(--text-muted); font-style: italic;">🎯 Objetivo: ${day.goal}</p>
           </div>
+
+          ${tramosCardHTML}
 
           <div class="card card-glass timeline-card">
             <h3 class="card-title">🕐 Horario sugerido</h3>
