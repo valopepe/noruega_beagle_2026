@@ -351,7 +351,8 @@ document.addEventListener("DOMContentLoaded", () => {
       const totalLegs = day.travelTimes.length;
       day.travelTimes.forEach((t, idx) => {
         const fromUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.from)}`;
-        const toUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.to)}`;
+        const toUrl = t.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.to)}`;
+        const mapsBadge = t.mapsUrl ? ` <a href="${t.mapsUrl}" target="_blank" rel="noopener noreferrer" class="badge badge-primary" style="margin-left:0.4rem; text-decoration:none; font-size:0.75rem;">🗺️ Ruta Directa ↗</a>` : "";
         
         let legBadge = "";
         let dotStyle = "";
@@ -370,7 +371,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="timeline-dot" ${dotStyle}></div>
             <div class="timeline-time">${legBadge} <span style="color:var(--text-muted); font-size:0.85rem; font-weight:normal; margin-left:0.3rem;">· ${t.desc}</span></div>
             <div class="timeline-content">
-              De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>
+              De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>${mapsBadge}
             </div>
           </div>
         `;
@@ -384,7 +385,8 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
       day.travelTimes2.forEach((t, idx) => {
         const fromUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.from)}`;
-        const toUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.to)}`;
+        const toUrl = t.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.to)}`;
+        const mapsBadge = t.mapsUrl ? ` <a href="${t.mapsUrl}" target="_blank" rel="noopener noreferrer" class="badge badge-primary" style="margin-left:0.4rem; text-decoration:none; font-size:0.75rem;">🗺️ Ruta Directa ↗</a>` : "";
         const legBadge = idx === 0 ? "🚩 INICIO RUTA 2" : (idx === totalLegs2 - 1 ? "🏁 FINAL RUTA 2" : `🔹 TRAMO ${idx + 1}`);
         const dotStyle = `style="border-color:var(--accent); background-color:rgba(var(--accent-rgb),0.3);"`;
 
@@ -393,7 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="timeline-dot" ${dotStyle}></div>
             <div class="timeline-time">${legBadge} <span style="color:var(--text-muted); font-size:0.85rem; font-weight:normal; margin-left:0.3rem;">· ${t.desc}</span></div>
             <div class="timeline-content">
-              De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>
+              De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>${mapsBadge}
             </div>
           </div>
         `;

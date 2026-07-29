@@ -25,7 +25,7 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Presencia de depósitos morénicos y sedimentación glaciar correspondientes al Pleistoceno."
       },
       travelTimes: [
-        { from: "Terminal Aeropuerto Oslo (OSL)", to: "Thon Hotel Oslo Airport", desc: "≈ 10 km · 12 min en coche / autobús shuttle" }
+        { from: "Terminal Aeropuerto Oslo (OSL)", to: "Thon Hotel Oslo Airport", desc: "≈ 10 km · 12 min en coche ", mapsUrl: "https://maps.app.goo.gl/4jnB3KqtJ9Lb9AiR7" }
       ],
       mapEmbed: "https://www.google.com/maps/d/embed?mid=1OpQVgSoyXlopXpxxCLyvPodg60ab9Mg&ehbc=2E312F",
       itinerary: [
@@ -71,12 +71,13 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Manifestaciones de la orogenia caledoniana y unidades tectónicas alóctonas (estructuras de cabalgamiento o nappes)."
       },
       travelTimes: [
-        { from: "Thon Hotel Oslo Airport", to: "Museo Kistefos / The Twist", desc: "≈ 65 km · 55 min en coche por la E16" },
-        { from: "Museo Kistefos", to: "Fagernes (Museo Folclórico)", desc: "≈ 135 km · 2 h en coche por la E16" },
-        { from: "Fagernes", to: "Cabañas Hovi (Beitostølen)", desc: "≈ 40 km · 40 min de ascenso montañoso" }
+        { from: "Thon Hotel Oslo Airport", to: "Museo Kistefos / The Twist", desc: "≈ 65 km · 55 min en coche por la E16", mapsUrl: "https://maps.app.goo.gl/d3LhVJnLB1pU4rWN6" },
+        { from: "Museo Kistefos", to: "Fagernes (Museo Folclórico)", desc: "≈ 135 km · 2 h en coche por la E16", mapsUrl: "https://maps.app.goo.gl/cEVve74B1eVC8cGN7" },
+        { from: "Fagernes", to: "Cabañas Hovi (Beitostølen)", desc: "≈ 40 km · 40 min de ascenso montañoso", mapsUrl: "https://maps.app.goo.gl/qgfHicjf5UQFC6rn7" }
       ],
       travelTimes2: [
-        { from: "Cabañas Hovi (Beitostølen)", to: "Parking Reinsvangen (Gjendesheim)", desc: "≈ 34 km · 35 min por la carretera Fv51" }
+        { from: "Cabañas Hovi (Beitostølen)", to: "Parking Reinsvangen (Gjendesheim)", desc: "≈ 34 km · 35 min por la carretera Fv51", mapsUrl: "https://maps.app.goo.gl/koLVAP3episdV29w6" },
+        { from: "Parking Reinsvangen (Gjendesheim)", to: "Cabañas Hovi (Beitostølen)", desc: "≈ 34 km · 35 min de regreso por la Fv51", mapsUrl: "https://maps.app.goo.gl/sJ6PQpykL5bF653w7" }
       ],
       mapEmbed: "https://www.google.com/maps/d/embed?mid=1AIO1Us-63EL0o4tYo69jYA2-ipNObQ0&ehbc=2E312F",
       itinerary: [
@@ -145,9 +146,9 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Evidencias geomorfológicas derivadas de procesos de erosión glaciar cuaternaria."
       },
       travelTimes: [
-        { from: "Cabaña Hovi (Beitostølen)", to: "Lago Bygdin (Bygdin Høyfjellshotell)", desc: "≈ 12 km · 15 min por la carretera Fv51" },
+        { from: "Cabaña Hovi (Beitostølen)", to: "Lago Bygdin (Bygdin Høyfjellshotell)", desc: "≈ 12 km · 15 min por la carretera Fv51", mapsUrl: "https://maps.app.goo.gl/WptmBLapqszzWCUm8" },
         { from: "Bygdin Høyfjellshotell", to: "Ruta Senderismo Lago Bygdin (Ida y Vuelta)", desc: "8 km totales · 2 h 30 min a pie" },
-        { from: "Lago Bygdin", to: "Beitostølen Skisenter / Sommerpark", desc: "≈ 12 km · 15 min de regreso" }
+        { from: "Lago Bygdin", to: "Beitostølen Skisenter / Sommerpark", desc: "≈ 12 km · 15 min de regreso", mapsUrl: "https://maps.app.goo.gl/p9QeH9kchuQRLPZLA" }
       ],
       mapEmbed: "https://www.google.com/maps/d/embed?mid=1hNfAJD4Phaw8iQFl8e0gQ-oaZxUC-UQ&ehbc=2E312F",
       itinerary: [
@@ -201,11 +202,11 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Afloramientos litológicos de anortosita y secuencias de rocas sedimentarias con deformaciones tectónicas acusadas."
       },
       travelTimes: [
-        { from: "Beitostølen", to: "Venabygdsfjellet (Inicio Ruta Escénica Fv27)", desc: "≈ 115 km · 1 h 45 min por la E16 y Fv27" },
-        { from: "Venabygdsfjellet", to: "Área de Descanso Strombu", desc: "≈ 35 km · 30 min por la Fv27" },
-        { from: "Strombu", to: "Mirador Sohlbergplassen (Lago Atnsjøen)", desc: "≈ 7 km · 8 min por la Fv27" },
-        { from: "Sohlbergplassen", to: "Minas Históricas Folldal Gruver", desc: "≈ 33 km · 30 min por la Fv27" },
-        { from: "Folldal Gruver", to: "Hornindal / Stryn (Havila Hotel Raftevold)", desc: "≈ 245 km · 3 h 30 min descendiendo por la Rv15" }
+        { from: "Beitostølen", to: "Venabygdsfjellet (Inicio Ruta Escénica Fv27)", desc: "≈ 147 km · 2 h 12 min por la Fv51 y Fv27", mapsUrl: "https://maps.app.goo.gl/dwv39knWvxb7aHdt8" },
+        { from: "Venabygdsfjellet", to: "Mirador Sohlbergplassen (Lago Atnsjøen)", desc: "≈ 31,5 km · 29 min por la Fv27", mapsUrl: "https://maps.app.goo.gl/9hC9Tk8B3ozQBFNJA" },
+        { from: "Mirador Sohlbergplassen (Lago Atnsjøen)", to: "Strombu", desc: "≈ 8.8 km · 9 min por la Fv27", mapsUrl: "https://maps.app.goo.gl/aZgRMMWEoefzVMBk9" },
+        { from: "Strombu", to: "Minas Históricas Folldal Gruver", desc: "≈ 33 km · 30 min por la Fv27", mapsUrl: "https://maps.app.goo.gl/8odFjQSntG5iLMvW6" },
+        { from: "Folldal Gruver", to: "Hornindal / Stryn (Havila Hotel Raftevold)", desc: "≈ 289 km · 4 h 10 min descendiendo por la Rv15", mapsUrl: "https://maps.app.goo.gl/8jWfc3bHuM64qnji9" }
       ],
       mapEmbed: "https://www.google.com/maps/d/embed?mid=1AdK72WjVbY0wz2G1x1-KfIGlZfJ337k&ehbc=2E312F",
       itinerary: [
@@ -234,12 +235,12 @@ const NORWAY_TRAVEL_DATA = {
       ],
       schedule: [
         { time: "08:00–08:30", desc: "Salida puntual de Beitostølen con maletas cargadas." },
-        { time: "08:30–10:30", desc: "Conducción hacia la meseta de Venabygdsfjellet." },
-        { time: "10:30–12:30", desc: "Recorrido por la Ruta de Rondane con paradas fotográficas." },
-        { time: "12:30–13:30", desc: "Almuerzo ligero o picnic en la ruta." },
-        { time: "13:30–14:30", desc: "Visita externa o rápida a las minas de Folldal Gruver." },
-        { time: "14:30–18:30", desc: "Largo tramo de coche hacia el oeste, bajando a los fiordos hasta Stryn/Hornindal." },
-        { time: "18:30–19:00", desc: "Check-in en el Havila Hotel Raftevold." },
+        { time: "08:30–10:45", desc: "Conducción desde Beitostølen hacia la meseta de Venabygdsfjellet (147 km · 2 h 12 min por Fv51 y Fv27)." },
+        { time: "10:45–12:45", desc: "Recorrido por la Ruta Escénica de Rondane (Fv27) con paradas en el Mirador Sohlbergplassen y Strombu." },
+        { time: "12:45–13:45", desc: "Almuerzo ligero o picnic en la ruta (área de descanso de Strombu)." },
+        { time: "13:45–14:45", desc: "Visita externa o rápida a las minas de Folldal Gruver." },
+        { time: "14:45–19:00", desc: "Gran travesía hacia el oeste descendiendo por la Rv15 hasta Stryn y Hornindal (289 km · 4 h 10 min)." },
+        { time: "19:00–19:30", desc: "Check-in en el Havila Hotel Raftevold en Hornindal." },
         { time: "19:30", desc: "Paseo por las orillas del lago Hornindalsvatnet y cena en el hotel." }
       ]
     },
