@@ -300,6 +300,51 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
 
+    // Render second route group if present (travelTimes2)
+    let routeBanner2HTML = "";
+    let quickTags2HTML = "";
+    if (day.travelTimes2 && day.travelTimes2.length > 0) {
+      const totalLegs2 = day.travelTimes2.length;
+      const startPoint2 = day.travelTimes2[0].from;
+      const endPoint2 = day.travelTimes2[totalLegs2 - 1].to;
+      const totals2 = calculateDayTotals(day.travelTimes2);
+
+      const startUrl2 = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(startPoint2)}`;
+      const endUrl2 = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(endPoint2)}`;
+
+      routeBanner2HTML = `
+        <div class="card card-glass day-route-banner" style="background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.12), rgba(var(--primary-rgb), 0.06)); border: 1px solid rgba(var(--accent-rgb), 0.3); padding: 1rem 1.25rem; border-radius: 14px; margin-bottom: 1rem;">
+          <div style="font-size: 0.7rem; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; opacity: 0.8;">📍 RUTA 2</div>
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+            <!-- INICIO 2 -->
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="background: rgba(46, 204, 113, 0.25); color: #2ecc71; font-weight: 800; font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: 20px; text-transform: uppercase; border: 1px solid rgba(46, 204, 113, 0.4); letter-spacing: 0.03em;">🚩 PUNTO INICIAL</span>
+              <a href="${startUrl2}" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); font-weight: 700; font-size: 0.95rem; text-decoration: underline;">${startPoint2} ↗</a>
+            </div>
+
+            <!-- TOTAL METRICS 2 -->
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); padding: 0.4rem 1.1rem; border-radius: 20px; border: 1px solid rgba(var(--accent-rgb), 0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+              <span style="font-size: 0.9rem; font-weight: 800; color: var(--accent);">📏 ${totals2.km} km &nbsp;•&nbsp; ⏱️ ${totals2.time}</span>
+              <span style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; font-weight: 600;">Desplazamiento al Embarcadero</span>
+            </div>
+
+            <!-- FINAL 2 -->
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <span style="background: rgba(231, 76, 60, 0.25); color: #e74c3c; font-weight: 800; font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: 20px; text-transform: uppercase; border: 1px solid rgba(231, 76, 60, 0.4); letter-spacing: 0.03em;">🏁 PUNTO FINAL</span>
+              <a href="${endUrl2}" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); font-weight: 700; font-size: 0.95rem; text-decoration: underline;">${endPoint2} ↗</a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      day.travelTimes2.forEach((t, idx) => {
+        const fromUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.from)}`;
+        const toUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.to)}`;
+        const legBadge = idx === 0 ? "🚩 INICIO:" : (idx === totalLegs2 - 1 ? "🏁 TRAMO FINAL:" : `🔹 TRAMO ${idx + 1}:`);
+        quickTags2HTML += `<span class="tag-label"><strong style="color:var(--accent);">${legBadge}</strong> De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>: ${t.desc}</span>`;
+      });
+    }
+
     // Build schedule / timeline
     let timelineHTML = "";
     if (day.schedule && day.schedule.length > 0) {
@@ -471,6 +516,28 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }
 
+    // Embedded Map
+    let mapHTML = "";
+    if (day.mapEmbed) {
+      mapHTML = `
+        <div class="card card-glass" style="padding: 0; overflow: hidden; border-radius: 14px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1.1rem 0.6rem;">
+            <h3 class="card-title" style="margin: 0;">🗺️ Mapa del día</h3>
+            <a href="${day.mapEmbed.replace('/embed?', '/viewer?')}" target="_blank" rel="noopener noreferrer" class="badge badge-primary" style="text-decoration: none; font-size: 0.75rem;">Ver en Google Maps ↗</a>
+          </div>
+          <iframe
+            src="${day.mapEmbed}"
+            width="100%"
+            height="320"
+            style="border: 0; display: block;"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      `;
+    }
+
     // Tips Box
     let tipsHTML = "";
     if (day.tips && day.tips.length > 0) {
@@ -498,6 +565,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       <div class="day-quick-tags">${quickTagsHTML}</div>
 
+      ${routeBanner2HTML ? `${routeBanner2HTML}<div class="day-quick-tags">${quickTags2HTML}</div>` : ""}
+
       <div class="day-grid">
         <!-- Left Column: Summary, Timeline, Detailed content -->
         <div style="display: flex; flex-direction: column; gap: 1rem;">
@@ -517,9 +586,10 @@ document.addEventListener("DOMContentLoaded", () => {
           ${tipsHTML}
         </div>
 
-        <!-- Right Column: Accommodation, Nature, City Guide -->
+        <!-- Right Column: Accommodation, Map, Nature, City Guide -->
         <div style="display: flex; flex-direction: column; gap: 1rem;">
           ${accommodationHTML}
+          ${mapHTML}
           ${natureHTML}
           ${cityGuideHTML}
         </div>
