@@ -33,12 +33,21 @@ const NORWAY_TRAVEL_DATA = {
         { time: "Noche", activity: "Check-in en Thon Hotel Oslo Airport." }
       ],
       detailsText: "El hotel dispone de wifi gratuita y gimnasio de acceso gratuito. Si llegáis cansados, se puede solicitar el traslado del hotel desde el aeropuerto (con suplemento) para evitar complicaciones.",
+      cityGuide: {
+        intro: "Llegada a Oslo (Aeropuerto de Oslo-Gardermoen). Traslado al hotel cercano, recogida del coche de alquiler y primer contacto con Noruega.",
+        shopping: "<p><a href='https://www.google.com/maps/search/?api=1&query=Coop+Extra+Gardermoen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Coop Extra Gardermoen ↗</a> y tiendas del aeropuerto de Gardermoen para provisiones iniciales, agua y snacks para el trayecto.</p>",
+        breakfast: "<p>Buffet de desayuno completo incluido en el <a href='https://www.google.com/maps/search/?api=1&query=Thon+Hotel+Oslo+Airport+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Thon Hotel Oslo Airport ↗</a> (amplia variedad de opciones frías, calientes, frutas y alternativas vegetarianas).</p>",
+        eating: "<p>Restaurante y bistró del <a href='https://www.google.com/maps/search/?api=1&query=Thon+Hotel+Oslo+Airport+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Thon Hotel Oslo Airport ↗</a> (menú buffet y a la carta con platos noruegos e internacionales, opciones vegetarianas adaptadas).</p><p>Restaurantes y cafeterías en la terminal del aeropuerto de Gardermoen.</p>",
+        drinks: "<p>Bar y lounge del hotel para una primera cerveza de bienvenida o café relajado tras el vuelo.</p>",
+        whatToSee: "<p><a href='https://www.google.com/maps/search/?api=1&query=Gardermoen+Kulturpark+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Parque Cultural de Gardermoen ↗</a> y senderos llanos en los alrededores del hotel para estirar las piernas tras la llegada.</p>"
+      },
       tips: [
         "Noruega tiene numerosos radares fijos, habitualmente señalizados con antelación, y las multas por exceso de velocidad son muy elevadas. Encontraréis el detalle completo de normas de conducción en el apartado de 'Consideraciones generales' — es la única nota que no repetiremos cada día."
       ],
       schedule: [
-        { time: "23:55 (01/08)", desc: "Llegada al Aeropuerto de Oslo (OSL)." },
-        { time: "00:30 (02/08)", desc: "Recogida del coche de alquiler tras el equipaje." },
+        { time: "06:51–09:48", desc: "🚄 AVE Ida: Santiago de Compostela → Madrid Chamartín.", isFixed: true },
+        { time: "20:30–23:55", desc: "✈️ Vuelo Madrid-Barajas (MAD) → Oslo-Gardermoen (OSL) [Norwegian DY 1719].", isFixed: true },
+        { time: "00:30 (02/08)", desc: "🚗 Recogida del Coche de Alquiler en Oslo Airport Gardermoen (Toyota Yaris Cross 4x4).", isFixed: true },
         { time: "Noche", desc: "Alojamiento en el Thon Hotel Oslo Airport." }
       ]
     },
@@ -109,7 +118,7 @@ const NORWAY_TRAVEL_DATA = {
         { time: "12:45–13:45", desc: "Check-in en cabañas Hovi y compra de provisiones en SPAR." },
         { time: "13:45–14:15", desc: "Conducción desde la cabaña hasta el parking de Gjendesheim." },
         { time: "14:15–15:00", desc: "Aparcamiento en Reinsvangen, bus lanzadera al muelle." },
-        { time: "15:25–17:15", desc: "Crucero de ida y vuelta Gjendesheim ↔ Gjendebu (Disfrutad del paisaje de alta montaña)." },
+        { time: "15:25–17:15", desc: "⛴️ Ferry Lago Gjende: Gjendesheim → Gjendebu (15:25) / Gjendebu → Gjendesheim (16:25).", isFixed: true },
         { time: "19:00", desc: "Regreso a la cabaña en Beitostølen para cenar y descansar." }
       ]
     },
@@ -147,6 +156,15 @@ const NORWAY_TRAVEL_DATA = {
           ]
         }
       ],
+      cityGuide: {
+        intro: "Día para explorar los parajes alpinos de Beitostølen y el Parque Nacional de Jotunheimen bordeando el gran lago Bygdin.",
+        shopping: "<p><a href='https://www.google.com/maps/search/?api=1&query=SPAR+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 SPAR Beitostølen ↗</a>: supermercado principal para abastecerse de agua, fruta, frutos secos y snacks antes de emprender la ruta de senderismo.</p>",
+        breakfast: "<p>Desayuno preparado en la cocina de las cabañas Hovi o en <a href='https://www.google.com/maps/search/?api=1&query=Cafeen+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Caféen Beitostølen ↗</a>.</p>",
+        eating: "<p><a href='https://www.google.com/maps/search/?api=1&query=Bygdin+Hoyfjellshotell+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Resto / Cafetería Bygdin Høyfjellshotell ↗</a>: céntrico hotel histórico a orillas del lago Bygdin con sopas del día, waffles noruegos y platos calientes para reponer fuerzas tras la ruta a pie.</p><p><a href='https://www.google.com/maps/search/?api=1&query=Peppes+Pizza+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Peppes Pizza ↗</a> o <a href='https://www.google.com/maps/search/?api=1&query=Lodge+900+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Lodge 900 ↗</a> para una cena reconfortante al volver a Beitostølen.</p>",
+        drinks: "<p><a href='https://www.google.com/maps/search/?api=1&query=Bygdin+Hoyfjellshotell+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Salón de Bygdin Høyfjellshotell ↗</a>: acogedor rincón para tomar un café o cerveza con vistas directas al lago.</p><p><a href='https://www.google.com/maps/search/?api=1&query=Svingen+Pub+Beitostolen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Svingen Pub ↗</a> en Beitostølen.</p>",
+        whatToSee: "<p><a href='https://www.google.com/maps/search/?api=1&query=Bygdin+Lake+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Lago Bygdin ↗</a>: imponente lago alpino situado a 1.058 metros de altitud, flanqueado por los majestuosos picos de Jotunheimen.</p><p><a href='https://www.google.com/maps/search/?api=1&query=Bitihorn+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Pico Bitihorn ↗</a>: la pirámide rocosa más icónica de la zona (1.607 m).</p>",
+        adrenaline: "<p><a href='https://www.google.com/maps/search/?api=1&query=Beitostolen+Sommerpark+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Beitostølen Sommerpark ↗</a>: pases individuales o de día completo para disfrutar del Bobsleigh, Karts de montaña y telesilla panorámico Bitihornexpressen.</p>"
+      },
       tips: [
         "Preparad el picnic antes de salir del pueblo (mostrador de comida fresca del SPAR). Junto al agua encontraréis rocas grandes y suaves perfectas para sentarse a comer en plena naturaleza."
       ],
@@ -264,13 +282,21 @@ const NORWAY_TRAVEL_DATA = {
           ]
         }
       ],
+      cityGuide: {
+        intro: "Geiranger y Trollstigen representan la máxima expresión de los fiordos noruegos, combinando cruceros entre paredes verticales y carreteras de montaña míticas.",
+        shopping: "<p><a href='https://www.google.com/maps/search/?api=1&query=Geiranger+Sjokolade+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Geiranger Sjokolade ↗</a>: famosa chocolatería artesanal en el puerto de Geiranger con chocolates hechos con ingredientes locales (bayas, queso marrón brunost).</p><p>Tiendas de recuerdos y artesanía noruega en el embarcadero de Hellesylt y el puerto de Geiranger.</p>",
+        breakfast: "<p>Buffet de desayuno completo en el <a href='https://www.google.com/maps/search/?api=1&query=Havila+Hotel+Raftevold+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Havila Hotel Raftevold ↗</a> en Hornindal antes de salir puntuales hacia Hellesylt.</p>",
+        eating: "<p><a href='https://www.google.com/maps/search/?api=1&query=Trollstigen+Kafe+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Trollstigen Kafé / Besøkssenter ↗</a>: moderno centro de visitantes en la cima de Trollstigen con restaurante, cafetería, platos calientes, sopas y opciones vegetarianas frente a los ventanales con vistas al abismo.</p><p><a href='https://www.google.com/maps/search/?api=1&query=Geiranger+Bistro+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Restaurantes en el puerto de Geiranger ↗</a>: bistrós con ensaladas, sopas de pescado y verduras de temporada.</p>",
+        drinks: "<p><a href='https://www.google.com/maps/search/?api=1&query=Geiranger+Sjokolade+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Cafetería de Geiranger Sjokolade ↗</a>: excelente chocolate caliente artesano y café espresso.</p><p>Cafetería del ferry Hellesylt-Geiranger para disfrutar de un café caliente en cubierta durante el crucero.</p>",
+        whatToSee: "<p><a href='https://www.google.com/maps/search/?api=1&query=Geirangerfjord+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Geirangerfjord (UNESCO) ↗</a>: crucero de 1 h 15 min contemplando las míticas cascadas <i>Las Siete Hermanas</i>, <i>El Pretendiente</i> y <i>El Velo de la Novia</i>.</p><p><a href='https://www.google.com/maps/search/?api=1&query=Flydalsjuvet+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Mirador de Flydalsjuvet ↗</a>: impresionante mirador sobre el abismo del fiordo.</p><p><a href='https://www.google.com/maps/search/?api=1&query=Ornesvingen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Ørnesvingen (La Curva del Águila) ↗</a>: mirador colgado sobre la curva más espectacular de la carretera con vistas al fiordo.</p><p><a href='https://www.google.com/maps/search/?api=1&query=Trollstigen+Visitor+Centre+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Carretera de los Trolls (Trollstigen) ↗</a>: mítica ruta de 11 curvas de horquilla con pasarelas de acero y cristal sobre la cascada Stigfossen.</p>"
+      },
       tips: [
         "Llevad una bolsa térmica en el coche con provisiones vegetales extra, ya que en las zonas de alta montaña y los ferrys las opciones sin carne son muy limitadas.",
         "Conducción defensiva en Trollstigen: usad marchas cortas al bajar para no fatigar ni calentar los frenos. Siguid la estela de los autobuses locales si os sentís inseguros."
       ],
       schedule: [
         { time: "08:00–09:00", desc: "Traslado temprano desde el hotel en Hornindal al puerto de Hellesylt." },
-        { time: "09:30–10:35", desc: "Embarque y crucero panorámico por el Fiordo de Geiranger." },
+        { time: "09:30–10:35", desc: "⛴️ Ferry Fiordo de Geiranger: Hellesylt (09:30) → Geiranger (10:35).", isFixed: true },
         { time: "10:35–12:00", desc: "Desembarque, subida al mirador Flydalsjuvet y desvío al Dalsnibba (Skywalker)." },
         { time: "12:00–14:00", desc: "Ruta en coche hacia Trollstigen pasando por la Curva del Águila (Ørnesvingen)." },
         { time: "14:00–15:30", desc: "Llegada a Trollstigen, paseo por las pasarelas del mirador y comida en la cafetería." },
@@ -327,10 +353,10 @@ const NORWAY_TRAVEL_DATA = {
       schedule: [
         { time: "08:30–09:30", desc: "Desayuno y check-out en el Havila Hotel Raftevold." },
         { time: "09:30–12:00", desc: "Conducción desde Stryn hasta el muelle de Kaupanger." },
-        { time: "12:30–15:00", desc: "Navegación en ferry por el Nærøyfjord (Kaupanger a Gudvangen)." },
+        { time: "12:30–15:00", desc: "⛴️ Barco Nærøyfjord: Kaupanger (12:30) → Gudvangen (15:00) [Ferry Nærøyfjord].", isFixed: true },
         { time: "15:00–15:30", desc: "Trayecto en coche desde Gudvangen a Flåm." },
         { time: "15:30–18:00", desc: "Almuerzo tardío en Flåm (se recomienda Ægir BrewPub) o visita a Stegastein." },
-        { time: "18:25–20:30", desc: "Viaje de ida y vuelta en el espectacular Tren de Flåm." },
+        { time: "18:25–20:30", desc: "🚂 Tren de Flåm (Flåmsbana): Flåm → Myrdal (18:25) / Myrdal → Flåm (19:35).", isFixed: true },
         { time: "20:45–21:45", desc: "Trayecto final por carretera de Flåm a Voss." },
         { time: "22:00", desc: "Check-in en el Voss Resort y sesión de sauna privada." }
       ]
@@ -367,7 +393,7 @@ const NORWAY_TRAVEL_DATA = {
             { name: "Barrio histórico de Bryggen", image: "assets/images/day7_bryggen.png", desc: "Antiguo muelle comercial de la Liga Hanseática y símbolo histórico de Bergen. Famoso por sus pintorescas casas de madera coloridas declaradas Patrimonio de la Humanidad por la UNESCO. Un fascinante laberinto de callejones de madera llenos de talleres de artesanos, galerías de arte y tiendas tradicionales." },
             { name: "Funicular Fløibanen", image: "assets/images/day7_floibanen.png", desc: "Histórico funicular sobre raíles que asciende desde el centro de Bergen hasta la cumbre del monte Fløyen (320 m en solo 6 minutos). Brinda una impresionante vista panorámica de la ciudad, los muelles del puerto y las islas atlánticas. Se recomienda comprar billetes online con antelación.<br><br>🅿️ <b>Dónde aparcar:</b> En los parkings subterráneos <b><a href='https://www.google.com/maps/search/?api=1&query=KlosterGarasjen+Bergen' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>KlosterGarasjen ↗</a></b> o <b>ByGarasjen</b> (aparcamiento en la calle reservado a residentes).<br>🚉 <b>Dónde cogerlo:</b> En la estación inferior de Fløibanen en la calle <b><a href='https://www.google.com/maps/search/?api=1&query=Vetrlidsallmenningen+21A+Bergen' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>Vetrlidsallmenningen 21A ↗</a></b> (a 150 metros del mercado de pescado y Bryggen)." },
             { name: "Fisketorget (Mercado de Pescado)", image: "assets/images/day7_fisketorget.png", desc: "Ubicado en el puerto histórico de Bergen frente a Bryggen. Emblemático mercado al aire libre con puestos de pescado y marisco fresco donde probar brochetas de salmón ahumado, patas de cangrejo real o bacalao preparado al momento en un ambiente muy marinero." },
-            { name: "Tour Recomendado", desc: "Tour histórico guiado a pie 'Mitos, Historia y Bryggen' (disponible en GuruWalk o Nordic Freedom Tours). Duración 1.5 a 2 horas. Recorrido a pie ameno y documentado para descubrir la era de la Liga Hanseática, los grandes incendios de la ciudad y las leyendas populares noruegas. Es imprescindible reservar las 4 plazas online con antelación." }
+            { name: "🚩 Free Tour Bergen: Rincones Ocultos ✅ RESERVADO", desc: "<strong>Tour confirmado en español con Nati, guía local oficial (la chica del sombrero rojo).</strong><br><br>📍 <b>Punto de encuentro:</b> <a href='https://www.google.com/maps/search/?api=1&query=Byparken+Bergen+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>Musikkpaviljongen (Byparken) — Olav Kyrres gate 27 ↗</a><br>🕙 <b>Hora:</b> 11:00 h exactas (llegar 5 min antes) · <b>Duración:</b> 2 horas<br><br><b>Itinerario del tour:</b> Festplassen → Den blå steinen → Ole Bulls plass → Teatro Nacional (Den Nationale Scene) → Mercado de Pescado → Strandkaien → Klosteret → Vågsallmenningen → Kong Oscars gate → Bryggen → Nikolaikirkeallmenningen<br><br>💳 <b>Pago al final:</b> Voluntario, aprox. 15€/persona. Se acepta efectivo, Bizum y tarjeta.", isFixed: true }
           ]
         }
       ],
@@ -382,14 +408,14 @@ const NORWAY_TRAVEL_DATA = {
         "Aparcar en la calle en Bergen es casi imposible y requiere permisos de residentes. Conducid directamente a parkings subterráneos grandes como ByGarasjen o KlosterGarasjen."
       ],
       schedule: [
-        { time: "08:30–09:30", desc: "Desayuno tranquilo en la cocina de la cabaña Hovi en Voss." },
-        { time: "09:30–11:00", desc: "Conducción en coche hasta Bergen (carretera E16) y estacionamiento en KlosterGarasjen." },
-        { time: "11:00–13:00", desc: "Paseo a pie por Bryggen, visita a Marienkirke y miradores del puerto." },
-        { time: "13:00–14:30", desc: "Comida en el centro (Daily Pot o mercado de pescado)." },
-        { time: "14:30–16:30", desc: "Subida en el funicular Fløibanen, mirador del monte Fløyen y paseos cortos." },
-        { time: "16:30–18:30", desc: "Paseo libre por las calles empedradas de Nordnes o compras en el centro." },
-        { time: "18:30–20:00", desc: "Conducción de regreso a Voss Resort." },
-        { time: "20:00", desc: "Llegada, sesión de sauna reparadora y cena de salmón fresco en la cabaña." }
+        { time: "08:30–09:30", desc: "Desayuno tranquilo en la cocina de la cabaña Hovi en Voss y equipaje ligero." },
+        { time: "09:30–10:45", desc: "Conducción en coche hasta Bergen (carretera E16) y estacionamiento en el parking subterráneo KlosterGarasjen." },
+        { time: "11:00–13:00", desc: "🚩 FREE TOUR CONFIRMADO EN BERGEN (11:00h): 'Rincones Ocultos' con guía local Nati (chica del sombrero rojo). Punto de encuentro: Musikkpaviljongen (Byparken, Olav Kyrres gate 27). Recorrido por Festplassen, Den blå steinen, Ole Bulls plass, Teatro Nacional, Mercado de Pescado, Strandkaien, Klosteret, Vågsallmenningen, Kong Oscars gate, Bryggen y Nikolaikirkeallmenningen.", isFixed: true },
+        { time: "13:00–14:30", desc: "Almuerzo en el centro (Daily Pot, Pingvinen o Mercado del Pescado)." },
+        { time: "14:30–16:30", desc: "Subida en el funicular Fløibanen al monte Fløyen y paseos por los senderos de la cima." },
+        { time: "16:30–18:30", desc: "Paseo libre por las calles empedradas de Nordnes, puerto o compras en el centro." },
+        { time: "18:30–20:00", desc: "Conducción de regreso a Voss Resort por la E16." },
+        { time: "20:00", desc: "Llegada a la cabaña de Voss, sesión de sauna y cena relajada." }
       ]
     },
     {
@@ -446,7 +472,7 @@ const NORWAY_TRAVEL_DATA = {
         { time: "12:30–14:30", desc: "Travesía por la meseta de Hardangervidda y el valle de Hallingdal." },
         { time: "14:30–15:30", desc: "Parada para almorzar en el pueblo de Gol." },
         { time: "15:30–18:00", desc: "Tramo final de conducción hacia la ciudad de Oslo." },
-        { time: "18:00–18:45", desc: "Devolución oficial del coche de alquiler en el punto concertado de la estación." },
+        { time: "18:00–19:00", desc: "🚗 Devolución Coche de Alquiler en Oslo Railway Station (Límite 19:00 h).", isFixed: true },
         { time: "19:00", desc: "Check-in en el Comfort Hotel Grand Central." },
         { time: "20:00", desc: "Cena relajada en Olivia (Østbanehallen), justo al lado del hotel." }
       ]
@@ -479,6 +505,7 @@ const NORWAY_TRAVEL_DATA = {
         {
           section: "Explorando Oslo",
           items: [
+            { name: "🚩 Free Tour Oslo: Historia y Cultura ✅ RESERVADO", desc: "<strong>Tour confirmado en español con guía local (paraguas blanco).</strong><br><br>📍 <b>Punto de encuentro:</b> <a href='https://www.google.com/maps/search/?api=1&query=Christiania+Torv+4+Oslo' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>Christiania Torv 4, 0158 Oslo ↗</a> (al lado de la estatua del dedo)<br>🕙 <b>Hora:</b> 09:30 h (llegar 5 min antes)<br><br><b>Itinerario del tour:</b> Rolf Strangers plass → Aker Brygge → Ayuntamiento (Rådhuset) → Stortingsgata 17 → Parlamento de Oslo (Stortinget) → Catedral de Oslo → Estación Central de Oslo → Ópera de Oslo / Biblioteca Nacional<br><br>💡 <b>Tip:</b> No cambiar efectivo — tasa de cambio pésima en las casas de cambio. El guía acepta pago con tarjeta. 💳", isFixed: true },
             { name: "Península de los Museos (Bygdøy)", image: "assets/images/facilitatrip_oslo_harbor.jpg", desc: "Acceso mediante barco regular desde el puerto del Ayuntamiento de Oslo. Zona residencial rodeada de naturaleza que alberga los museos más icónicos de Noruega: el Museo Fram (con la mítica nave polar de madera), el Museo de Barcos Vikingos (con embarcaciones reales del siglo IX) y el Museo Folclórico Noruego al aire libre (con más de 150 edificaciones históricas y una stave church medieval).<br><br>🚶 <b>Dónde aparcar:</b> Día sin coche (devolución realizada el Día 8). Desplazamiento a pie o en transporte urbano desde el hotel.<br>⚓ <b>Dónde cogerlo:</b> En el <b>Muelle del Ayuntamiento de Oslo (<a href='https://www.google.com/maps/search/?api=1&query=R%C3%A5dhusbrygge+3+Oslo' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>Rådhusbrygge 3 ↗</a>)</b>, ubicado justo enfrente del Ayuntamiento (Rådhuset), abordando el barco regular de pasajeros (Ruter B9 / Bygdøyfergen)." },
             { name: "Karl Johans gate y Centro Histórico", image: "assets/images/facilitatrip_oslo_skyline.jpg", desc: "La gran avenida peatonal de la capital que conecta la Estación Central con el Palacio Real. Paseo agradable contemplando el edificio del Parlamento (Stortinget), el Teatro Nacional y el ambiente cosmopolita de las plazas del centro." },
             { name: "Parque de las Esculturas Vigeland", image: "assets/images/facilitatrip_vigeland_statue.jpg", desc: "Monumental parque público que alberga la mayor colección de esculturas creadas por un único artista (Gustav Vigeland). Más de 200 figuras en bronce, hierro y granito que expresan emociones humanas, destacando la gran columna del Monolito (17m) y la famosa escultura de 'El Niño Enfadado' (Sinnataggen)." },
@@ -497,14 +524,14 @@ const NORWAY_TRAVEL_DATA = {
         "Reservad las entradas para los museos de Bygdøy con antelación. En agosto suele haber colas muy largas."
       ],
       schedule: [
-        { time: "08:30–09:30", desc: "Desayuno buffet completo en el hotel." },
-        { time: "09:30–10:00", desc: "Paseo hacia el puerto y barco contemplando la Ópera de Oslo." },
-        { time: "10:00–13:30", desc: "Visita a los museos de la península de Bygdøy (Fram, Vikingos y Folklore)." },
-        { time: "13:30–15:00", desc: "Regreso al centro y almuerzo en el mercado cubierto Oslo Street Food." },
-        { time: "15:00–16:30", desc: "Paseo guiado por el centro histórico y la calle Karl Johan." },
-        { time: "16:30–18:00", desc: "Visita al Parque Vigeland para ver las esculturas monumentales." },
-        { time: "18:00–19:30", desc: "Viaje en metro/tranvía hasta Holmenkollen para contemplar el atardecer." },
-        { time: "20:00", desc: "Regreso al centro para una cena de despedida y copas por Grünerløkka." }
+        { time: "08:00–09:15", desc: "Desayuno buffet completo en el Comfort Hotel Grand Central." },
+        { time: "09:30–12:00", desc: "🚩 FREE TOUR CONFIRMADO EN OSLO (09:30h): 'Historia y Cultura'. Punto de encuentro: Christiania Torv 4 (estatua del dedo, guía con paraguas blanco). Recorrido por Rolf Strangers plass, Aker Brygge, Ayuntamiento (Rådhuset), Stortingsgata 17, Parlamento (Stortinget), Catedral de Oslo, Estación Central y Ópera de Oslo / Biblioteca Nacional.", isFixed: true },
+        { time: "12:00–13:30", desc: "Paseo por el puerto de Aker Brygge y muelle del Ayuntamiento." },
+        { time: "13:30–15:00", desc: "Barco a la Península de Bygdøy y almuerzo en Oslo Street Food / Mathallen." },
+        { time: "15:00–17:00", desc: "Visita a los museos de Bygdøy (Museo Fram / Museo Folclórico Noruego)." },
+        { time: "17:00–18:30", desc: "Visita al Parque Vigeland para admirar el Monolito y las esculturas de bronce." },
+        { time: "18:30–20:00", desc: "Metro/tranvía a Holmenkollen para contemplar el atardecer panorámico sobre el fiordo." },
+        { time: "20:00", desc: "Regreso al centro para cena de despedida y copas por Grünerløkka (Himkok / Kulturhuset)." }
       ]
     },
     {
@@ -537,14 +564,20 @@ const NORWAY_TRAVEL_DATA = {
           ]
         }
       ],
+      cityGuide: {
+        intro: "Últimas compras de recuerdos en el centro de Oslo y traslado rápido en tren al aeropuerto de Gardermoen.",
+        shopping: "<p><a href='https://www.google.com/maps/search/?api=1&query=Karl+Johans+gate+Oslo+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Calle Karl Johans gate y Galería Østbanehallen ↗</a>: compras de última hora (artesanía, ropa de lana, cortadores de queso, chocolates Freia).</p><p>🛒 <b>Compra de Alcohol (Vinmonopolet):</b> Si deseáis comprar licores tradicionales noruegos (como Aquavit / Akevitt) o vino de más de 4.7% de alcohol, recordad acudir a la tienda estatal Vinmonopolet (p. ej. en la Estación Central o centros comerciales) antes de la partida.</p>",
+        breakfast: "<p>Desayuno buffet completo en el <a href='https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Grand+Central+Oslo+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Comfort Hotel Grand Central ↗</a>.</p>",
+        eating: "<p><a href='https://www.google.com/maps/search/?api=1&query=Ostbanehallen+Oslo+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Mercado Gastronómico de Østbanehallen ↗</a>: excelentes opciones para un almuerzo ligero o tentempié antes de tomar el tren al aeropuerto (restaurantes de pasta, ensaladas, sushi y bocadillos gourmet).</p>",
+        drinks: "<p><a href='https://www.google.com/maps/search/?api=1&query=Ostbanehallen+Oslo+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Cafeterías de Østbanehallen ↗</a>: café de especialidad y zumos frescos para despedir el viaje.</p>",
+        whatToSee: "<p><a href='https://www.google.com/maps/search/?api=1&query=Oslo+Central+Station+Noruega' target='_blank' rel='noopener noreferrer' style='color: inherit; text-decoration: underline;'>📍 Estación Central de Oslo (Oslo S / Østbanehallen) ↗</a>: edificio histórico del siglo XIX reconvertido en un moderno centro de ocio y transportes.</p>"
+      },
       tips: [
         "Comprad los billetes de Vy o Flytoget a través de las apps oficiales (Ruter/Vy) o en las máquinas de la estación central para evitar retrasos de última hora."
       ],
       schedule: [
-        { time: "08:30–09:30", desc: "Último desayuno en el hotel y check-out." },
-        { time: "09:30–11:30", desc: "Tiempo libre para compras de recuerdos de última hora por Karl Johan." },
-        { time: "11:30–12:00", desc: "Tomar el Tren Regional de cercanías (Vy) en la estación central directo a Gardermoen." },
-        { time: "12:30", desc: "Facturación de maletas en el aeropuerto de Oslo y preparación para el vuelo de regreso." }
+        { time: "07:50–11:35", desc: "✈️ Vuelo Oslo-Gardermoen (OSL) → Madrid-Barajas (MAD) [Norwegian DY 1718 - Jose Alberto Pazos Ferreiro].", isFixed: true },
+        { time: "17:10–20:18", desc: "🚄 AVE Vuelta: Madrid Chamartín (17:10) → Santiago de Compostela (20:18).", isFixed: true }
       ]
     }
   ],
@@ -822,10 +855,13 @@ const NORWAY_TRAVEL_DATA = {
       { name: "Pølse med lompe", desc: "El tentempié rápido noruego por excelencia. Perrito caliente envuelto en una tortita blanda de patata." }
     ],
     vegetarian: [
-      { name: "Brunost (Queso marrón)", image: "assets/images/gastro_brunost.png", desc: "Queso de suero de leche dulce caramelizado. De sabor similar al toffee salado. Perfecto cortado fino sobre gofres noruegos o tostadas." },
-      { name: "Vafler (Gofres noruegos)", image: "assets/images/gastro_vafler.png", desc: "Gofres en forma de corazones, esponjosos y tiernos, que tradicionalmente se sirven con mermelada y crema agria (rømme)." },
-      { name: "Skillingsbolle", image: "assets/images/gastro_skillingsbolle.png", desc: "El tradicional rollo de canela y azúcar noruego, una delicia de panadería muy popular especialmente en Bergen." },
-      { name: "Multekrem", desc: "Postre tradicional elaborado a base de moras árticas (cloudberries, recolectadas en alta montaña) mezcladas con nata montada azucarada." }
+      { name: "🌱 Nordvegan & Kumi (Oslo)", desc: "Restaurantes 100% basados en plantas y brunch orgánico vegetariano con diseño nórdico. Platos gourmet coloridos, nutritivos y sabrosos." },
+      { name: "🌱 Daily Pot (Bergen)", desc: "Boles saludables repletos de garbanzos, lentejas, quinoa, vegetales de temporada asados y sopas caseras nutritivas ideales para recargar energías." },
+      { name: "🌱 Grønn Lapskaus (Guiso Vegetal)", desc: "Versión vegetariana del estofado tradicional noruego a base de patatas, rutabaga, zanahorias, puerros y finas hierbas de montaña." },
+      { name: "🌱 Brunost (Queso marrón)", image: "assets/images/gastro_brunost.png", desc: "Queso de suero caramelizado dulce tradicional noruego. De sabor toffee salado. Perfecto en finas lonchas sobre tostadas o gofres." },
+      { name: "🌱 Vafler (Gofres noruegos)", image: "assets/images/gastro_vafler.png", desc: "Gofres en forma de corazón, esponjosos y tiernos, servidos tradicionalmente con mermelada de frutos rojos y crema agria (rømme)." },
+      { name: "🌱 Skillingsbolle", image: "assets/images/gastro_skillingsbolle.png", desc: "El icónico rollo artesanal de canela y azúcar noruego, estrella de las panaderías de Bergen y Stryn." },
+      { name: "🌱 Multekrem", desc: "Postre tradicional de moras árticas silvestres (cloudberries) recolectadas en turberas de alta montaña con nata montada azucarada." }
     ],
     drinks: [
       { name: "Aquavit (Akevitt)", desc: "El licor nacional destilado de patata aromatizado con alcaravea, hinojo y comino. Tradicional para ayudar a digerir comidas copiosas." },
@@ -933,3 +969,173 @@ const NORWAY_TRAVEL_DATA = {
     }
   ]
 };
+
+
+window.FIXED_SCHEDULES_DATA = [
+  {
+    id: "ave-ida",
+    category: "tren",
+    icon: "🚄",
+    title: "AVE Ida: Santiago → Madrid Chamartín",
+    date: "01/08/2026 (Sábado)",
+    dayNum: 1,
+    departure: "06:51 — Santiago de Compostela",
+    arrival: "09:48 — Madrid Chamartín",
+    details: "Tren AVE Ida directo. Llegada a Madrid con margen holgado previo al vuelo.",
+    status: "Confirmado · Inamovible",
+    tag: "TREN AVE"
+  },
+  {
+    id: "vuelo-ida",
+    category: "vuelo",
+    icon: "✈️",
+    title: "Vuelo Ida: Madrid Barajas → Oslo Gardermoen",
+    date: "01/08/2026 (Sábado)",
+    dayNum: 1,
+    departure: "20:30 — Madrid-Barajas (MAD)",
+    arrival: "23:55 — Oslo-Gardermoen (OSL)",
+    company: "Norwegian Air Shuttle A.S",
+    flightNum: "Vuelo DY 1719",
+    details: "Salida de Madrid a las 20:30 h. Llegada a Oslo previa a la medianoche.",
+    status: "Confirmado · Inamovible",
+    tag: "VUELO NORWEGIAN"
+  },
+  {
+    id: "coche-recogida",
+    category: "coche",
+    icon: "🚗",
+    title: "Coche de Alquiler: Recogida en Aeropuerto Oslo",
+    date: "02/08/2026 (Domingo)",
+    dayNum: 2,
+    time: "00:30 h (Madrugada tras vuelo)",
+    location: "Oslo Airport Gardermoen (Agencia de recogida)",
+    vehicle: "TOYOTA YARIS CROSS 4X4 AUT. o similar",
+    details: "Recogida de llaves y vehículo inmediatamente tras retirar el equipaje.",
+    status: "Confirmado · Inamovible",
+    tag: "COCHE ALQUILER"
+  },
+  {
+    id: "ferry-gjende",
+    category: "ferry",
+    icon: "⛴️",
+    title: "Ferry Lago Gjende: Gjendesheim ↔ Gjendebu",
+    date: "02/08/2026 (Domingo)",
+    dayNum: 2,
+    departure: "15:25 — Gjendesheim → 16:10 Gjendebu",
+    return: "16:25 — Gjendebu → 17:15 Gjendesheim",
+    details: "Navegación confirmada por el lago de aguas esmeralda. El barco de las 16:25 es el último del día.",
+    status: "Confirmado · Inamovible",
+    tag: "FERRY GJENDE"
+  },
+  {
+    id: "ferry-geiranger",
+    category: "ferry",
+    icon: "⛴️",
+    title: "Ferry Fiordo de Geiranger: Hellesylt → Geiranger",
+    date: "05/08/2026 (Miércoles)",
+    dayNum: 5,
+    departure: "09:30 — Puerto de Hellesylt",
+    arrival: "10:35 — Puerto de Geiranger",
+    details: "Crucero panorámico Patrimonio UNESCO. Acudir al embarcadero con 20-30 min de antelación.",
+    status: "Confirmado · Inamovible",
+    tag: "FERRY GEIRANGER"
+  },
+  {
+    id: "barco-naeroyfjord",
+    category: "ferry",
+    icon: "⛴️",
+    title: "Barco Nærøyfjord: Kaupanger → Gudvangen",
+    date: "06/08/2026 (Jueves)",
+    dayNum: 6,
+    departure: "12:30 — Kaupanger",
+    arrival: "15:00 — Gudvangen",
+    company: "Ferry Nærøyfjord",
+    details: "Navegación por el fiordo más estrecho de Europa. Embarque puntual imprescindible.",
+    status: "Confirmado · Inamovible",
+    tag: "BARCO NÆRØYFJORD"
+  },
+  {
+    id: "tren-flam",
+    category: "tren",
+    icon: "🚂",
+    title: "Tren de Flåm (Flåmsbana): Flåm ↔ Myrdal",
+    date: "06/08/2026 (Jueves)",
+    dayNum: 6,
+    departure: "18:25 - 19:20 (Flåm → Myrdal)",
+    return: "19:35 - 20:30 (Myrdal → Flåm)",
+    details: "Trayecto de ida y vuelta de fama mundial por raíles históricos de gran pendiente.",
+    status: "Confirmado · Inamovible",
+    tag: "TREN DE FLÅM"
+  },
+  {
+    id: "freetour-bergen",
+    category: "freetour",
+    icon: "🚩",
+    title: "Free Tour Bergen: Rincones Ocultos (Español)",
+    date: "07/08/2026 (Viernes)",
+    dayNum: 7,
+    time: "11:00 h Exacta (Duración 2h)",
+    location: "Olav Kyrres gate 27, 5014 Bergen (Glorieta Byparken / Musikkpaviljongen)",
+    company: "Guía local Nati (chica del sombrero rojo)",
+    details: "Recorrido a pie por 11 puntos históricos. Punto de encuentro: Pabellón de la Música Musikkpaviljongen. Pago voluntario al final (aprox. 15€/persona).",
+    status: "Reservado · Inamovible",
+    tag: "FREE TOUR BERGEN"
+  },
+  {
+    id: "coche-devolucion",
+    category: "coche",
+    icon: "🚗",
+    title: "Coche de Alquiler: Devolución en Oslo Central",
+    date: "08/08/2026 (Sábado)",
+    dayNum: 8,
+    time: "19:00 h Exacta (Hora Límite)",
+    location: "Oslo Railway Station (Estación Central de Oslo)",
+    vehicle: "TOYOTA YARIS CROSS 4X4 AUT. o similar",
+    details: "Devolución en la misma hora de recogida (19:00 h) para evitar penalización de día adicional.",
+    status: "Confirmado · Inamovible",
+    tag: "COCHE ALQUILER"
+  },
+  {
+    id: "freetour-oslo",
+    category: "freetour",
+    icon: "🚩",
+    title: "Free Tour Oslo: Historia y Cultura (Español)",
+    date: "09/08/2026 (Domingo)",
+    dayNum: 9,
+    time: "09:30 h Exacta (Llegar 5 min antes)",
+    location: "Christiania Torv 4, 0158 Oslo (Al lado de la estatua del dedo)",
+    company: "Guía en español con paraguas blanco",
+    details: "Recorrido histórico guiado por 8 puntos clave de la capital (Aker Brygge, Ayuntamiento, Parlamento, Catedral, Ópera). Se acepta pago en tarjeta o efectivo.",
+    status: "Reservado · Inamovible",
+    tag: "FREE TOUR OSLO"
+  },
+  {
+    id: "vuelo-vuelta",
+    category: "vuelo",
+    icon: "✈️",
+    title: "Vuelo Vuelta: Oslo Gardermoen → Madrid Barajas",
+    date: "10/08/2026 (Lunes)",
+    dayNum: 10,
+    departure: "07:50 — Oslo-Gardermoen (OSL)",
+    arrival: "11:35 — Madrid-Barajas (MAD)",
+    passenger: "JOSE ALBERTO PAZOS FERREIRO",
+    company: "Norwegian Air Shuttle A.S",
+    flightNum: "Vuelo DY 1718",
+    details: "Salida temprano desde Oslo Gardermoen con destino Madrid-Barajas.",
+    status: "Confirmado · Inamovible",
+    tag: "VUELO NORWEGIAN"
+  },
+  {
+    id: "ave-vuelta",
+    category: "tren",
+    icon: "🚄",
+    title: "AVE Vuelta: Madrid Chamartín → Santiago",
+    date: "10/08/2026 (Lunes)",
+    dayNum: 10,
+    departure: "17:10 — Madrid Chamartín",
+    arrival: "20:18 — Santiago de Compostela",
+    details: "Tren AVE de vuelta directo a Santiago de Compostela tras el desembarque del vuelo.",
+    status: "Confirmado · Inamovible",
+    tag: "TREN AVE"
+  }
+];

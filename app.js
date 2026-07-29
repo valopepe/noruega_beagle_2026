@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupTranslator();
     setupGlobalSearch();
     updateBookingProgress();
+    renderFixedSchedules();
   }
 
   /* --- SETUP NAVIGATION --- */
@@ -303,10 +304,23 @@ document.addEventListener("DOMContentLoaded", () => {
     let timelineHTML = "";
     if (day.schedule && day.schedule.length > 0) {
       day.schedule.forEach(item => {
+        const isFixed = item.isFixed || false;
+        const isFreeTour = isFixed && item.desc && item.desc.includes("FREE TOUR");
+        const itemClass = isFixed ? "timeline-item fixed-item" : "timeline-item";
+        const dotClass = isFixed ? "timeline-dot fixed-dot" : "timeline-dot";
+        const fixedBadge = isFixed
+          ? (isFreeTour
+              ? ` <span class="badge-fixed-alert" style="background:#f59e0b; box-shadow:0 0 10px rgba(245,158,11,0.5);">🚩 FREE TOUR CONFIRMADO</span>`
+              : ` <span class="badge-fixed-alert">🚨 HORARIO FIJO INAMOVIBLE</span>`)
+          : "";
+        const itemStyle = (isFixed && isFreeTour)
+          ? ` style="background:rgba(245,158,11,0.1)!important;border-color:rgba(245,158,11,0.45)!important;border-left:4px solid #f59e0b!important;"`
+          : "";
+
         timelineHTML += `
-          <div class="timeline-item">
-            <div class="timeline-dot"></div>
-            <div class="timeline-time">${item.time}</div>
+          <div class="${itemClass}"${itemStyle}>
+            <div class="${dotClass}" ${isFreeTour ? 'style="background:#f59e0b!important;box-shadow:0 0 12px #f59e0b!important;"' : ''}></div>
+            <div class="timeline-time">${item.time}${fixedBadge}</div>
             <div class="timeline-content">${item.desc}</div>
           </div>
         `;
@@ -314,10 +328,15 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (day.itinerary && day.itinerary.length > 0) {
       day.itinerary.forEach(item => {
         if (item.time) {
+          const isFixed = item.isFixed || false;
+          const itemClass = isFixed ? "timeline-item fixed-item" : "timeline-item";
+          const dotClass = isFixed ? "timeline-dot fixed-dot" : "timeline-dot";
+          const fixedBadge = isFixed ? ` <span class="badge-fixed-alert">🚨 HORARIO FIJO INAMOVIBLE</span>` : "";
+
           timelineHTML += `
-            <div class="timeline-item">
-              <div class="timeline-dot"></div>
-              <div class="timeline-time">${item.time}</div>
+            <div class="${itemClass}">
+              <div class="${dotClass}"></div>
+              <div class="timeline-time">${item.time}${fixedBadge}</div>
               <div class="timeline-content">${item.activity}</div>
             </div>
           `;
@@ -358,9 +377,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       if (tabButtons) {
+        const introHTML = day.cityGuide.intro ? `<p style="margin-bottom: 1rem; color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;">${day.cityGuide.intro}</p>` : "";
         cityGuideHTML = `
           <div class="card card-glass">
             <h3 class="card-title">💡 Guía de la Zona</h3>
+            ${introHTML}
             <div class="nested-tabs">${tabButtons}</div>
             <div class="nested-tabs-content">${tabContents}</div>
           </div>
@@ -572,7 +593,7 @@ document.addEventListener("DOMContentLoaded", () => {
       itemsToRender = itemsToRender.concat(gastronomyData.omnivore.map(item => ({ ...item, type: "omnivore", badgeText: "Tradicional", badgeClass: "badge-primary" })));
     }
     if (filterType === "all" || filterType === "vegetarian") {
-      itemsToRender = itemsToRender.concat(gastronomyData.vegetarian.map(item => ({ ...item, type: "vegetarian", badgeText: "Vegetariano", badgeClass: "badge-accent" })));
+      itemsToRender = itemsToRender.concat(gastronomyData.vegetarian.map(item => ({ ...item, type: "vegetarian", badgeText: "🌱 Vegetariano", badgeClass: "badge-success-veg" })));
     }
     if (filterType === "all" || filterType === "drinks") {
       itemsToRender = itemsToRender.concat(gastronomyData.drinks.map(item => ({ ...item, type: "drinks", badgeText: "Bebida", badgeClass: "badge-primary" })));
@@ -1611,6 +1632,113 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 350);
       }
     }
+  }
+
+  /* --- RENDER HORARIOS FIJOS SECTION --- */
+  function renderFixedSchedules(activeFilter = 'all') {
+    const container = document.getElementById("fixedSchedulesGrid");
+    if (!container) return;
+
+    const data = window.FIXED_SCHEDULES_DATA || [];
+    const filtered = activeFilter === 'all' 
+      ? data 
+      : data.filter(item => item.category === activeFilter);
+
+    let html = "";
+    filtered.forEach(item => {
+      let timeHTML = "";
+      if (item.departure && item.arrival) {
+        timeHTML = `
+          <div class="fixed-time-row">
+            <span class="fixed-time-label">🛫 Salida:</span>
+            <span class="fixed-time-val">${item.departure}</span>
+          </div>
+          <div class="fixed-time-row">
+            <span class="fixed-time-label">🛬 Llegada:</span>
+            <span class="fixed-time-val">${item.arrival}</span>
+          </div>
+        `;
+      } else if (item.departure && item.return) {
+        timeHTML = `
+          <div class="fixed-time-row">
+            <span class="fixed-time-label">➡️ Ida:</span>
+            <span class="fixed-time-val">${item.departure}</span>
+          </div>
+          <div class="fixed-time-row">
+            <span class="fixed-time-label">⬅️ Vuelta:</span>
+            <span class="fixed-time-val">${item.return}</span>
+          </div>
+        `;
+      } else if (item.time) {
+        timeHTML = `
+          <div class="fixed-time-row">
+            <span class="fixed-time-label">⏰ Hora Fija:</span>
+            <span class="fixed-time-val">${item.time}</span>
+          </div>
+        `;
+      }
+
+      let extraInfo = "";
+      if (item.flightNum) extraInfo += `<div><strong>Vuelo:</strong> ${item.flightNum} (${item.company || ''})</div>`;
+      if (item.passenger) extraInfo += `<div><strong>Pasajero:</strong> ${item.passenger}</div>`;
+      if (item.vehicle) extraInfo += `<div><strong>Vehículo:</strong> ${item.vehicle}</div>`;
+      if (item.location) extraInfo += `<div><strong>Lugar:</strong> ${item.location}</div>`;
+      if (item.company && !item.flightNum) extraInfo += `<div><strong>Compañía:</strong> ${item.company}</div>`;
+
+      html += `
+        <div class="fixed-card" data-category="${item.category}">
+          <div class="fixed-card-header">
+            <div class="fixed-card-type">
+              <span class="fixed-card-icon">${item.icon}</span>
+              <span class="fixed-card-tag">${item.tag}</span>
+            </div>
+            <span class="fixed-card-date">📅 ${item.date}</span>
+          </div>
+
+          <h3 class="fixed-card-title">${item.title}</h3>
+
+          <div class="fixed-card-time-box">
+            ${timeHTML}
+          </div>
+
+          ${extraInfo ? `<div class="fixed-card-details">${extraInfo}</div>` : ''}
+
+          <div class="fixed-card-details" style="font-size: 0.82rem; font-style: italic;">
+            📌 ${item.details}
+          </div>
+
+          <div class="fixed-card-footer">
+            <span class="badge" style="background: rgba(239, 68, 68, 0.2); color: #f87171; font-weight: 800; font-size: 0.72rem; padding: 0.25rem 0.6rem; border-radius: 20px; border: 1px solid rgba(239, 68, 68, 0.4);">
+              🚨 ${item.status}
+            </span>
+            <button class="btn btn-secondary btn-sm btn-go-day" data-day="${item.dayNum}">Ver en Día ${item.dayNum} →</button>
+          </div>
+        </div>
+      `;
+    });
+
+    container.innerHTML = html;
+
+    // Attach click listeners to day jump buttons
+    container.querySelectorAll(".btn-go-day").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const dayNum = parseInt(btn.getAttribute("data-day"), 10);
+        switchSection("itinerary");
+        const dayBtn = Array.from(document.querySelectorAll(".day-btn")).find(b => b.getAttribute("data-day") == dayNum);
+        if (dayBtn) dayBtn.click();
+      });
+    });
+
+    // Attach click listeners to filter buttons
+    const filterBtns = document.querySelectorAll(".fixed-filter-btn");
+    filterBtns.forEach(btn => {
+      btn.onclick = () => {
+        filterBtns.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        const filter = btn.getAttribute("data-filter");
+        renderFixedSchedules(filter);
+      };
+    });
   }
 
 });

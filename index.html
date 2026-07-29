@@ -46,6 +46,10 @@
         <span class="nav-icon">📅</span>
         <span class="nav-label">Itinerario</span>
       </button>
+      <button class="nav-btn" data-section="fixed-schedules" style="border-left: 3px solid #ef4444;">
+        <span class="nav-icon">🚨</span>
+        <span class="nav-label" style="color: #f87171; font-weight: 700;">Horarios Fijos</span>
+      </button>
       <button class="nav-btn" data-section="accommodations">
         <span class="nav-icon">🏨</span>
         <span class="nav-label">Alojamientos</span>
@@ -224,6 +228,33 @@
         </div>
       </section>
 
+      <!-- SECTION: HORARIOS FIJOS -->
+      <section class="content-section" id="section-fixed-schedules">
+        <div class="fixed-schedules-header-card">
+          <div class="fixed-header-top">
+            <div class="fixed-title-group">
+              <span class="fixed-header-icon">🚨</span>
+              <div>
+                <h2 class="fixed-header-title">Horarios Fijos e Inamovibles</h2>
+                <p class="fixed-header-subtitle">Trenes AVE, vuelos, ferrys, vehículo de alquiler y <strong style="color:#f87171;">Free Tours confirmados</strong> con horarios cerrados e inamovibles.</p>
+              </div>
+            </div>
+            <span class="badge badge-fixed-count">12 Reservas Clave</span>
+          </div>
+
+          <div class="fixed-filter-tabs">
+            <button class="fixed-filter-btn active" data-filter="all">Todos (12)</button>
+            <button class="fixed-filter-btn" data-filter="freetour" style="border-color: rgba(239, 68, 68, 0.5); color: #f87171;">🚩 Free Tours (2)</button>
+            <button class="fixed-filter-btn" data-filter="tren">🚄 Trenes (3)</button>
+            <button class="fixed-filter-btn" data-filter="vuelo">✈️ Vuelos (2)</button>
+            <button class="fixed-filter-btn" data-filter="ferry">⛴️ Ferrys (3)</button>
+            <button class="fixed-filter-btn" data-filter="coche">🚗 Coche (2)</button>
+          </div>
+        </div>
+
+        <div id="fixedSchedulesGrid" class="fixed-cards-grid"></div>
+      </section>
+
       <!-- SECTION: ACCOMMODATIONS -->
       <section class="content-section" id="section-accommodations">
         <div class="intro-card card card-glass">
@@ -302,8 +333,69 @@
         <div class="filter-bar">
           <button class="filter-btn active" data-filter="all">Todos</button>
           <button class="filter-btn" data-filter="omnivore">Tradicional</button>
-          <button class="filter-btn" data-filter="vegetarian">Vegetariano</button>
+          <button class="filter-btn" data-filter="vegetarian" style="border: 1px solid #4ade80; color: #4ade80;">🌱 Vegetariano & Adaptado</button>
           <button class="filter-btn" data-filter="drinks">Bebidas</button>
+        </div>
+
+        <!-- VEGETARIAN SURVIVAL GUIDE CARD -->
+        <div class="card card-glass vegetarian-strategy-card" style="margin-top: 1rem; margin-bottom: 1.5rem; border: 1px solid rgba(74, 222, 128, 0.4); background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(15, 23, 42, 0.95)); border-radius: 16px; padding: 1.5rem;">
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <span style="font-size: 1.8rem;">🌱</span>
+            <div>
+              <h3 style="margin: 0; font-size: 1.25rem; color: #4ade80; font-weight: 800; font-family: 'Outfit', sans-serif;">Estrategia y Guía Vegetariana para Noruega</h3>
+              <p style="margin: 0.2rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">Previsión para la acompañante vegetariana en carretera, supermercados, frases en noruego y restaurantes adaptados.</p>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.25rem;">
+
+            <!-- Column 1: Supermercados & Provision de Montaña -->
+            <div style="background: rgba(0,0,0,0.35); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+              <h4 style="color: #4ade80; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.95rem;">🛒 Aprovisionamiento & Supermercados</h4>
+              <ul style="margin: 0; padding-left: 1.2rem; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+                <li><strong>Cadenas clave:</strong> REMA 1000 y Kiwi (más económicas), SPAR (comida preparada y ensaladas frescas).</li>
+                <li><strong>Imprescindibles de coche:</strong> Hummus, tofu preparado, garbanzos, frutos secos, fruta fresca y pan de centeno.</li>
+                <li><strong>App recomendada:</strong> Usad la cámara de <em>Google Translate</em> para escanear ingredientes en los envases.</li>
+              </ul>
+            </div>
+
+            <!-- Column 2: Alerta de Carretera -->
+            <div style="background: rgba(0,0,0,0.35); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+              <h4 style="color: #4ade80; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.95rem;">⚠️ Alerta en Rutas de Montaña</h4>
+              <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+                En los desvíos y puertos de montaña (Rondane en el Día 4 o Hardangervidda en el Día 8), las gasolineras solo ofrecen perritos calientes de carne. <strong>Llevar siempre picnic vegetal preparado en el coche desde las cabañas o supermercados principales.</strong>
+              </p>
+            </div>
+
+            <!-- Column 3: Frases Clave en Noruego -->
+            <div style="background: rgba(0,0,0,0.35); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+              <h4 style="color: #4ade80; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.95rem;">🗣️ Frase Clave en Restaurantes</h4>
+              <div style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.84rem;">
+                <div style="background: rgba(34,197,94,0.18); padding: 0.5rem 0.75rem; border-radius: 8px; border: 1px solid rgba(34,197,94,0.35);">
+                  <strong style="color:#4ade80; font-size: 0.92rem;">"Har dere noe vegetaralternativ?"</strong><br><span style="color:var(--text-secondary);">¿Tienen alguna opción vegetariana?</span>
+                </div>
+                <div style="background: rgba(255,255,255,0.04); padding: 0.4rem 0.65rem; border-radius: 6px;">
+                  <strong style="color:var(--text-main);">"Jeg spiser ikke kjøtt eller fisk."</strong><br><span style="color:var(--text-muted);">No como carne ni pescado.</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Top Vegetarian Spots along the Route -->
+          <div style="margin-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
+            <h4 style="color: #4ade80; margin: 0 0 0.6rem 0; font-size: 0.95rem;">📍 Locales Destacados 100% Vegetarianos o Adaptados en la Ruta:</h4>
+            <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.82rem;">
+              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Nordvegan (Oslo) — 100% Plant-Based</span>
+              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Kumi (Oslo) — Brunch Orgánico</span>
+              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Daily Pot (Bergen) — Boles & Sopas</span>
+              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Pingvinen (Bergen) — Tradicional Adaptado</span>
+              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Peppes Pizza (Beitostølen) — Menú Veggie</span>
+              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Brasserie Posthuset (Stryn) — Risottos & Pastas</span>
+              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Tre Brør (Voss) — Opción Bistró Local</span>
+              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Olivia (Østbanehallen Oslo) — Pastas & Pizzas Veggie</span>
+            </div>
+          </div>
         </div>
 
         <div class="cards-grid" id="gastronomyGrid">

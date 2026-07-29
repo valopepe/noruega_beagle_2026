@@ -1664,3 +1664,286 @@ mark.search-highlight {
   pointer-events: none;
   text-shadow: 0 1px 3px rgba(0,0,0,0.8);
 }
+
+/* ==========================================================================
+   HORARIOS FIJOS & RED ALERT BADGES
+   ========================================================================== */
+
+.timeline-item.fixed-item {
+  background: rgba(239, 68, 68, 0.12) !important;
+  border: 1px solid rgba(239, 68, 68, 0.45) !important;
+  border-left: 4px solid #ef4444 !important;
+  border-radius: 12px;
+  padding: 0.85rem 1.1rem;
+  margin-bottom: 0.85rem;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-item.fixed-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.25);
+}
+
+.timeline-dot.fixed-dot {
+  background: #ef4444 !important;
+  box-shadow: 0 0 12px #ef4444, 0 0 4px #ef4444 !important;
+}
+
+.badge-fixed-alert {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: #ef4444;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.68rem;
+  padding: 0.2rem 0.55rem;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+  margin-left: 0.6rem;
+  text-transform: uppercase;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+  animation: pulseFixedAlert 2.5s infinite;
+}
+
+@keyframes pulseFixedAlert {
+  0% { box-shadow: 0 0 6px rgba(239, 68, 68, 0.5); }
+  50% { box-shadow: 0 0 16px rgba(239, 68, 68, 0.9); }
+  100% { box-shadow: 0 0 6px rgba(239, 68, 68, 0.5); }
+}
+
+/* Horarios Fijos Section Layout */
+.fixed-schedules-header-card {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.18), rgba(15, 23, 42, 0.95));
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  padding: 1.5rem;
+  border-radius: 18px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.fixed-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.fixed-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.fixed-header-icon {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 0 10px rgba(239, 68, 68, 0.6));
+}
+
+.fixed-header-title {
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: #f87171;
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+}
+
+.fixed-header-subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0.2rem 0 0 0;
+}
+
+.badge-fixed-count {
+  background: #ef4444;
+  color: white;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(239, 68, 68, 0.4);
+}
+
+.fixed-filter-tabs {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.fixed-filter-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-secondary);
+  padding: 0.45rem 0.9rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.fixed-filter-btn:hover {
+  background: rgba(239, 68, 68, 0.15);
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+.fixed-filter-btn.active {
+  background: #ef4444;
+  color: white;
+  border-color: #ef4444;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.4);
+}
+
+.fixed-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.fixed-card {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  border-top: 4px solid #ef4444;
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.fixed-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(239, 68, 68, 0.2);
+  border-color: rgba(239, 68, 68, 0.6);
+}
+
+.fixed-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 0.75rem;
+}
+
+.fixed-card-type {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.fixed-card-icon {
+  font-size: 1.5rem;
+}
+
+.fixed-card-tag {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+  font-weight: 800;
+  font-size: 0.72rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid rgba(239, 68, 68, 0.4);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.fixed-card-date {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.fixed-card-title {
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.fixed-card-time-box {
+  background: rgba(0, 0, 0, 0.35);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.fixed-time-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.88rem;
+}
+
+.fixed-time-label {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.fixed-time-val {
+  color: #f87171;
+  font-weight: 800;
+  font-family: monospace, monospace;
+}
+
+.fixed-card-details {
+  font-size: 0.84rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.fixed-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: auto;
+  padding-top: 0.6rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.badge-success-veg {
+  background: rgba(34, 197, 94, 0.25) !important;
+  color: #4ade80 !important;
+  border: 1px solid rgba(74, 222, 128, 0.5) !important;
+  font-weight: 800 !important;
+  box-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
+}
+
+/* Free Tour card accent (flag color) */
+.fixed-card[data-category="freetour"] {
+  border-top-color: #f59e0b !important;
+  border-color: rgba(245, 158, 11, 0.4) !important;
+  background: linear-gradient(160deg, rgba(245, 158, 11, 0.08), rgba(15, 23, 42, 0.9)) !important;
+}
+
+.fixed-card[data-category="freetour"]:hover {
+  border-color: rgba(245, 158, 11, 0.65) !important;
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.18) !important;
+}
+
+.fixed-card[data-category="freetour"] .fixed-card-tag {
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.4);
+}
+
+.fixed-card[data-category="freetour"] .fixed-time-val {
+  color: #fbbf24;
+}
+
+.timeline-item.fixed-item[data-type="freetour"] {
+  background: rgba(245, 158, 11, 0.1) !important;
+  border-color: rgba(245, 158, 11, 0.45) !important;
+  border-left-color: #f59e0b !important;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.12) !important;
+}
