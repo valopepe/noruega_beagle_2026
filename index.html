@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
   <!-- Google Fonts: Outfit & Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
   <!-- Stylesheet -->
   <link rel="stylesheet" href="index.css">
   <!-- PWA Manifest & App Icons -->
@@ -17,6 +20,7 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="apple-touch-icon" href="assets/images/icon-192.png">
 </head>
+
 <body class="dark-theme">
 
   <!-- Mobile Overlay -->
@@ -27,8 +31,8 @@
     <div class="sidebar-header">
       <div class="logo-container">
         <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke-linejoin="round"/>
-          <path d="M22 2L11 13" stroke-linecap="round"/>
+          <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke-linejoin="round" />
+          <path d="M22 2L11 13" stroke-linecap="round" />
         </svg>
         <div class="logo-text">
           <span class="logo-title">Noruega Beagle</span>
@@ -94,14 +98,14 @@
 
   <!-- Main Content Area -->
   <main class="main-content">
-    
+
     <!-- Top Bar -->
     <header class="top-bar">
       <button class="menu-toggle" id="menuToggle">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <line x1="3" y1="12" x2="21" y2="12" stroke-linecap="round"/>
-          <line x1="3" y1="6" x2="21" y2="6" stroke-linecap="round"/>
-          <line x1="3" y1="18" x2="21" y2="18" stroke-linecap="round"/>
+          <line x1="3" y1="12" x2="21" y2="12" stroke-linecap="round" />
+          <line x1="3" y1="6" x2="21" y2="6" stroke-linecap="round" />
+          <line x1="3" y1="18" x2="21" y2="18" stroke-linecap="round" />
         </svg>
       </button>
       <h1 class="section-title" id="mainSectionTitle">Inicio</h1>
@@ -113,15 +117,16 @@
             <circle cx="11" cy="11" r="8"></circle>
             <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
           </svg>
-          <input type="text" id="globalSearchInput" placeholder="Buscar en el viaje (ferrys, aparcamientos, restaurantes, lugares...)" autocomplete="off" />
+          <input type="text" id="globalSearchInput"
+            placeholder="Buscar en el viaje (ferrys, aparcamientos, restaurantes, lugares...)" autocomplete="off" />
           <button id="clearSearchBtn" class="clear-search-btn" title="Limpiar búsqueda">&times;</button>
         </div>
         <div class="search-results-dropdown" id="searchResultsDropdown"></div>
       </div>
 
-      <div class="top-bar-actions">
+      <!--<div class="top-bar-actions">
         <span class="badge badge-accent">1 - 10 Ago 2026</span>
-      </div>
+      </div>-->
     </header>
 
     <!-- Scrollable Content Window -->
@@ -134,7 +139,8 @@
           <div class="hero-overlay">
             <span class="hero-badge">Ruta Escénica & Guía Activa</span>
             <h2 class="hero-title">Oslo — Jotunheimen — Fiordos — Bergen — Oslo</h2>
-            <p class="hero-desc">Una expedición científica y paisajística de 10 días para 4 adultos por el corazón indómito del reino nórdico.</p>
+            <p class="hero-desc">Una expedición científica y paisajística de 10 días para 4 adultos por el corazón
+              indómito del reino nórdico.</p>
             <div class="countdown-container" id="countdown">
               <div class="countdown-item">
                 <span class="countdown-num" id="cd-days">--</span>
@@ -196,7 +202,10 @@
               <span class="dest-icon">🚗</span>
               <div>
                 <h4 class="dest-name" id="homeNextDestName">Día 1: Vuelo a Oslo</h4>
-                <p class="dest-detail" id="homeNextDestDetail">Recogida de coche y <a href="https://www.google.com/maps/search/?api=1&query=Thon+Hotel+Oslo+Airport,+Balder+All%C3%A8+22,+2060+Gardermoen,+Noruega" target="_blank" rel="noopener noreferrer" style="color: var(--primary); text-decoration: underline;">Thon Hotel Oslo Airport ↗</a>.</p>
+                <p class="dest-detail" id="homeNextDestDetail">Recogida de coche y <a
+                    href="https://www.google.com/maps/search/?api=1&query=Thon+Hotel+Oslo+Airport,+Balder+All%C3%A8+22,+2060+Gardermoen,+Noruega"
+                    target="_blank" rel="noopener noreferrer"
+                    style="color: var(--primary); text-decoration: underline;">Thon Hotel Oslo Airport ↗</a>.</p>
               </div>
             </div>
             <button class="btn btn-primary" id="btnStartItinerary">Comenzar Ruta</button>
@@ -207,7 +216,8 @@
         <div class="accommodations-home-section" style="margin-top: 2rem;">
           <div style="display: flex; flex-direction: column; gap: 0.25rem; margin-bottom: 1.25rem;">
             <h2 style="font-size: 1.5rem; font-weight: 700; color: var(--text-main);">🏠 Alojamientos del Viaje</h2>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">Las 5 estancias reservadas para las 10 noches de ruta por Noruega, con equipamiento detallado y mapa:</p>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Las 5 estancias reservadas para las 10 noches de
+              ruta por Noruega, con equipamiento detallado y mapa:</p>
           </div>
           <div class="cards-grid" id="homeAccommodationsGrid">
             <!-- Dynamically populated cards with photos, amenities, and details -->
@@ -236,7 +246,8 @@
               <span class="fixed-header-icon">🚨</span>
               <div>
                 <h2 class="fixed-header-title">Horarios Fijos e Inamovibles</h2>
-                <p class="fixed-header-subtitle">Trenes AVE, vuelos, ferrys, vehículo de alquiler y <strong style="color:#f87171;">Free Tours confirmados</strong> con horarios cerrados e inamovibles.</p>
+                <p class="fixed-header-subtitle">Trenes AVE, vuelos, ferrys, vehículo de alquiler y <strong
+                    style="color:#f87171;">Free Tours confirmados</strong> con horarios cerrados e inamovibles.</p>
               </div>
             </div>
             <span class="badge badge-fixed-count">12 Reservas Clave</span>
@@ -244,7 +255,8 @@
 
           <div class="fixed-filter-tabs">
             <button class="fixed-filter-btn active" data-filter="all">Todos (12)</button>
-            <button class="fixed-filter-btn" data-filter="freetour" style="border-color: rgba(239, 68, 68, 0.5); color: #f87171;">🚩 Free Tours (2)</button>
+            <button class="fixed-filter-btn" data-filter="freetour"
+              style="border-color: rgba(239, 68, 68, 0.5); color: #f87171;">🚩 Free Tours (2)</button>
             <button class="fixed-filter-btn" data-filter="tren">🚄 Trenes (3)</button>
             <button class="fixed-filter-btn" data-filter="vuelo">✈️ Vuelos (2)</button>
             <button class="fixed-filter-btn" data-filter="ferry">⛴️ Ferrys (3)</button>
@@ -260,7 +272,8 @@
         <div class="intro-card card card-glass">
           <div class="intro-content">
             <h2>🏨 Alojamientos del Viaje (10 Noches)</h2>
-            <p>Guía detallada de las 5 estancias reservadas para los 4 adultos durante la expedición por Noruega. Incluye fotografías, distribución de habitaciones, servicios, equipamiento y ubicación en Google Maps.</p>
+            <p>Guía detallada de las 5 estancias reservadas para los 4 adultos durante la expedición por Noruega.
+              Incluye fotografías, distribución de habitaciones, servicios, equipamiento y ubicación en Google Maps.</p>
           </div>
         </div>
 
@@ -295,16 +308,19 @@
       <!-- SECTION: WEATHER / METEOROLOGÍA -->
       <section class="content-section" id="section-weather">
         <div class="intro-card card card-glass">
-          <div class="intro-content" style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
+          <div class="intro-content"
+            style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem;">
             <div>
               <h2>🌤️ Previsión Meteorológica a 3 Días</h2>
-              <p>Predicción meteorológica en tiempo real obtenida de estaciones oficiales para cada uno de los destinos del viaje. La previsión se actualiza automáticamente cada 30 minutos.</p>
+              <p>Predicción meteorológica en tiempo real obtenida de estaciones oficiales para cada uno de los destinos
+                del viaje. La previsión se actualiza automáticamente cada 30 minutos.</p>
             </div>
             <div style="display: flex; flex-direction: column; align-items: flex-end; gap: 0.5rem;">
               <button class="btn btn-secondary btn-sm" id="btnRefreshWeather" style="gap: 0.35rem;">
                 🔄 Actualizar Ahora
               </button>
-              <span style="font-size: 0.75rem; color: var(--text-muted);" id="weatherLastUpdatedText">Cargando datos...</span>
+              <span style="font-size: 0.75rem; color: var(--text-muted);" id="weatherLastUpdatedText">Cargando
+                datos...</span>
             </div>
           </div>
         </div>
@@ -326,56 +342,78 @@
         <div class="intro-card card card-glass">
           <div class="intro-content">
             <h2>Gastronomía Nórdica</h2>
-            <p>Noruega combina ingredientes frescos de calidad marina con una rica tradición culinaria local. Hemos preparado una selección de platos típicos omnívoros, fabulosas opciones vegetarianas y bebidas locales que no os podéis perder.</p>
+            <p>Noruega combina ingredientes frescos de calidad marina con una rica tradición culinaria local. Hemos
+              preparado una selección de platos típicos omnívoros, fabulosas opciones vegetarianas y bebidas locales que
+              no os podéis perder.</p>
           </div>
         </div>
 
         <div class="filter-bar">
           <button class="filter-btn active" data-filter="all">Todos</button>
           <button class="filter-btn" data-filter="omnivore">Tradicional</button>
-          <button class="filter-btn" data-filter="vegetarian" style="border: 1px solid #4ade80; color: #4ade80;">🌱 Vegetariano & Adaptado</button>
+          <button class="filter-btn" data-filter="vegetarian" style="border: 1px solid #4ade80; color: #4ade80;">🌱
+            Vegetariano & Adaptado</button>
           <button class="filter-btn" data-filter="drinks">Bebidas</button>
         </div>
 
         <!-- VEGETARIAN SURVIVAL GUIDE CARD -->
-        <div class="card card-glass vegetarian-strategy-card" style="margin-top: 1rem; margin-bottom: 1.5rem; border: 1px solid rgba(74, 222, 128, 0.4); background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(15, 23, 42, 0.95)); border-radius: 16px; padding: 1.5rem;">
+        <div class="card card-glass vegetarian-strategy-card"
+          style="margin-top: 1rem; margin-bottom: 1.5rem; border: 1px solid rgba(74, 222, 128, 0.4); background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(15, 23, 42, 0.95)); border-radius: 16px; padding: 1.5rem;">
           <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
             <span style="font-size: 1.8rem;">🌱</span>
             <div>
-              <h3 style="margin: 0; font-size: 1.25rem; color: #4ade80; font-weight: 800; font-family: 'Outfit', sans-serif;">Estrategia y Guía Vegetariana para Noruega</h3>
-              <p style="margin: 0.2rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">Previsión para la acompañante vegetariana en carretera, supermercados, frases en noruego y restaurantes adaptados.</p>
+              <h3
+                style="margin: 0; font-size: 1.25rem; color: #4ade80; font-weight: 800; font-family: 'Outfit', sans-serif;">
+                Estrategia y Guía Vegetariana para Noruega</h3>
+              <p style="margin: 0.2rem 0 0 0; color: var(--text-secondary); font-size: 0.9rem;">Previsión para la
+                acompañante vegetariana en carretera, supermercados, frases en noruego y restaurantes adaptados.</p>
             </div>
           </div>
 
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.25rem;">
 
             <!-- Column 1: Supermercados & Provision de Montaña -->
-            <div style="background: rgba(0,0,0,0.35); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
-              <h4 style="color: #4ade80; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.95rem;">🛒 Aprovisionamiento & Supermercados</h4>
-              <ul style="margin: 0; padding-left: 1.2rem; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
-                <li><strong>Cadenas clave:</strong> REMA 1000 y Kiwi (más económicas), SPAR (comida preparada y ensaladas frescas).</li>
-                <li><strong>Imprescindibles de coche:</strong> Hummus, tofu preparado, garbanzos, frutos secos, fruta fresca y pan de centeno.</li>
-                <li><strong>App recomendada:</strong> Usad la cámara de <em>Google Translate</em> para escanear ingredientes en los envases.</li>
+            <div
+              style="background: rgba(0,0,0,0.35); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+              <h4 style="color: #4ade80; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.95rem;">🛒 Aprovisionamiento
+                & Supermercados</h4>
+              <ul
+                style="margin: 0; padding-left: 1.2rem; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
+                <li><strong>Cadenas clave:</strong> REMA 1000 y Kiwi (más económicas), SPAR (comida preparada y
+                  ensaladas frescas).</li>
+                <li><strong>Imprescindibles de coche:</strong> Hummus, tofu preparado, garbanzos, frutos secos, fruta
+                  fresca y pan de centeno.</li>
+                <li><strong>App recomendada:</strong> Usad la cámara de <em>Google Translate</em> para escanear
+                  ingredientes en los envases.</li>
               </ul>
             </div>
 
             <!-- Column 2: Alerta de Carretera -->
-            <div style="background: rgba(0,0,0,0.35); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
-              <h4 style="color: #4ade80; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.95rem;">⚠️ Alerta en Rutas de Montaña</h4>
+            <div
+              style="background: rgba(0,0,0,0.35); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+              <h4 style="color: #4ade80; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.95rem;">⚠️ Alerta en Rutas
+                de Montaña</h4>
               <p style="margin: 0; color: var(--text-secondary); font-size: 0.85rem; line-height: 1.6;">
-                En los desvíos y puertos de montaña (Rondane en el Día 4 o Hardangervidda en el Día 8), las gasolineras solo ofrecen perritos calientes de carne. <strong>Llevar siempre picnic vegetal preparado en el coche desde las cabañas o supermercados principales.</strong>
+                En los desvíos y puertos de montaña (Rondane en el Día 4 o Hardangervidda en el Día 8), las gasolineras
+                solo ofrecen perritos calientes de carne. <strong>Llevar siempre picnic vegetal preparado en el coche
+                  desde las cabañas o supermercados principales.</strong>
               </p>
             </div>
 
             <!-- Column 3: Frases Clave en Noruego -->
-            <div style="background: rgba(0,0,0,0.35); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
-              <h4 style="color: #4ade80; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.95rem;">🗣️ Frase Clave en Restaurantes</h4>
+            <div
+              style="background: rgba(0,0,0,0.35); padding: 1rem; border-radius: 12px; border: 1px solid rgba(255,255,255,0.06);">
+              <h4 style="color: #4ade80; margin-top: 0; margin-bottom: 0.5rem; font-size: 0.95rem;">🗣️ Frase Clave en
+                Restaurantes</h4>
               <div style="display: flex; flex-direction: column; gap: 0.4rem; font-size: 0.84rem;">
-                <div style="background: rgba(34,197,94,0.18); padding: 0.5rem 0.75rem; border-radius: 8px; border: 1px solid rgba(34,197,94,0.35);">
-                  <strong style="color:#4ade80; font-size: 0.92rem;">"Har dere noe vegetaralternativ?"</strong><br><span style="color:var(--text-secondary);">¿Tienen alguna opción vegetariana?</span>
+                <div
+                  style="background: rgba(34,197,94,0.18); padding: 0.5rem 0.75rem; border-radius: 8px; border: 1px solid rgba(34,197,94,0.35);">
+                  <strong style="color:#4ade80; font-size: 0.92rem;">"Har dere noe vegetaralternativ?"</strong><br><span
+                    style="color:var(--text-secondary);">¿Tienen alguna opción vegetariana?</span>
                 </div>
                 <div style="background: rgba(255,255,255,0.04); padding: 0.4rem 0.65rem; border-radius: 6px;">
-                  <strong style="color:var(--text-main);">"Jeg spiser ikke kjøtt eller fisk."</strong><br><span style="color:var(--text-muted);">No como carne ni pescado.</span>
+                  <strong style="color:var(--text-main);">"Jeg spiser ikke kjøtt eller fisk."</strong><br><span
+                    style="color:var(--text-muted);">No como carne ni pescado.</span>
                 </div>
               </div>
             </div>
@@ -384,16 +422,33 @@
 
           <!-- Top Vegetarian Spots along the Route -->
           <div style="margin-top: 1.25rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;">
-            <h4 style="color: #4ade80; margin: 0 0 0.6rem 0; font-size: 0.95rem;">📍 Locales Destacados 100% Vegetarianos o Adaptados en la Ruta:</h4>
+            <h4 style="color: #4ade80; margin: 0 0 0.6rem 0; font-size: 0.95rem;">📍 Locales Destacados 100%
+              Vegetarianos o Adaptados en la Ruta:</h4>
             <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.82rem;">
-              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Nordvegan (Oslo) — 100% Plant-Based</span>
-              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Kumi (Oslo) — Brunch Orgánico</span>
-              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Daily Pot (Bergen) — Boles & Sopas</span>
-              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Pingvinen (Bergen) — Tradicional Adaptado</span>
-              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Peppes Pizza (Beitostølen) — Menú Veggie</span>
-              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Brasserie Posthuset (Stryn) — Risottos & Pastas</span>
-              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Tre Brør (Voss) — Opción Bistró Local</span>
-              <span class="badge" style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱 Olivia (Østbanehallen Oslo) — Pastas & Pizzas Veggie</span>
+              <span class="badge"
+                style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱
+                Nordvegan (Oslo) — 100% Plant-Based</span>
+              <span class="badge"
+                style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱
+                Kumi (Oslo) — Brunch Orgánico</span>
+              <span class="badge"
+                style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱
+                Daily Pot (Bergen) — Boles & Sopas</span>
+              <span class="badge"
+                style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱
+                Pingvinen (Bergen) — Tradicional Adaptado</span>
+              <span class="badge"
+                style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱
+                Peppes Pizza (Beitostølen) — Menú Veggie</span>
+              <span class="badge"
+                style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱
+                Brasserie Posthuset (Stryn) — Risottos & Pastas</span>
+              <span class="badge"
+                style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱
+                Tre Brør (Voss) — Opción Bistró Local</span>
+              <span class="badge"
+                style="background: rgba(34,197,94,0.2); color: #4ade80; border: 1px solid rgba(34,197,94,0.4); padding: 0.35rem 0.7rem; border-radius: 20px;">🌱
+                Olivia (Østbanehallen Oslo) — Pastas & Pizzas Veggie</span>
             </div>
           </div>
         </div>
@@ -408,7 +463,8 @@
         <div class="intro-card card card-glass">
           <div class="intro-content">
             <h2>Souvenirs & Recuerdos</h2>
-            <p>Desde prendas tradicionales de lana hasta prácticos utensilios e ingredientes árticos exquisitos. Estos son los mejores recuerdos auténticos de Noruega para llevarte a casa.</p>
+            <p>Desde prendas tradicionales de lana hasta prácticos utensilios e ingredientes árticos exquisitos. Estos
+              son los mejores recuerdos auténticos de Noruega para llevarte a casa.</p>
           </div>
         </div>
 
@@ -420,11 +476,12 @@
       <!-- SECTION: LOGISTICS -->
       <section class="content-section" id="section-logistics">
         <div class="logistics-container">
-          
+
           <!-- Critical Bookings Card -->
           <div class="card card-glass">
             <h2 class="section-subtitle">📋 Reservas Críticas (Agosto 2026)</h2>
-            <p class="card-desc">Marca las reservas a medida que las realices. El progreso se actualizará en la pantalla de inicio.</p>
+            <p class="card-desc">Marca las reservas a medida que las realices. El progreso se actualizará en la pantalla
+              de inicio.</p>
             <div class="table-responsive">
               <table class="bookings-table">
                 <thead>
@@ -455,7 +512,8 @@
           <!-- Recommended Parkings Card -->
           <div class="card card-glass">
             <h2 class="section-subtitle">🅿️ Parkings Recomendados y Estacionamiento</h2>
-            <p class="card-desc">Ubicaciones exactas de los aparcamientos clave en cada etapa de la ruta con enlace directo a Google Maps:</p>
+            <p class="card-desc">Ubicaciones exactas de los aparcamientos clave en cada etapa de la ruta con enlace
+              directo a Google Maps:</p>
             <div class="table-responsive">
               <table class="bookings-table">
                 <thead>
@@ -495,7 +553,8 @@
               </div>
             </div>
             <div class="alert alert-info">
-              <strong>Consejo de equipaje:</strong> Calzado técnico de trekking impermeable y repelente de insectos son indispensables en Jotunheimen.
+              <strong>Consejo de equipaje:</strong> Calzado técnico de trekking impermeable y repelente de insectos son
+              indispensables en Jotunheimen.
             </div>
           </div>
 
@@ -503,11 +562,15 @@
           <div class="grid-2col">
             <div class="card card-glass">
               <h3 class="card-title">💳 Finanzas y Pagos</h3>
-              <p>Noruega es una sociedad prácticamente <strong>cashless</strong>. Se puede pagar con tarjeta absolutamente todo, desde gofres en cabañas de montaña hasta baños públicos. Es prudente llevar dos tarjetas distintas (para evitar bloqueos) y verificar comisiones de cambio de divisa.</p>
+              <p>Noruega es una sociedad prácticamente <strong>cashless</strong>. Se puede pagar con tarjeta
+                absolutamente todo, desde gofres en cabañas de montaña hasta baños públicos. Es prudente llevar dos
+                tarjetas distintas (para evitar bloqueos) y verificar comisiones de cambio de divisa.</p>
             </div>
             <div class="card card-glass">
               <h3 class="card-title">🍷 Alcohol (Vinmonopolet)</h3>
-              <p>La cerveza de hasta 4.7% se vende en supermercados antes de las 20:00 (18:00 los sábados). Las bebidas con graduación superior (vino, ginebra, licores) solo están disponibles en las tiendas del gobierno estatal <strong>Vinmonopolet</strong>, con horarios muy restringidos.</p>
+              <p>La cerveza de hasta 4.7% se vende en supermercados antes de las 20:00 (18:00 los sábados). Las bebidas
+                con graduación superior (vino, ginebra, licores) solo están disponibles en las tiendas del gobierno
+                estatal <strong>Vinmonopolet</strong>, con horarios muy restringidos.</p>
             </div>
           </div>
 
@@ -519,7 +582,8 @@
         <div class="intro-card card card-glass">
           <div class="intro-content">
             <h2>Aplicaciones Móviles Recomendadas</h2>
-            <p>Descarga estas aplicaciones antes de tu viaje. Te ayudarán a navegar por las carreteras noruegas, gestionar los pagos de aparcamientos y predecir el clima cambiante de las montañas.</p>
+            <p>Descarga estas aplicaciones antes de tu viaje. Te ayudarán a navegar por las carreteras noruegas,
+              gestionar los pagos de aparcamientos y predecir el clima cambiante de las montañas.</p>
           </div>
         </div>
 
@@ -531,11 +595,12 @@
       <!-- SECTION: TOOLS -->
       <section class="content-section" id="section-tools">
         <div class="grid-2col">
-          
+
           <!-- Currency Converter -->
           <div class="card card-glass converter-card">
             <h2 class="card-title">💶 Conversor de Divisas (NOK / EUR)</h2>
-            <p class="card-desc">Introduce el importe en coronas noruegas (NOK) o euros (EUR) para calcular al instante.</p>
+            <p class="card-desc">Introduce el importe en coronas noruegas (NOK) o euros (EUR) para calcular al instante.
+            </p>
             <div class="converter-inputs">
               <div class="input-group">
                 <label for="inputNok">Coronas Noruegas (NOK)</label>
@@ -595,30 +660,38 @@
 
           <!-- Online Translator Card -->
           <div class="card card-glass translator-card" style="grid-column: 1 / -1; margin-top: 0.5rem;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
+            <div
+              style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.85rem; flex-wrap: wrap; gap: 0.5rem;">
               <h2 class="card-title" style="margin:0;">🌐 Traductor en Línea Instantáneo (Noruego ⇄ Español)</h2>
               <span class="badge badge-accent">Traducción API en Tiempo Real</span>
             </div>
-            
+
             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1.25rem;">
-              Escribe o pega cualquier palabra, cartel, ingrediente de supermercado o frase en noruego u español para obtener la traducción inmediata.
+              Escribe o pega cualquier palabra, cartel, ingrediente de supermercado o frase en noruego u español para
+              obtener la traducción inmediata.
             </p>
 
             <!-- Camera & Lens Translation Action Box -->
-            <div style="background: rgba(var(--primary-rgb), 0.08); border: 1px solid rgba(var(--primary-rgb), 0.25); border-radius: var(--border-radius-sm); padding: 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
+            <div
+              style="background: rgba(var(--primary-rgb), 0.08); border: 1px solid rgba(var(--primary-rgb), 0.25); border-radius: var(--border-radius-sm); padding: 1rem; margin-bottom: 1.25rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
               <div style="display: flex; align-items: center; gap: 0.75rem; flex: 1; min-width: 260px;">
                 <span style="font-size: 2rem;">📷</span>
                 <div>
-                  <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin: 0;">Traducción de Carteles con Cámara (Google Lens)</h4>
-                  <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0.2rem 0 0 0;">Apunta con la cámara de tu móvil a cualquier cartel, menú de restaurante o envase para traducir en tiempo real de Noruego a Español.</p>
+                  <h4 style="font-size: 0.95rem; font-weight: 700; color: var(--text-main); margin: 0;">Traducción de
+                    Carteles con Cámara (Google Lens)</h4>
+                  <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0.2rem 0 0 0;">Apunta con la cámara de
+                    tu móvil a cualquier cartel, menú de restaurante o envase para traducir en tiempo real de Noruego a
+                    Español.</p>
                 </div>
               </div>
-              
+
               <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
-                <button class="btn btn-primary btn-sm" id="btnLaunchGoogleLens" style="gap: 0.4rem; font-weight: 600; padding: 0.5rem 1rem;">
+                <button class="btn btn-primary btn-sm" id="btnLaunchGoogleLens"
+                  style="gap: 0.4rem; font-weight: 600; padding: 0.5rem 1rem;">
                   🔍 Abrir Google Lens / Cámara ↗
                 </button>
-                <button class="btn btn-secondary btn-sm" id="btnScanPhotoApp" style="gap: 0.4rem; font-weight: 600; padding: 0.5rem 1rem;">
+                <button class="btn btn-secondary btn-sm" id="btnScanPhotoApp"
+                  style="gap: 0.4rem; font-weight: 600; padding: 0.5rem 1rem;">
                   📸 Hacer Foto / Escanear
                 </button>
                 <input type="file" id="lensPhotoInput" capture="environment" accept="image/*" style="display: none;">
@@ -628,42 +701,63 @@
             <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: start;">
               <!-- Source Input -->
               <div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
-                  <label id="transSourceLangLabel" style="font-weight: 700; font-size: 0.85rem; color: var(--primary);">🇳🇴 Noruego (Norsk)</label>
-                  <button class="btn btn-secondary btn-sm" id="btnClearTrans" style="padding: 2px 8px; font-size: 0.75rem;">Limpiar</button>
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                  <label id="transSourceLangLabel"
+                    style="font-weight: 700; font-size: 0.85rem; color: var(--primary);">🇳🇴 Noruego (Norsk)</label>
+                  <button class="btn btn-secondary btn-sm" id="btnClearTrans"
+                    style="padding: 2px 8px; font-size: 0.75rem;">Limpiar</button>
                 </div>
-                <textarea id="transSourceText" placeholder="Escribe o pega texto aquí... (ej. Hvor er toalettet? / Røykelaks / Parkering forbudt)" rows="4" style="width: 100%; padding: 0.75rem; border-radius: var(--border-radius-sm); border: 1px solid var(--border-card); background: var(--bg-card); color: var(--text-main); font-family: inherit; font-size: 0.9rem; resize: vertical; outline: none;"></textarea>
+                <textarea id="transSourceText"
+                  placeholder="Escribe o pega texto aquí... (ej. Hvor er toalettet? / Røykelaks / Parkering forbudt)"
+                  rows="4"
+                  style="width: 100%; padding: 0.75rem; border-radius: var(--border-radius-sm); border: 1px solid var(--border-card); background: var(--bg-card); color: var(--text-main); font-family: inherit; font-size: 0.9rem; resize: vertical; outline: none;"></textarea>
               </div>
 
               <!-- Switch Direction Button -->
-              <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding-top: 1.8rem;">
-                <button class="btn btn-secondary" id="btnSwapLang" title="Cambiar idioma (Noruego ⇄ Español)" style="border-radius: 50%; width: 44px; height: 44px; padding: 0; font-size: 1.1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
+              <div
+                style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding-top: 1.8rem;">
+                <button class="btn btn-secondary" id="btnSwapLang" title="Cambiar idioma (Noruego ⇄ Español)"
+                  style="border-radius: 50%; width: 44px; height: 44px; padding: 0; font-size: 1.1rem; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
                   🔄
                 </button>
               </div>
 
               <!-- Target Output -->
               <div>
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
-                  <label id="transTargetLangLabel" style="font-weight: 700; font-size: 0.85rem; color: var(--accent);">🇪🇸 Español</label>
-                  <button class="btn btn-secondary btn-sm" id="btnCopyTrans" style="padding: 2px 8px; font-size: 0.75rem;">📋 Copiar</button>
+                <div
+                  style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem;">
+                  <label id="transTargetLangLabel"
+                    style="font-weight: 700; font-size: 0.85rem; color: var(--accent);">🇪🇸 Español</label>
+                  <button class="btn btn-secondary btn-sm" id="btnCopyTrans"
+                    style="padding: 2px 8px; font-size: 0.75rem;">📋 Copiar</button>
                 </div>
-                <div id="transTargetText" style="min-height: 102px; padding: 0.75rem; border-radius: var(--border-radius-sm); border: 1px solid var(--border-card); background: rgba(var(--primary-rgb), 0.05); color: var(--text-main); font-size: 0.95rem; line-height: 1.4; word-break: break-word;">
-                  <span style="color: var(--text-muted); font-style: italic;">La traducción aparecerá aquí automáticamente...</span>
+                <div id="transTargetText"
+                  style="min-height: 102px; padding: 0.75rem; border-radius: var(--border-radius-sm); border: 1px solid var(--border-card); background: rgba(var(--primary-rgb), 0.05); color: var(--text-main); font-size: 0.95rem; line-height: 1.4; word-break: break-word;">
+                  <span style="color: var(--text-muted); font-style: italic;">La traducción aparecerá aquí
+                    automáticamente...</span>
                 </div>
               </div>
             </div>
 
             <!-- Quick Phrase Shortcuts -->
             <div style="margin-top: 1.25rem; border-top: 1px solid var(--border-card); padding-top: 0.85rem;">
-              <span style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">⚡ Frases rápidas de ejemplo:</span>
+              <span
+                style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em;">⚡
+                Frases rápidas de ejemplo:</span>
               <div style="display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem;" id="transQuickPhrases">
-                <button class="badge badge-primary trans-chip" data-text="Hvor er toalettet?" style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">🚽 Hvor er toalettet?</button>
-                <button class="badge badge-primary trans-chip" data-text="Har dere noe vegetaralternativ?" style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">🥗 Vegetaralternativ?</button>
-                <button class="badge badge-primary trans-chip" data-text="Hvor mye koster det?" style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">💳 Hvor mye koster det?</button>
-                <button class="badge badge-primary trans-chip" data-text="Parkering forbudt" style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">🚗 Parkering forbudt</button>
-                <button class="badge badge-primary trans-chip" data-text="Røykelaks og egg" style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">🐟 Røykelaks og egg</button>
-                <button class="badge badge-primary trans-chip" data-text="Kan jeg betale med kort?" style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">💳 Betale med kort?</button>
+                <button class="badge badge-primary trans-chip" data-text="Hvor er toalettet?"
+                  style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">🚽 Hvor er toalettet?</button>
+                <button class="badge badge-primary trans-chip" data-text="Har dere noe vegetaralternativ?"
+                  style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">🥗 Vegetaralternativ?</button>
+                <button class="badge badge-primary trans-chip" data-text="Hvor mye koster det?"
+                  style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">💳 Hvor mye koster det?</button>
+                <button class="badge badge-primary trans-chip" data-text="Parkering forbudt"
+                  style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">🚗 Parkering forbudt</button>
+                <button class="badge badge-primary trans-chip" data-text="Røykelaks og egg"
+                  style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">🐟 Røykelaks og egg</button>
+                <button class="badge badge-primary trans-chip" data-text="Kan jeg betale med kort?"
+                  style="cursor:pointer; border:none; padding: 0.35rem 0.75rem;">💳 Betale med kort?</button>
               </div>
             </div>
           </div>
@@ -688,4 +782,5 @@
     }
   </script>
 </body>
+
 </html>

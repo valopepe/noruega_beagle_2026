@@ -213,10 +213,10 @@ document.addEventListener("DOMContentLoaded", () => {
       travelTimes.forEach(t => {
         if (!t.desc) return;
         
-        // Extract kilometers
-        const kmMatch = t.desc.match(/(\d+(?:\.\d+)?)\s*km/i);
+        // Extract kilometers (supporting both dot and comma decimal points)
+        const kmMatch = t.desc.match(/(\d+(?:[.,]\d+)?)\s*km/i);
         if (kmMatch) {
-          totalKm += parseFloat(kmMatch[1]);
+          totalKm += parseFloat(kmMatch[1].replace(',', '.'));
         }
 
         // Extract hours and minutes
@@ -247,105 +247,9 @@ document.addEventListener("DOMContentLoaded", () => {
       };
     }
 
-    // Generate quick tags & explicit Route Banner
-    let quickTagsHTML = "";
+    // Explicit Route Banners disabled across all days per layout preferences
     let routeBannerHTML = "";
-    if (day.travelTimes && day.travelTimes.length > 0) {
-      const totalLegs = day.travelTimes.length;
-      const startPoint = day.travelTimes[0].from;
-      const endPoint = day.travelTimes[totalLegs - 1].to;
-      const totals = calculateDayTotals(day.travelTimes);
-
-      const startUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(startPoint)}`;
-      const endUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(endPoint)}`;
-
-      routeBannerHTML = `
-        <div class="card card-glass day-route-banner" style="background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.15), rgba(var(--accent-rgb), 0.08)); border: 1px solid rgba(var(--primary-rgb), 0.3); padding: 1rem 1.25rem; border-radius: 14px; margin-bottom: 1rem;">
-          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
-            <!-- INICIO -->
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span style="background: rgba(46, 204, 113, 0.25); color: #2ecc71; font-weight: 800; font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: 20px; text-transform: uppercase; border: 1px solid rgba(46, 204, 113, 0.4); letter-spacing: 0.03em;">🚩 PUNTO INICIAL</span>
-              <a href="${startUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); font-weight: 700; font-size: 0.95rem; text-decoration: underline;">${startPoint} ↗</a>
-            </div>
-
-            <!-- TOTAL METRICS -->
-            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); padding: 0.4rem 1.1rem; border-radius: 20px; border: 1px solid rgba(var(--primary-rgb), 0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-              <span style="font-size: 0.9rem; font-weight: 800; color: var(--accent);">📏 ${totals.km} km &nbsp;•&nbsp; ⏱️ ${totals.time}</span>
-              <span style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; font-weight: 600;">Recorrido Total de la Jornada</span>
-            </div>
-
-            <!-- FINAL -->
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span style="background: rgba(231, 76, 60, 0.25); color: #e74c3c; font-weight: 800; font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: 20px; text-transform: uppercase; border: 1px solid rgba(231, 76, 60, 0.4); letter-spacing: 0.03em;">🏁 PUNTO FINAL</span>
-              <a href="${endUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); font-weight: 700; font-size: 0.95rem; text-decoration: underline;">${endPoint} ↗</a>
-            </div>
-          </div>
-        </div>
-      `;
-
-      day.travelTimes.forEach((t, idx) => {
-        const fromUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.from)}`;
-        const toUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.to)}`;
-        
-        const modeIcon = t.icon || "🚗";
-        let legBadge = modeIcon;
-        if (idx === 0) {
-          legBadge = `🚩 INICIO (${modeIcon}):`;
-        } else if (idx === totalLegs - 1) {
-          legBadge = `🏁 TRAMO FINAL (${modeIcon}):`;
-        } else {
-          legBadge = `${modeIcon} TRAMO ${idx + 1}:`;
-        }
-
-        quickTagsHTML += `<span class="tag-label"><strong style="color:var(--primary);">${legBadge}</strong> De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>: ${t.desc}</span>`;
-      });
-    }
-
-    // Render second route group if present (travelTimes2)
     let routeBanner2HTML = "";
-    let quickTags2HTML = "";
-    if (day.travelTimes2 && day.travelTimes2.length > 0) {
-      const totalLegs2 = day.travelTimes2.length;
-      const startPoint2 = day.travelTimes2[0].from;
-      const endPoint2 = day.travelTimes2[totalLegs2 - 1].to;
-      const totals2 = calculateDayTotals(day.travelTimes2);
-
-      const startUrl2 = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(startPoint2)}`;
-      const endUrl2 = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(endPoint2)}`;
-
-      routeBanner2HTML = `
-        <div class="card card-glass day-route-banner" style="background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.12), rgba(var(--primary-rgb), 0.06)); border: 1px solid rgba(var(--accent-rgb), 0.3); padding: 1rem 1.25rem; border-radius: 14px; margin-bottom: 1rem;">
-          <div style="font-size: 0.7rem; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; opacity: 0.8;">📍 RUTA 2</div>
-          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.75rem;">
-            <!-- INICIO 2 -->
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span style="background: rgba(46, 204, 113, 0.25); color: #2ecc71; font-weight: 800; font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: 20px; text-transform: uppercase; border: 1px solid rgba(46, 204, 113, 0.4); letter-spacing: 0.03em;">🚩 PUNTO INICIAL</span>
-              <a href="${startUrl2}" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); font-weight: 700; font-size: 0.95rem; text-decoration: underline;">${startPoint2} ↗</a>
-            </div>
-
-            <!-- TOTAL METRICS 2 -->
-            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: rgba(0,0,0,0.3); padding: 0.4rem 1.1rem; border-radius: 20px; border: 1px solid rgba(var(--accent-rgb), 0.3); box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
-              <span style="font-size: 0.9rem; font-weight: 800; color: var(--accent);">📏 ${totals2.km} km &nbsp;•&nbsp; ⏱️ ${totals2.time}</span>
-              <span style="font-size: 0.68rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 2px; font-weight: 600;">Desplazamiento al Embarcadero</span>
-            </div>
-
-            <!-- FINAL 2 -->
-            <div style="display: flex; align-items: center; gap: 0.5rem;">
-              <span style="background: rgba(231, 76, 60, 0.25); color: #e74c3c; font-weight: 800; font-size: 0.75rem; padding: 0.25rem 0.65rem; border-radius: 20px; text-transform: uppercase; border: 1px solid rgba(231, 76, 60, 0.4); letter-spacing: 0.03em;">🏁 PUNTO FINAL</span>
-              <a href="${endUrl2}" target="_blank" rel="noopener noreferrer" style="color: var(--text-main); font-weight: 700; font-size: 0.95rem; text-decoration: underline;">${endPoint2} ↗</a>
-            </div>
-          </div>
-        </div>
-      `;
-
-      day.travelTimes2.forEach((t, idx) => {
-        const fromUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.from)}`;
-        const toUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.to)}`;
-        const modeIcon = t.icon || "🚗";
-        const legBadge = idx === 0 ? `🚩 INICIO (${modeIcon}):` : (idx === totalLegs2 - 1 ? `🏁 TRAMO FINAL (${modeIcon}):` : `${modeIcon} TRAMO ${idx + 1}:`);
-        quickTags2HTML += `<span class="tag-label"><strong style="color:var(--accent);">${legBadge}</strong> De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>: ${t.desc}</span>`;
-      });
-    }
 
     // Build Tramos Timeline Card (formatted in line with schedule timeline format)
     let tramosTimelineItems = "";
@@ -408,9 +312,93 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let tramosCardHTML = "";
     if (tramosTimelineItems) {
+      // Group all legs by transport mode / icon
+      const modeConfig = {
+        "🚗": { label: "🚘 Total Coche", color: "var(--primary)" },
+        "🚢": { label: "🚢 Total Barco / Ferry", color: "#38bdf8" },
+        "⛴️": { label: "🚢 Total Barco / Ferry", color: "#38bdf8" },
+        "🚂": { label: "🚂 Total Tren", color: "#f59e0b" },
+        "🚆": { label: "🚆 Total Tren Exprés", color: "#f59e0b" },
+        "✈️": { label: "✈️ Total Avión / Vuelo", color: "#ef4444" },
+        "🥾": { label: "🥾 Total Senderismo a Pie", color: "#10b981" },
+        "🚶": { label: "🚶 Total Paseo a Pie", color: "#10b981" },
+        "🚌": { label: "🚌 Total Autobús Urbano", color: "#a855f7" },
+        "🚡": { label: "🚡 Total Funicular", color: "#ec4899" },
+        "🚃": { label: "🚃 Total Tranvía", color: "#06b6d4" }
+      };
+
+      const route1Totals = calculateDayTotals(day.travelTimes || []);
+      const allLegs = [...(day.travelTimes || []), ...(day.travelTimes2 || [])];
+      const modeTotals = {};
+
+      allLegs.forEach(t => {
+        const icon = t.icon || "🚗";
+        if (!modeTotals[icon]) {
+          modeTotals[icon] = { totalKm: 0, totalMins: 0, hasKm: false };
+        }
+        if (!t.desc) return;
+
+        // Km matching
+        const kmMatch = t.desc.match(/(\d+(?:[.,]\d+)?)\s*km/i);
+        if (kmMatch) {
+          modeTotals[icon].totalKm += parseFloat(kmMatch[1].replace(',', '.'));
+          modeTotals[icon].hasKm = true;
+        } else {
+          const metersMatch = t.desc.match(/(\d+)\s*m\b/i);
+          if (metersMatch && !t.desc.includes('min')) {
+            modeTotals[icon].totalKm += parseInt(metersMatch[1], 10) / 1000;
+            modeTotals[icon].hasKm = true;
+          }
+        }
+
+        // Hours & Mins matching
+        const hMatch = t.desc.match(/(\d+)\s*h/i);
+        const mMatch = t.desc.match(/(\d+)\s*min/i);
+
+        if (hMatch) modeTotals[icon].totalMins += parseInt(hMatch[1], 10) * 60;
+        if (mMatch) modeTotals[icon].totalMins += parseInt(mMatch[1], 10);
+      });
+
+      let modeRowsHTML = "";
+      Object.entries(modeTotals).forEach(([icon, data]) => {
+        const config = modeConfig[icon] || { label: `${icon} Total`, color: "var(--primary)" };
+        const hours = Math.floor(data.totalMins / 60);
+        const mins = data.totalMins % 60;
+        let timeStr = "";
+        if (hours > 0 && mins > 0) timeStr = `${hours} h ${mins} min`;
+        else if (hours > 0) timeStr = `${hours} h`;
+        else if (mins > 0) timeStr = `${mins} min`;
+        else timeStr = "--";
+
+        const kmFormatted = data.hasKm ? (data.totalKm < 1 ? `${Math.round(data.totalKm * 1000)} m` : `${(Math.round(data.totalKm * 10) / 10)} km`) : "";
+        const kmStr = kmFormatted ? `📏 ${kmFormatted} &nbsp;•&nbsp; ` : "";
+
+        modeRowsHTML += `
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; border-bottom: 1px dashed rgba(255,255,255,0.1); padding-bottom: 0.4rem;">
+            <span style="font-weight: 800; font-size: 0.85rem; color: ${config.color};">${config.label}:</span>
+            <span style="font-weight: 800; font-size: 0.9rem; color: var(--accent); font-family: 'Outfit', sans-serif;">${kmStr}⏱️ ${timeStr}</span>
+          </div>
+        `;
+      });
+
+      const route1HeaderRow = (day.travelTimes && day.travelTimes.length > 0) ? `
+        <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; padding-top: 0.2rem;">
+          <span style="font-weight: 700; font-size: 0.8rem; color: var(--text-muted);">🚩 Punto Inicial → 🏁 Punto Final (Ruta Principal):</span>
+          <span style="font-weight: 700; font-size: 0.82rem; color: var(--text-main);">📏 ${route1Totals.km} km &nbsp;•&nbsp; ⏱️ ${route1Totals.time}</span>
+        </div>
+      ` : '';
+
+      const summaryHeaderHTML = `
+        <div class="tramos-summary-header" style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(var(--primary-rgb), 0.3); border-radius: 12px; padding: 0.75rem 1rem; margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
+          ${modeRowsHTML}
+          ${route1HeaderRow}
+        </div>
+      `;
+
       tramosCardHTML = `
         <div class="card card-glass timeline-card">
           <h3 class="card-title">🚘 Tiempos de Desplazamiento (Tramos)</h3>
+          ${summaryHeaderHTML}
           <div class="timeline">
             ${tramosTimelineItems}
           </div>
@@ -624,6 +612,34 @@ document.addEventListener("DOMContentLoaded", () => {
       `;
     }
 
+    // Column arrangements (All days have Map right after Resumen y Objetivo, followed by Tramos)
+    const leftColHTML = `
+      <div class="card card-glass">
+        <h3 class="card-title">Resumen y Objetivo</h3>
+        <p style="line-height: 1.5; font-size: 0.95rem; margin-bottom: 0.75rem;">${day.summary}</p>
+        <p style="line-height: 1.5; font-size: 0.9rem; color: var(--text-muted); font-style: italic;">🎯 Objetivo: ${day.goal}</p>
+      </div>
+
+      ${mapHTML}
+
+      ${tramosCardHTML}
+
+      <div class="card card-glass timeline-card">
+        <h3 class="card-title">🕐 Horario sugerido</h3>
+        <div class="timeline">${timelineHTML}</div>
+      </div>
+
+      ${customItineraryHTML}
+      ${day.detailsText ? `<div class="card card-glass"><p style="line-height:1.5; font-size:0.9rem;">${day.detailsText}</p></div>` : ""}
+      ${tipsHTML}
+    `;
+
+    const rightColHTML = `
+      ${accommodationHTML}
+      ${natureHTML}
+      ${cityGuideHTML}
+    `;
+
     // Final Assembly
     dayDetailContainer.innerHTML = `
       <div class="day-header">
@@ -639,32 +655,14 @@ document.addEventListener("DOMContentLoaded", () => {
       ${routeBanner2HTML ? routeBanner2HTML : ""}
 
       <div class="day-grid">
-        <!-- Left Column: Summary, Timeline, Detailed content -->
+        <!-- Left Column -->
         <div style="display: flex; flex-direction: column; gap: 1rem;">
-          <div class="card card-glass">
-            <h3 class="card-title">Resumen y Objetivo</h3>
-            <p style="line-height: 1.5; font-size: 0.95rem; margin-bottom: 0.75rem;">${day.summary}</p>
-            <p style="line-height: 1.5; font-size: 0.9rem; color: var(--text-muted); font-style: italic;">🎯 Objetivo: ${day.goal}</p>
-          </div>
-
-          ${tramosCardHTML}
-
-          <div class="card card-glass timeline-card">
-            <h3 class="card-title">🕐 Horario sugerido</h3>
-            <div class="timeline">${timelineHTML}</div>
-          </div>
-
-          ${customItineraryHTML}
-          ${day.detailsText ? `<div class="card card-glass"><p style="line-height:1.5; font-size:0.9rem;">${day.detailsText}</p></div>` : ""}
-          ${tipsHTML}
+          ${leftColHTML}
         </div>
 
-        <!-- Right Column: Accommodation, Map, Nature, City Guide -->
+        <!-- Right Column -->
         <div style="display: flex; flex-direction: column; gap: 1rem;">
-          ${accommodationHTML}
-          ${mapHTML}
-          ${natureHTML}
-          ${cityGuideHTML}
+          ${rightColHTML}
         </div>
       </div>
     `;
@@ -1824,9 +1822,11 @@ document.addEventListener("DOMContentLoaded", () => {
       let extraInfo = "";
       if (item.flightNum) extraInfo += `<div><strong>Vuelo:</strong> ${item.flightNum} (${item.company || ''})</div>`;
       if (item.passenger) extraInfo += `<div><strong>Pasajero:</strong> ${item.passenger}</div>`;
-      if (item.vehicle) extraInfo += `<div><strong>Vehículo:</strong> ${item.vehicle}</div>`;
-      if (item.location) extraInfo += `<div><strong>Lugar:</strong> ${item.location}</div>`;
       if (item.company && !item.flightNum) extraInfo += `<div><strong>Compañía:</strong> ${item.company}</div>`;
+      if (item.contract) extraInfo += `<div><strong>Nº Contrato / Reserva:</strong> <code style="background:rgba(255,255,255,0.1); padding:0.15rem 0.4rem; border-radius:4px; font-weight:bold; color:var(--accent);">${item.contract}</code></div>`;
+      if (item.vehicle) extraInfo += `<div><strong>Vehículo:</strong> ${item.vehicle}</div>`;
+      if (item.office) extraInfo += `<div><strong>Oficina:</strong> ${item.office}</div>`;
+      if (item.location && !item.office) extraInfo += `<div><strong>Lugar:</strong> ${item.location}</div>`;
 
       html += `
         <div class="fixed-card" data-category="${item.category}">

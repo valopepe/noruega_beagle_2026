@@ -48,7 +48,7 @@ const NORWAY_TRAVEL_DATA = {
       schedule: [
         { time: "06:51–09:48", desc: "🚄 AVE Ida: Santiago de Compostela → Madrid Chamartín.", isFixed: true },
         { time: "20:30–23:55", desc: "✈️ Vuelo Madrid-Barajas (MAD) → Oslo-Gardermoen (OSL) [Norwegian DY 1719].", isFixed: true },
-        { time: "00:30 (02/08)", desc: "🚗 Recogida del Coche de Alquiler en Oslo Airport Gardermoen (Toyota Yaris Cross 4x4).", isFixed: true },
+        { time: "00:30 (02/08)", desc: "🚗 Recogida del Coche de Alquiler en oficina Hertz de Oslo Airport Gardermoen (Contrato: CDBR_OSL_OSLX90 · Toyota Yaris Cross 4x4).", isFixed: true },
         { time: "Noche", desc: "Alojamiento en el Thon Hotel Oslo Airport." }
       ]
     },
@@ -77,6 +77,7 @@ const NORWAY_TRAVEL_DATA = {
       ],
       travelTimes2: [
         { from: "Cabañas Hovi (Beitostølen)", to: "Parking Reinsvangen (Gjendesheim)", desc: "≈ 34 km · 35 min por la carretera Fv51", mapsUrl: "https://maps.app.goo.gl/koLVAP3episdV29w6", icon: "🚗" },
+        { from: "Muelle de Gjendesheim (Ferry Gjendebåtene)", to: "Gjendebu (y regreso a Gjendesheim)", desc: "Navegación de 1 h 50 min en barco por el lago Gjende (15:25–17:15)", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Gjendesheim+brygge", icon: "🚢" },
         { from: "Parking Reinsvangen (Gjendesheim)", to: "Cabañas Hovi (Beitostølen)", desc: "≈ 34 km · 35 min de regreso por la Fv51", mapsUrl: "https://maps.app.goo.gl/sJ6PQpykL5bF653w7", icon: "🚗" }
       ],
       mapEmbed: "https://www.google.com/maps/d/embed?mid=1AIO1Us-63EL0o4tYo69jYA2-ipNObQ0&ehbc=2E312F",
@@ -484,7 +485,7 @@ const NORWAY_TRAVEL_DATA = {
         { time: "12:30–14:30", desc: "Travesía por la meseta de Hardangervidda y el valle de Hallingdal." },
         { time: "14:30–15:30", desc: "Parada para almorzar en el pueblo de Gol." },
         { time: "15:30–18:00", desc: "Tramo final de conducción hacia la ciudad de Oslo." },
-        { time: "18:00–19:00", desc: "🚗 Devolución Coche de Alquiler en Oslo Railway Station (Límite 19:00 h).", isFixed: true },
+        { time: "18:00–19:00", desc: "🚗 Devolución Coche de Alquiler en oficina Hertz de Oslo Railway Station (Contrato: CDBR_OSL_OSLX90 · Límite 19:00 h).", isFixed: true },
         { time: "19:00", desc: "Check-in en el Comfort Hotel Grand Central." },
         { time: "20:00", desc: "Cena relajada en Olivia (Østbanehallen), justo al lado del hotel." }
       ]
@@ -1020,9 +1021,12 @@ window.FIXED_SCHEDULES_DATA = [
     date: "02/08/2026 (Domingo)",
     dayNum: 2,
     time: "00:30 h (Madrugada tras vuelo)",
-    location: "Oslo Airport Gardermoen (Agencia de recogida)",
+    company: "Hertz",
+    contract: "CDBR_OSL_OSLX90",
+    office: "Oficina Hertz — Oslo Airport Gardermoen (OSL)",
+    location: "Oslo Airport Gardermoen (Terminal de Alquiler de Coches)",
     vehicle: "TOYOTA YARIS CROSS 4X4 AUT. o similar",
-    details: "Recogida de llaves y vehículo inmediatamente tras retirar el equipaje.",
+    details: "Oficina Hertz en el aeropuerto. N.º Contrato: CDBR_OSL_OSLX90. Recogida de llaves y vehículo inmediatamente tras retirar el equipaje.",
     status: "Confirmado · Inamovible",
     tag: "COCHE ALQUILER"
   },
@@ -1101,9 +1105,12 @@ window.FIXED_SCHEDULES_DATA = [
     date: "08/08/2026 (Sábado)",
     dayNum: 8,
     time: "19:00 h Exacta (Hora Límite)",
-    location: "Oslo Railway Station (Estación Central de Oslo)",
+    company: "Hertz",
+    contract: "CDBR_OSL_OSLX90",
+    office: "Oficina Hertz — Estación Central de Oslo (Oslo Sentralstasjon)",
+    location: "Oslo Railway Station / Estación Central de Oslo",
     vehicle: "TOYOTA YARIS CROSS 4X4 AUT. o similar",
-    details: "Devolución en la misma hora de recogida (19:00 h) para evitar penalización de día adicional.",
+    details: "Oficina Hertz en Estación Central de Oslo. N.º Contrato: CDBR_OSL_OSLX90. Devolución a las 19:00 h para evitar penalización de día adicional.",
     status: "Confirmado · Inamovible",
     tag: "COCHE ALQUILER"
   },
