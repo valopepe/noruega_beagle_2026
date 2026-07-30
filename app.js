@@ -287,13 +287,14 @@ document.addEventListener("DOMContentLoaded", () => {
         const fromUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.from)}`;
         const toUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.to)}`;
         
-        let legBadge = "🚗";
+        const modeIcon = t.icon || "🚗";
+        let legBadge = modeIcon;
         if (idx === 0) {
-          legBadge = "🚩 INICIO:";
+          legBadge = `🚩 INICIO (${modeIcon}):`;
         } else if (idx === totalLegs - 1) {
-          legBadge = "🏁 TRAMO FINAL:";
+          legBadge = `🏁 TRAMO FINAL (${modeIcon}):`;
         } else {
-          legBadge = `🔹 TRAMO ${idx + 1}:`;
+          legBadge = `${modeIcon} TRAMO ${idx + 1}:`;
         }
 
         quickTagsHTML += `<span class="tag-label"><strong style="color:var(--primary);">${legBadge}</strong> De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>: ${t.desc}</span>`;
@@ -340,7 +341,8 @@ document.addEventListener("DOMContentLoaded", () => {
       day.travelTimes2.forEach((t, idx) => {
         const fromUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.from)}`;
         const toUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.to)}`;
-        const legBadge = idx === 0 ? "🚩 INICIO:" : (idx === totalLegs2 - 1 ? "🏁 TRAMO FINAL:" : `🔹 TRAMO ${idx + 1}:`);
+        const modeIcon = t.icon || "🚗";
+        const legBadge = idx === 0 ? `🚩 INICIO (${modeIcon}):` : (idx === totalLegs2 - 1 ? `🏁 TRAMO FINAL (${modeIcon}):` : `${modeIcon} TRAMO ${idx + 1}:`);
         quickTags2HTML += `<span class="tag-label"><strong style="color:var(--accent);">${legBadge}</strong> De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>: ${t.desc}</span>`;
       });
     }
@@ -354,16 +356,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const toUrl = t.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.to)}`;
         const mapsBadge = t.mapsUrl ? ` <a href="${t.mapsUrl}" target="_blank" rel="noopener noreferrer" class="badge badge-primary" style="margin-left:0.4rem; text-decoration:none; font-size:0.75rem;">🗺️ Ruta Directa ↗</a>` : "";
         
+        const modeIcon = t.icon || "🚗";
         let legBadge = "";
         let dotStyle = "";
         if (idx === 0) {
-          legBadge = "🚩 PUNTO INICIAL";
+          legBadge = `🚩 PUNTO INICIAL · ${modeIcon}`;
           dotStyle = `style="border-color:#2ecc71; background-color:rgba(46,204,113,0.3);"`;
         } else if (idx === totalLegs - 1) {
-          legBadge = "🏁 TRAMO FINAL";
+          legBadge = `🏁 TRAMO FINAL · ${modeIcon}`;
           dotStyle = `style="border-color:#e74c3c; background-color:rgba(231,76,60,0.3);"`;
         } else {
-          legBadge = `🔹 TRAMO ${idx + 1}`;
+          legBadge = `${modeIcon} TRAMO ${idx + 1}`;
         }
 
         tramosTimelineItems += `
@@ -387,7 +390,8 @@ document.addEventListener("DOMContentLoaded", () => {
         const fromUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.from)}`;
         const toUrl = t.mapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(t.to)}`;
         const mapsBadge = t.mapsUrl ? ` <a href="${t.mapsUrl}" target="_blank" rel="noopener noreferrer" class="badge badge-primary" style="margin-left:0.4rem; text-decoration:none; font-size:0.75rem;">🗺️ Ruta Directa ↗</a>` : "";
-        const legBadge = idx === 0 ? "🚩 INICIO RUTA 2" : (idx === totalLegs2 - 1 ? "🏁 FINAL RUTA 2" : `🔹 TRAMO ${idx + 1}`);
+        const modeIcon = t.icon || "🚗";
+        const legBadge = idx === 0 ? `🚩 INICIO RUTA 2 · ${modeIcon}` : (idx === totalLegs2 - 1 ? `🏁 FINAL RUTA 2 · ${modeIcon}` : `${modeIcon} TRAMO ${idx + 1}`);
         const dotStyle = `style="border-color:var(--accent); background-color:rgba(var(--accent-rgb),0.3);"`;
 
         tramosTimelineItems += `
