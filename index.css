@@ -1494,16 +1494,138 @@ mark.search-highlight {
     margin-bottom: 0;
     align-self: center;
   }
+
+  /* --- Route banner: stack vertically on tablets/phones --- */
+  .day-route-banner > div {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 0.6rem !important;
+  }
+
+  .day-route-banner > div > div {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  /* --- Quick tags: better wrapping --- */
+  .day-quick-tags {
+    gap: 0.4rem;
+  }
+
+  .tag-label {
+    font-size: 0.72rem;
+    padding: 0.25rem 0.45rem;
+    word-break: break-word;
+  }
+
+  /* --- Timeline improvements --- */
+  .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timeline-dot {
+    left: -1.5rem;
+    width: 14px;
+    height: 14px;
+  }
+
+  .timeline::before {
+    left: 5px;
+  }
+
+  .timeline-time {
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .timeline-content {
+    font-size: 0.82rem;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .timeline-content .badge {
+    display: inline-block;
+    margin-top: 0.35rem;
+    margin-left: 0 !important;
+    font-size: 0.68rem !important;
+  }
+
+  .timeline-item {
+    margin-bottom: 1.25rem;
+  }
+
+  /* --- Day header smaller on mobile --- */
+  .day-header {
+    height: 200px;
+  }
+
+  .day-header-info {
+    padding: 1rem;
+  }
+
+  .day-header-title {
+    font-size: 1.35rem;
+  }
+
+  .day-header-date {
+    font-size: 0.75rem;
+  }
+
+  /* --- Day grid single column --- */
+  .day-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* --- Card titles --- */
+  .card-title {
+    font-size: var(--text-lg);
+  }
+
+  /* --- Timeline card --- */
+  .timeline-card {
+    padding: 1rem;
+  }
+
+  /* --- Accordion --- */
+  .accordion-header {
+    padding: 0.75rem;
+    font-size: 0.88rem;
+  }
+
+  .accordion.open .accordion-content {
+    padding: 0.75rem;
+  }
+
+  /* --- Badge tweaks --- */
+  .badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.45rem;
+  }
+
+  /* --- Day selector --- */
+  .day-selector-bar {
+    gap: 0.35rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .day-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
 }
 
 /* --- RESPONSIVE: Small phones (≤ 480px) --- */
 @media (max-width: 480px) {
   .content-body {
-    padding: 0.75rem;
+    padding: 0.5rem;
   }
 
   .card {
-    padding: 1rem 0.85rem;
+    padding: 0.85rem 0.7rem;
+    border-radius: var(--border-radius-sm);
   }
 
   .hero-banner {
@@ -1548,6 +1670,83 @@ mark.search-highlight {
   .day-tab-btn {
     padding: 0.4rem 0.6rem;
     font-size: var(--text-xs);
+  }
+
+  /* --- Route banner extra small --- */
+  .day-route-banner {
+    padding: 0.75rem !important;
+  }
+
+  /* --- Timeline extra compact --- */
+  .timeline {
+    padding-left: 1.25rem;
+  }
+
+  .timeline-dot {
+    left: -1.25rem;
+    width: 12px;
+    height: 12px;
+    border-width: 2px;
+  }
+
+  .timeline::before {
+    left: 4px;
+  }
+
+  .timeline-time {
+    font-size: 0.75rem;
+  }
+
+  .timeline-content {
+    font-size: 0.75rem;
+  }
+
+  .timeline-item {
+    margin-bottom: 1rem;
+  }
+
+  .timeline-card {
+    padding: 0.75rem;
+  }
+
+  /* --- Day header extra small --- */
+  .day-header {
+    height: 170px;
+    border-radius: var(--border-radius-sm);
+  }
+
+  .day-header-info {
+    padding: 0.75rem;
+  }
+
+  .day-header-title {
+    font-size: 1.15rem;
+  }
+
+  /* --- Tag labels smaller --- */
+  .tag-label {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.4rem;
+  }
+
+  /* --- Day detail container --- */
+  .day-detail-container {
+    gap: 1rem;
+  }
+
+  /* --- Fixed cards (reservations etc.) --- */
+  .fixed-card {
+    padding: 0.75rem !important;
+  }
+
+  .fixed-card-time-box {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .fixed-time-row {
+    font-size: 0.78rem;
+    flex-wrap: wrap;
+    gap: 0.25rem;
   }
 }
 

@@ -372,8 +372,8 @@ document.addEventListener("DOMContentLoaded", () => {
         tramosTimelineItems += `
           <div class="timeline-item">
             <div class="timeline-dot" ${dotStyle}></div>
-            <div class="timeline-time">${legBadge} <span style="color:var(--text-muted); font-size:0.85rem; font-weight:normal; margin-left:0.3rem;">· ${t.desc}</span></div>
-            <div class="timeline-content">
+            <div class="timeline-time" style="display:flex; flex-wrap:wrap; align-items:baseline; gap:0.15rem 0.3rem;">${legBadge} <span style="color:var(--text-muted); font-size:0.85rem; font-weight:normal;">· ${t.desc}</span></div>
+            <div class="timeline-content" style="word-break:break-word; overflow-wrap:anywhere;">
               De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>${mapsBadge}
             </div>
           </div>
@@ -397,8 +397,8 @@ document.addEventListener("DOMContentLoaded", () => {
         tramosTimelineItems += `
           <div class="timeline-item">
             <div class="timeline-dot" ${dotStyle}></div>
-            <div class="timeline-time">${legBadge} <span style="color:var(--text-muted); font-size:0.85rem; font-weight:normal; margin-left:0.3rem;">· ${t.desc}</span></div>
-            <div class="timeline-content">
+            <div class="timeline-time" style="display:flex; flex-wrap:wrap; align-items:baseline; gap:0.15rem 0.3rem;">${legBadge} <span style="color:var(--text-muted); font-size:0.85rem; font-weight:normal;">· ${t.desc}</span></div>
+            <div class="timeline-content" style="word-break:break-word; overflow-wrap:anywhere;">
               De <a href="${fromUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.from} ↗</strong></a> a <a href="${toUrl}" target="_blank" rel="noopener noreferrer" style="color:inherit; text-decoration:underline;"><strong>${t.to} ↗</strong></a>${mapsBadge}
             </div>
           </div>
