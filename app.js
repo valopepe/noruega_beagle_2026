@@ -2,6 +2,34 @@ document.addEventListener("DOMContentLoaded", () => {
   // Check if data is loaded
   if (typeof NORWAY_TRAVEL_DATA === "undefined") {
     console.error("NORWAY_TRAVEL_DATA is not defined. Please load data.js before app.js.");
+    // Show a user-visible error so the problem is diagnosable on mobile
+    document.body.innerHTML = `
+      <div style="
+        display: flex; flex-direction: column; align-items: center; justify-content: center;
+        min-height: 100vh; background: #0b0f19; color: #f3f4f6;
+        font-family: 'Inter', sans-serif; text-align: center; padding: 2rem; gap: 1.5rem;
+      ">
+        <div style="font-size: 3rem;">⚠️</div>
+        <h2 style="font-size: 1.4rem; font-family: 'Outfit', sans-serif; color: #ef4444;">Error al cargar los datos del viaje</h2>
+        <p style="color: #9ca3af; max-width: 340px; line-height: 1.6; font-size: 0.95rem;">
+          La aplicación tiene una versión antigua en caché. Pulsa el botón para recargar y obtener la versión más reciente.
+        </p>
+        <button onclick="
+          if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.getRegistrations().then(regs => regs.forEach(r => r.unregister()));
+          }
+          if ('caches' in window) {
+            caches.keys().then(keys => keys.forEach(k => caches.delete(k)));
+          }
+          setTimeout(() => location.reload(true), 500);
+        " style="
+          background: #0ea5e9; color: white; border: none; border-radius: 10px;
+          padding: 0.85rem 2rem; font-size: 1rem; font-weight: 700; cursor: pointer;
+          font-family: 'Outfit', sans-serif; box-shadow: 0 4px 20px rgba(14,165,233,0.4);
+        ">🔄 Recargar App</button>
+        <p style="font-size: 0.75rem; color: #6b7280;">Si el problema persiste, abre la app en Chrome y ve a Ajustes → Borrar datos del sitio.</p>
+      </div>
+    `;
     return;
   }
 
