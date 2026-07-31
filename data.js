@@ -8,6 +8,7 @@ const NORWAY_TRAVEL_DATA = {
   days: [
     {
       dayNum: 1,
+      weatherDestinationIds: ["oslo"],
       title: "Día 1 — Llegada a Oslo",
       date: "SÁBADO, 1 DE AGOSTO DE 2026",
       subHeader: "Aeropuerto de Oslo (Gardermoen)",
@@ -25,7 +26,7 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Presencia de depósitos morénicos y sedimentación glaciar correspondientes al Pleistoceno."
       },
       travelTimes: [
-        { from: "Terminal Aeropuerto Oslo (OSL)", to: "Thon Hotel Oslo Airport", desc: "≈ 10 km · 12 min en coche ", mapsUrl: "https://maps.app.goo.gl/4jnB3KqtJ9Lb9AiR7", icon: "🚗" }
+        { from: "Terminal Aeropuerto Oslo (OSL)", to: "Thon Hotel Oslo Airport", desc: "≈ 7,3 km · 9 min en coche", mapsUrl: "https://maps.app.goo.gl/4jnB3KqtJ9Lb9AiR7", icon: "🚗" }
       ],
       mapEmbed: "https://www.google.com/maps/d/embed?mid=1OpQVgSoyXlopXpxxCLyvPodg60ab9Mg&ehbc=2E312F",
       itinerary: [
@@ -54,6 +55,7 @@ const NORWAY_TRAVEL_DATA = {
     },
     {
       dayNum: 2,
+      weatherDestinationIds: ["beitostolen"],
       title: "Día 2 — Hacia las montañas: Beitostølen y el Lago de Gjende",
       date: "DOMINGO, 2 DE AGOSTO DE 2026",
       subHeader: "Oslo (Gardermoen) → Beitostølen → Lago de Gjende",
@@ -71,14 +73,14 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Manifestaciones de la orogenia caledoniana y unidades tectónicas alóctonas (estructuras de cabalgamiento o nappes)."
       },
       travelTimes: [
-        { from: "Thon Hotel Oslo Airport", to: "Museo Kistefos / The Twist", desc: "≈ 65 km · 55 min en coche por la E16", mapsUrl: "https://maps.app.goo.gl/d3LhVJnLB1pU4rWN6", icon: "🚗" },
-        { from: "Museo Kistefos", to: "Fagernes (Museo Folclórico)", desc: "≈ 135 km · 2 h en coche por la E16", mapsUrl: "https://maps.app.goo.gl/cEVve74B1eVC8cGN7", icon: "🚗" },
-        { from: "Fagernes", to: "Cabañas Hovi (Beitostølen)", desc: "≈ 40 km · 40 min de ascenso montañoso", mapsUrl: "https://maps.app.goo.gl/qgfHicjf5UQFC6rn7", icon: "🚗" }
+        { from: "Thon Hotel Oslo Airport", to: "Museo Kistefos / The Twist", desc: "≈ 65,7 km · 1 h 9 min en coche por la E16", mapsUrl: "https://maps.app.goo.gl/d3LhVJnLB1pU4rWN6", icon: "🚗" },
+        { from: "Museo Kistefos", to: "Fagernes (Museo Folclórico)", desc: "≈ 135 km · 2 h 15 min en coche por la E16", mapsUrl: "https://maps.app.goo.gl/cEVve74B1eVC8cGN7", icon: "🚗" },
+        { from: "Fagernes", to: "Cabañas Hovi (Beitostølen)", desc: "≈ 38 km · 43 min de ascenso montañoso por la Fv51", mapsUrl: "https://maps.app.goo.gl/qgfHicjf5UQFC6rn7", icon: "🚗" }
       ],
       travelTimes2: [
-        { from: "Cabañas Hovi (Beitostølen)", to: "Parking Reinsvangen (Gjendesheim)", desc: "≈ 34 km · 35 min por la carretera Fv51", mapsUrl: "https://maps.app.goo.gl/koLVAP3episdV29w6", icon: "🚗" },
+        { from: "Cabañas Hovi (Beitostølen)", to: "Parking Reinsvangen (Gjendesheim)", desc: "≈ 33 km · 32 min por la carretera Fv51", mapsUrl: "https://maps.app.goo.gl/koLVAP3episdV29w6", icon: "🚗" },
         { from: "Muelle de Gjendesheim (Ferry Gjendebåtene)", to: "Gjendebu (y regreso a Gjendesheim)", desc: "Navegación de 1 h 50 min en barco por el lago Gjende (15:25–17:15)", mapsUrl: "https://www.google.com/maps/search/?api=1&query=Gjendesheim+brygge", icon: "🚢" },
-        { from: "Parking Reinsvangen (Gjendesheim)", to: "Cabañas Hovi (Beitostølen)", desc: "≈ 34 km · 35 min de regreso por la Fv51", mapsUrl: "https://maps.app.goo.gl/sJ6PQpykL5bF653w7", icon: "🚗" }
+        { from: "Parking Reinsvangen (Gjendesheim)", to: "Cabañas Hovi (Beitostølen)", desc: "≈ 33 km · 32 min de regreso por la Fv51", mapsUrl: "https://maps.app.goo.gl/sJ6PQpykL5bF653w7", icon: "🚗" }
       ],
       mapEmbed: "https://www.google.com/maps/d/embed?mid=1AIO1Us-63EL0o4tYo69jYA2-ipNObQ0&ehbc=2E312F",
       itinerary: [
@@ -117,18 +119,19 @@ const NORWAY_TRAVEL_DATA = {
         "⚠️ RESERVA OBLIGATORIA: Antes del viaje hay que reservar online en visitgjende.no el parking Gjendeosen-Reinsvangen + shuttle lanzadera + billete de barco. Sin reserva previa no podréis embarcar. Las plazas son muy limitadas en agosto.",
         "La meteorología en Jotunheimen es impredecible. Llevad siempre una mochila con chaqueta impermeable, ropa de abrigo por capas, agua y algo de comida, incluso si solo hacéis la excursión en barco."
       ],
-      schedule: [
+            schedule: [
         { time: "08:30–09:30", desc: "Desayuno tranquilo en Gardermoen." },
-        { time: "09:30–12:45", desc: "Viaje hasta Beitostølen, con paradas culturales recomendadas (Kistefos o Valdres)." },
-        { time: "12:45–13:45", desc: "Check-in en cabañas Hovi y compra de provisiones en SPAR." },
-        { time: "13:45–14:15", desc: "Conducción desde la cabaña hasta el parking de Gjendesheim." },
-        { time: "14:15–15:00", desc: "Aparcamiento en Reinsvangen, bus lanzadera al muelle." },
+        { time: "09:30–13:30", desc: "Viaje en coche hacia Beitostølen (3 h 55 min total en ruta) con paradas culturales recomendadas (Kistefos o Fagernes)." },
+        { time: "13:30–14:30", desc: "Check-in en cabañas Hovi y compra de provisiones en SPAR." },
+        { time: "14:30–15:00", desc: "Conducción a Gjendesheim (33 km · 32 min) y bus lanzadera al muelle." },
         { time: "15:25–17:15", desc: "⛴️ Ferry Lago Gjende: Gjendesheim → Gjendebu (15:25) / Gjendebu → Gjendesheim (16:25).", isFixed: true },
-        { time: "19:00", desc: "Regreso a la cabaña en Beitostølen para cenar y descansar." }
+        { time: "17:15–18:00", desc: "Lanzadera de regreso al parking y retorno en coche a Beitostølen (33 km · 32 min)." },
+        { time: "18:30", desc: "Regreso a la cabaña en Beitostølen para cenar y descansar." }
       ]
     },
     {
       dayNum: 3,
+      weatherDestinationIds: ["beitostolen"],
       title: "Día 3 — Naturaleza activa en el Parque Nacional de Jotunheimen",
       date: "LUNES, 3 DE AGOSTO DE 2026",
       subHeader: "Beitostølen y Parque Nacional de Jotunheimen",
@@ -147,9 +150,9 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Evidencias geomorfológicas derivadas de procesos de erosión glaciar cuaternaria."
       },
       travelTimes: [
-        { from: "Cabaña Hovi (Beitostølen)", to: "Lago Bygdin (Bygdin Høyfjellshotell)", desc: "≈ 12 km · 15 min por la carretera Fv51", mapsUrl: "https://maps.app.goo.gl/WptmBLapqszzWCUm8", icon: "🚗" },
+        { from: "Cabaña Hovi (Beitostølen)", to: "Lago Bygdin (Bygdin Høyfjellshotell)", desc: "≈ 12,5 km · 12 min por la carretera Fv51", mapsUrl: "https://maps.app.goo.gl/WptmBLapqszzWCUm8", icon: "🚗" },
         { from: "Bygdin Høyfjellshotell", to: "Ruta Senderismo Lago Bygdin (Ida y Vuelta)", desc: "8 km totales · 2 h 30 min a pie", icon: "🥾" },
-        { from: "Lago Bygdin", to: "Beitostølen Skisenter / Sommerpark", desc: "≈ 12 km · 15 min de regreso", mapsUrl: "https://maps.app.goo.gl/p9QeH9kchuQRLPZLA", icon: "🚗" }
+        { from: "Lago Bygdin", to: "Beitostølen Skisenter / Sommerpark", desc: "≈ 12,5 km · 13 min de regreso por la Fv51", mapsUrl: "https://maps.app.goo.gl/p9QeH9kchuQRLPZLA", icon: "🚗" }
       ],
       mapEmbed: "https://www.google.com/maps/d/embed?mid=1hNfAJD4Phaw8iQFl8e0gQ-oaZxUC-UQ&ehbc=2E312F",
       itinerary: [
@@ -173,18 +176,20 @@ const NORWAY_TRAVEL_DATA = {
       tips: [
         "Preparad el picnic antes de salir del pueblo (mostrador de comida fresca del SPAR). Junto al agua encontraréis rocas grandes y suaves perfectas para sentarse a comer en plena naturaleza."
       ],
-      schedule: [
+            schedule: [
         { time: "09:00–10:00", desc: "Desayuno relajado en la cabaña Hovi." },
-        { time: "10:30–11:00", desc: "Desplazamiento en coche hasta el lago Bygdin (12 km)." },
+        { time: "10:30–10:45", desc: "Desplazamiento en coche hasta el lago Bygdin (12,5 km · 12 min por Fv51)." },
         { time: "11:00–14:00", desc: "Senderismo por el lago Bygdin (8 km ida y vuelta, ritmo tranquilo)." },
-        { time: "14:00–15:30", desc: "Picnic junto al lago o comida ligera en el Bygdin Hoifellshotel." },
+        { time: "14:00–15:30", desc: "Picnic junto al lago o comida ligera en el Bygdin Høyfjellshotell." },
         { time: "15:30–16:00", desc: "Café y gofres noruegos (vafler) en la terraza del hotel Bygdin." },
-        { time: "16:30–18:30", desc: "Regreso a Beitostølen y tiempo libre para descansar o ir al Sommerpark." },
+        { time: "16:00–16:15", desc: "Regreso en coche a Beitostølen (12,5 km · 13 min por Fv51)." },
+        { time: "16:30–18:30", desc: "Tiempo libre para descansar o ir al Beitostølen Sommerpark." },
         { time: "19:00", desc: "Algo de beber en el centro (Caféen) y cena tranquila en el pueblo." }
       ]
     },
     {
       dayNum: 4,
+      weatherDestinationIds: ["stryn"],
       title: "Día 4 — La gran travesía hacia los fiordos",
       date: "MARTES, 4 DE AGOSTO DE 2026",
       subHeader: "Beitostølen → Parque Nacional de Rondane → Stryn",
@@ -203,11 +208,11 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Afloramientos litológicos de anortosita y secuencias de rocas sedimentarias con deformaciones tectónicas acusadas."
       },
       travelTimes: [
-        { from: "Beitostølen", to: "Venabygdsfjellet (Inicio Ruta Escénica Fv27)", desc: "≈ 147 km · 2 h 12 min por la Fv51 y Fv27", mapsUrl: "https://maps.app.goo.gl/dwv39knWvxb7aHdt8", icon: "🚗" },
-        { from: "Venabygdsfjellet", to: "Mirador Sohlbergplassen (Lago Atnsjøen)", desc: "≈ 31,5 km · 29 min por la Fv27", mapsUrl: "https://maps.app.goo.gl/9hC9Tk8B3ozQBFNJA", icon: "🚗" },
-        { from: "Mirador Sohlbergplassen (Lago Atnsjøen)", to: "Strombu", desc: "≈ 8.8 km · 9 min por la Fv27", mapsUrl: "https://maps.app.goo.gl/aZgRMMWEoefzVMBk9", icon: "🚗" },
-        { from: "Strombu", to: "Minas Históricas Folldal Gruver", desc: "≈ 33 km · 30 min por la Fv27", mapsUrl: "https://maps.app.goo.gl/8odFjQSntG5iLMvW6", icon: "🚗" },
-        { from: "Folldal Gruver", to: "Hornindal / Stryn (Havila Hotel Raftevold)", desc: "≈ 289 km · 4 h 10 min descendiendo por la Rv15", mapsUrl: "https://maps.app.goo.gl/8jWfc3bHuM64qnji9", icon: "🚗" }
+        { from: "Beitostølen", to: "Venabygdsfjellet (Inicio Ruta Escénica Fv27)", desc: "≈ 148 km · 2 h 22 min por la Fv51 y Fv27", mapsUrl: "https://maps.app.goo.gl/dwv39knWvxb7aHdt8", icon: "🚗" },
+        { from: "Venabygdsfjellet", to: "Mirador Sohlbergplassen (Lago Atnsjøen)", desc: "≈ 31,6 km · 31 min por la Fv27", mapsUrl: "https://maps.app.goo.gl/9hC9Tk8B3ozQBFNJA", icon: "🚗" },
+        { from: "Mirador Sohlbergplassen (Lago Atnsjøen)", to: "Strombu", desc: "≈ 8,7 km · 8 min por la Fv27", mapsUrl: "https://maps.app.goo.gl/aZgRMMWEoefzVMBk9", icon: "🚗" },
+        { from: "Strombu", to: "Minas Históricas Folldal Gruver", desc: "≈ 29 km · 29 min por la Fv27", mapsUrl: "https://maps.app.goo.gl/8odFjQSntG5iLMvW6", icon: "🚗" },
+        { from: "Folldal Gruver", to: "Hornindal / Stryn (Havila Hotel Raftevold)", desc: "≈ 290 km · 4 h 48 min descendiendo por la Rv15", mapsUrl: "https://maps.app.goo.gl/8jWfc3bHuM64qnji9", icon: "🚗" }
       ],
       mapEmbed: "https://www.google.com/maps/d/embed?mid=1AdK72WjVbY0wz2G1x1-KfIGlZfJ337k&ehbc=2E312F",
       itinerary: [
@@ -234,19 +239,20 @@ const NORWAY_TRAVEL_DATA = {
         "🧥 Seguridad: las temperaturas pueden bajar rápido en la meseta de Rondane incluso en agosto. Llevad siempre una chaqueta de abrigo a mano en el coche.",
         "🏪 Consejo en Stryn: Stryn es famosa por sus tiendas de material deportivo de montaña de alta calidad a precios competitivos. Si necesitáis alguna prenda técnica de recambio, es el lugar ideal para comprarla antes de adentraros en los fiordos."
       ],
-      schedule: [
+            schedule: [
         { time: "08:00–08:30", desc: "Salida puntual de Beitostølen con maletas cargadas." },
-        { time: "08:30–10:45", desc: "Conducción desde Beitostølen hacia la meseta de Venabygdsfjellet (147 km · 2 h 12 min por Fv51 y Fv27)." },
-        { time: "10:45–12:45", desc: "Recorrido por la Ruta Escénica de Rondane (Fv27) con paradas en el Mirador Sohlbergplassen y Strombu." },
+        { time: "08:30–11:00", desc: "Conducción desde Beitostølen hacia la meseta de Venabygdsfjellet (148 km · 2 h 22 min por Fv51 y Fv27)." },
+        { time: "11:00–12:45", desc: "Recorrido por la Ruta Escénica de Rondane (Fv27) con paradas en Sohlbergplassen (31,6 km · 31 min) y Strombu." },
         { time: "12:45–13:45", desc: "Almuerzo ligero o picnic en la ruta (área de descanso de Strombu)." },
-        { time: "13:45–14:45", desc: "Visita externa o rápida a las minas de Folldal Gruver." },
-        { time: "14:45–19:00", desc: "Gran travesía hacia el oeste descendiendo por la Rv15 hasta Stryn y Hornindal (289 km · 4 h 10 min)." },
-        { time: "19:00–19:30", desc: "Check-in en el Havila Hotel Raftevold en Hornindal." },
-        { time: "19:30", desc: "Paseo por las orillas del lago Hornindalsvatnet y cena en el hotel." }
+        { time: "13:45–14:30", desc: "Conducción hacia Folldal Gruver (29 km · 29 min) y visita externa a las minas." },
+        { time: "14:30–19:30", desc: "Gran travesía hacia el oeste descendiendo por la Rv15 hasta Stryn y Hornindal (290 km · 4 h 48 min)." },
+        { time: "19:30–20:00", desc: "Check-in en el Havila Hotel Raftevold en Hornindal." },
+        { time: "20:00", desc: "Paseo por las orillas del lago Hornindalsvatnet y cena en el hotel." }
       ]
     },
     {
       dayNum: 5,
+      weatherDestinationIds: ["geiranger", "stryn"],
       title: "Día 5 — Gigantes de agua y piedra: Geiranger y Trollstigen",
       date: "MIÉRCOLES, 5 DE AGOSTO DE 2026",
       subHeader: "Stryn ↔ Fiordo de Geiranger ↔ Carretera de los Trolls",
@@ -264,13 +270,13 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Análisis de la génesis de fiordos, valles de artesa (valles en U) y sistemas de valles suspendidos."
       },
       travelTimes: [
-        { from: "Hornindal (Hotel Raftevold)", to: "Puerto de Hellesylt", desc: "≈ 28 km · 28 min en coche por la Fv60", mapsUrl: "https://maps.app.goo.gl/PqHx9VbgbNERXENR8", icon: "🚗" },
+        { from: "Hornindal (Hotel Raftevold)", to: "Puerto de Hellesylt", desc: "≈ 28,2 km · 30 min en coche por la Fv60", mapsUrl: "https://maps.app.goo.gl/PqHx9VbgbNERXENR8", icon: "🚗" },
         { from: "Puerto de Hellesylt", to: "Muelle de Geiranger (Ferry con coche)", desc: "≈ 15 km en barco por el fiordo · 1 h 05 min de navegación", mapsUrl: "https://maps.app.goo.gl/Y62c97AKYE15hATY9", icon: "🚢" },
-        { from: "Geiranger", to: "Mirador Flydalsjuvet", desc: "≈ 4 km · 8 min subiendo la Fv63", mapsUrl: "https://maps.app.goo.gl/oPSNxbGGfM7tzb51A", icon: "🚗" },
-        { from: "Flydalsjuvet", to: "Geiranger Skywalker (Dalsnibba)", desc: "≈ 17 km · 25 min de fuerte ascenso de montaña", mapsUrl: "https://maps.app.goo.gl/CPYW7TWZScyhbhkBA", icon: "🚗" },
-        { from: "Dalsnibba", to: "Mirador Ørnesvingen (Curva del Águila)", desc: "≈ 24 km · 35 min por la Fv63", mapsUrl: "https://maps.app.goo.gl/ym2oGwB8PwvSYQBVA", icon: "🚗" },
-        { from: "Ørnesvingen", to: "Trollstigen (Centro de Visitantes y Miradores)", desc: "≈ 50 km · 1 h por la Fv63", mapsUrl: "https://maps.app.goo.gl/XzidjkFTz21QFkCx7", icon: "🚗" },
-        { from: "Trollstigen", to: "Hornindal (Regreso al Hotel)", desc: "≈ 135 km · 2 h 15 min de trayecto", mapsUrl: "https://maps.app.goo.gl/bbUec2somk65TNAE7", icon: "🚗" }
+        { from: "Geiranger", to: "Mirador Flydalsjuvet", desc: "≈ 4,2 km · 5 min subiendo la Fv63", mapsUrl: "https://maps.app.goo.gl/oPSNxbGGfM7tzb51A", icon: "🚗" },
+        { from: "Flydalsjuvet", to: "Geiranger Skywalker (Dalsnibba)", desc: "≈ 16,9 km · 19 min de ascenso de montaña (Nibbevegen)", mapsUrl: "https://maps.app.goo.gl/CPYW7TWZScyhbhkBA", icon: "🚗" },
+        { from: "Dalsnibba", to: "Mirador Ørnesvingen (Curva del Águila)", desc: "≈ 28 km · 31 min por la Fv63", mapsUrl: "https://maps.app.goo.gl/ym2oGwB8PwvSYQBVA", icon: "🚗" },
+        { from: "Ørnesvingen", to: "Trollstigen (Centro de Visitantes y Miradores)", desc: "≈ 61 km · 1 h 11 min por la Fv63", mapsUrl: "https://maps.app.goo.gl/XzidjkFTz21QFkCx7", icon: "🚗" },
+        { from: "Trollstigen", to: "Hornindal (Regreso al Hotel)", desc: "≈ 110 km · 2 h 23 min de trayecto por la Fv63 y Rv15", mapsUrl: "https://maps.app.goo.gl/bbUec2somk65TNAE7", icon: "🚗" }
       ],
       mapEmbed: "https://www.google.com/maps/d/embed?mid=1MTWR1g-Or9nsN4nh9WK8rbuEog1YNJc&ehbc=2E312F",
       itinerary: [
@@ -303,18 +309,19 @@ const NORWAY_TRAVEL_DATA = {
         "Llevad una bolsa térmica en el coche con provisiones vegetales extra, ya que en las zonas de alta montaña y los ferrys las opciones sin carne son muy limitadas.",
         "Conducción defensiva en Trollstigen: usad marchas cortas al bajar para no fatigar ni calentar los frenos. Siguid la estela de los autobuses locales si os sentís inseguros."
       ],
-      schedule: [
-        { time: "08:00–09:00", desc: "Traslado temprano desde el hotel en Hornindal al puerto de Hellesylt." },
+            schedule: [
+        { time: "08:00–08:35", desc: "Traslado temprano desde Hornindal al puerto de Hellesylt (28,2 km · 30 min por Fv60). Llegada a las 08:45 para embarque." },
         { time: "09:30–10:35", desc: "⛴️ Ferry Fiordo de Geiranger: Hellesylt (09:30) → Geiranger (10:35).", isFixed: true },
-        { time: "10:35–12:00", desc: "Desembarque, subida al mirador Flydalsjuvet y desvío al Dalsnibba (Skywalker)." },
-        { time: "12:00–14:00", desc: "Ruta en coche hacia Trollstigen pasando por la Curva del Águila (Ørnesvingen)." },
-        { time: "14:00–15:30", desc: "Llegada a Trollstigen, paseo por las pasarelas del mirador y comida en la cafetería." },
-        { time: "15:30–19:30", desc: "Largo pero espectacular regreso por carretera de montaña hacia Hornindal/Stryn." },
-        { time: "20:00", desc: "Cena en el hotel o en el pueblo de Hornindal." }
+        { time: "10:35–12:00", desc: "Desembarque, mirador Flydalsjuvet (4,2 km · 5 min) y subida a Dalsnibba (16,9 km · 19 min)." },
+        { time: "12:00–13:30", desc: "Ruta en coche hacia Trollstigen por Fv63 pasando por Ørnesvingen (28 km · 31 min + 61 km · 1 h 11 min)." },
+        { time: "13:30–15:00", desc: "Llegada a Trollstigen, paseo por las pasarelas del mirador y comida en la cafetería." },
+        { time: "15:00–17:30", desc: "Regreso por carretera de montaña hacia Hornindal/Stryn (110 km · 2 h 23 min por Fv63 y Rv15)." },
+        { time: "18:00", desc: "Cena en el hotel o en el pueblo de Hornindal." }
       ]
     },
     {
       dayNum: 6,
+      weatherDestinationIds: ["flam", "voss"],
       title: "Día 6 — Navegación estrecha y raíles históricos",
       date: "JUEVES, 6 DE AGOSTO DE 2026",
       subHeader: "Stryn → Nærøyfjord → Tren de Flåm → Voss",
@@ -333,11 +340,11 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Unidades estratigráficas del Precámbrico y evolución geomorfológica de la cuenca del Sognefjord."
       },
       travelTimes: [
-        { from: "Hornindal (Hotel Raftevold)", to: "Muelle de Kaupanger", desc: "≈ 135 km · 2 h 15 min por la Rv15 y Fv55", mapsUrl: "https://maps.app.goo.gl/gUiyB4cNJAWVUPmY6", icon: "🚗" },
+        { from: "Hornindal (Hotel Raftevold)", to: "Muelle de Kaupanger", desc: "≈ 173 km · 2 h 55 min por la Fv60 y Fv55", mapsUrl: "https://maps.app.goo.gl/gUiyB4cNJAWVUPmY6", icon: "🚗" },
         { from: "Kaupanger", to: "Gudvangen (Ferry Nærøyfjord)", desc: "Navegación panorámica de 2 h 30 min por el fiordo", icon: "🚢" },
-        { from: "Gudvangen", to: "Flåm", desc: "≈ 20 km · 20 min en coche por el túnel de Gudvanga", mapsUrl: "https://maps.app.goo.gl/vSYc2PprocV2Q6jf6", icon: "🚗" },
+        { from: "Gudvangen", to: "Flåm", desc: "≈ 20 km · 21 min en coche por la E16 y túnel de Gudvanga", mapsUrl: "https://maps.app.goo.gl/vSYc2PprocV2Q6jf6", icon: "🚗" },
         { from: "Estación de Flåm", to: "Estación de Myrdal (Tren Flåmsbana)", desc: "≈ 20 km en tren · 50 min de trayecto en raíles", icon: "🚂" },
-        { from: "Flåm", to: "Voss Resort Bavallstunet", desc: "≈ 65 km · 55 min en coche por la E16", mapsUrl: "https://maps.app.goo.gl/X1UWjLvDUU8MJBQV6", icon: "🚗" }
+        { from: "Flåm", to: "Voss Resort Bavallstunet", desc: "≈ 65,7 km · 1 h 9 min en coche por la E16", mapsUrl: "https://maps.app.goo.gl/X1UWjLvDUU8MJBQV6", icon: "🚗" }
       ],
       mapEmbed: "https://www.google.com/maps/d/embed?mid=1kfH84PztDWqScvesZumet1hB3hVmKp0&ehbc=2E312F",
       itinerary: [
@@ -361,10 +368,16 @@ const NORWAY_TRAVEL_DATA = {
         "El barco y el tren son sumamente puntuales. No arriesguéis los tiempos de conducción de la mañana. Salid del hotel de Stryn a las 08:30 sin demora.",
         "Aprovechad la sauna privada de la cabaña al llegar a Voss para relajaros de un día tan completo."
       ],
-      schedule: [
-        { time: "08:30–09:30", desc: "Desayuno y check-out en el Havila Hotel Raftevold." },
-        { time: "09:30–12:00", desc: "Conducción desde Stryn hasta el muelle de Kaupanger." },
+            schedule: [
+        { time: "08:30–09:15", desc: "Desayuno y check-out en el Havila Hotel Raftevold." },
+        { time: "09:15–12:10", desc: "Conducción desde Hornindal hasta el muelle de Kaupanger (173 km · 2 h 55 min por Fv60 y Fv55). Llegada a las 12:10." },
         { time: "12:30–15:00", desc: "⛴️ Barco Nærøyfjord: Kaupanger (12:30) → Gudvangen (15:00) [Ferry Nærøyfjord].", isFixed: true },
+        { time: "15:00–15:25", desc: "Trayecto en coche desde Gudvangen a Flåm (20 km · 21 min por E16)." },
+        { time: "15:30–18:00", desc: "Almuerzo tardío en Flåm (se recomienda Ægir BrewPub) o visita a Stegastein." },
+        { time: "18:25–20:30", desc: "🚂 Tren de Flåm (Flåmsbana): Flåm → Myrdal (18:25) / Myrdal → Flåm (19:35).", isFixed: true },
+        { time: "20:45–21:55", desc: "Trayecto final por carretera de Flåm a Voss Resort (65,7 km · 1 h 9 min por E16)." },
+        { time: "22:00", desc: "Check-in en el Voss Resort y sesión de sauna privada." }
+      ].", isFixed: true },
         { time: "15:00–15:30", desc: "Trayecto en coche desde Gudvangen a Flåm." },
         { time: "15:30–18:00", desc: "Almuerzo tardío en Flåm (se recomienda Ægir BrewPub) o visita a Stegastein." },
         { time: "18:25–20:30", desc: "🚂 Tren de Flåm (Flåmsbana): Flåm → Myrdal (18:25) / Myrdal → Flåm (19:35).", isFixed: true },
@@ -374,6 +387,7 @@ const NORWAY_TRAVEL_DATA = {
     },
     {
       dayNum: 7,
+      weatherDestinationIds: ["bergen", "voss"],
       title: "Día 7 — Bergen, la Puerta de los Fiordos",
       date: "VIERNES, 7 DE AGOSTO DE 2026",
       subHeader: "Excursión de día completo Voss ↔ Bergen",
@@ -391,11 +405,11 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Estudio del complejo metamórfico de la región de Bergen (pliegues y gneises)."
       },
       travelTimes: [
-        { from: "Voss Resort", to: "Bergen Centro (Parking KlosterGarasjen)", desc: "≈ 100 km · 1 h 30 min por la carretera E16", mapsUrl: "https://maps.app.goo.gl/9qr8mBSqhJfCsXfw8", icon: "🚗" },
+        { from: "Voss Resort", to: "Bergen Centro (Parking KlosterGarasjen)", desc: "≈ 102 km · 1 h 46 min por la carretera E16", mapsUrl: "https://maps.app.goo.gl/9qr8mBSqhJfCsXfw8", icon: "🚗" },
         { from: "Parking KlosterGarasjen", to: "Muelle de Bryggen y Marienkirke", desc: "≈ 0.8 km · 10 min a pie", icon: "🚶" },
         { from: "Bryggen", to: "Estación Inferior Funicular Fløibanen", desc: "≈ 0.3 km · 4 min a pie", icon: "🚶" },
         { from: "Estación Fløibanen", to: "Cumbre Monte Fløyen (Mirador)", desc: "844 m de vía · 6 min en funicular", icon: "🚡" },
-        { from: "Bergen Centro", to: "Voss Resort (Regreso a la Cabaña)", desc: "≈ 100 km · 1 h 30 min por la E16", mapsUrl: "https://maps.app.goo.gl/4qwWDdYx1qgAxQW68", icon: "🚗" }
+        { from: "Bergen Centro", to: "Voss Resort (Regreso a la Cabaña)", desc: "≈ 102 km · 1 h 46 min por la E16", mapsUrl: "https://maps.app.goo.gl/4qwWDdYx1qgAxQW68", icon: "🚗" }
       ],
       mapEmbed: "https://www.google.com/maps/d/embed?mid=1zFZWn2D5XX04rpZQDY38IpetA0FkQis&ehbc=2E312F",
       itinerary: [
@@ -419,19 +433,20 @@ const NORWAY_TRAVEL_DATA = {
         "Bergen es famosa por ser la ciudad más lluviosa de Noruega. Los tours no se cancelan por mal tiempo: llevad paraguas e impermeable siempre a mano.",
         "Aparcar en la calle en Bergen es casi imposible y requiere permisos de residentes. Conducid directamente a parkings subterráneos grandes como ByGarasjen o KlosterGarasjen."
       ],
-      schedule: [
-        { time: "08:30–09:30", desc: "Desayuno tranquilo en la cocina de la cabaña Hovi en Voss y equipaje ligero." },
-        { time: "09:30–10:45", desc: "Conducción en coche hasta Bergen (carretera E16) y estacionamiento en el parking subterráneo KlosterGarasjen." },
-        { time: "11:00–13:00", desc: "🚩 FREE TOUR CONFIRMADO EN BERGEN (11:00h): 'Rincones Ocultos' con guía local Nati (chica del sombrero rojo). Punto de encuentro: Musikkpaviljongen (Byparken, Olav Kyrres gate 27). Recorrido por Festplassen, Den blå steinen, Ole Bulls plass, Teatro Nacional, Mercado de Pescado, Strandkaien, Klosteret, Vågsallmenningen, Kong Oscars gate, Bryggen y Nikolaikirkeallmenningen.", isFixed: true },
+            schedule: [
+        { time: "08:30–09:00", desc: "Desayuno tranquilo en la cabaña en Voss Resort y equipaje ligero." },
+        { time: "09:00–10:50", desc: "Conducción en coche hasta Bergen (102 km · 1 h 46 min por E16) y aparcamiento en KlosterGarasjen." },
+        { time: "11:00–13:00", desc: "🚩 FREE TOUR CONFIRMADO EN BERGEN (11:00h): 'Rincones Ocultos' con guía local Nati (chica del sombrero rojo). Punto de encuentro: Musikkpaviljongen (Byparken, Olav Kyrres gate 27).", isFixed: true },
         { time: "13:00–14:30", desc: "Almuerzo en el centro (Daily Pot, Pingvinen o Mercado del Pescado)." },
-        { time: "14:30–16:30", desc: "Subida en el funicular Fløibanen al monte Fløyen y paseos por los senderos de la cima." },
-        { time: "16:30–18:30", desc: "Paseo libre por las calles empedradas de Nordnes, puerto o compras en el centro." },
-        { time: "18:30–20:00", desc: "Conducción de regreso a Voss Resort por la E16." },
-        { time: "20:00", desc: "Llegada a la cabaña de Voss, sesión de sauna y cena relajada." }
+        { time: "14:30–16:30", desc: "Subida en el funicular Fløibanen al monte Fløyen y paseos por la cima." },
+        { time: "16:30–18:30", desc: "Paseo libre por las calles empedradas de Nordnes, puerto o compras en Bryggen." },
+        { time: "18:30–20:20", desc: "Conducción de regreso a Voss Resort por la E16 (102 km · 1 h 46 min)." },
+        { time: "20:30", desc: "Llegada a la cabaña de Voss, sesión de sauna y cena relajada." }
       ]
     },
     {
       dayNum: 8,
+      weatherDestinationIds: ["oslo"],
       title: "Día 8 — El gran cruce y la cascada indomable",
       date: "SÁBADO, 8 DE AGOSTO DE 2026",
       subHeader: "Voss → Puente de Hardanger → Vøringsfossen → Oslo",
@@ -449,11 +464,11 @@ const NORWAY_TRAVEL_DATA = {
         geology: "Dinámica de procesos fluviales post-glaciares en el sistema de la cascada Vøringsfossen y análisis del basamento Precámbrico (rocas ígneas y metamórficas antiguas)."
       },
       travelTimes: [
-        { from: "Voss Resort", to: "Puente de Hardanger (Hardangerbrua)", desc: "≈ 40 km · 40 min por la Rv13/E16", mapsUrl: "https://maps.app.goo.gl/622tTQijiu77LGxdA", icon: "🚗" },
-        { from: "Puente de Hardanger", to: "Pueblo de Eidfjord", desc: "≈ 15 km · 15 min bordeando el fiordo", mapsUrl: "https://maps.app.goo.gl/MV8RFr66JBXWQQWr8", icon: "🚗" },
-        { from: "Eidfjord", to: "Cascada Vøringsfossen (Måbødalen)", desc: "≈ 20 km · 20 min de vertiginoso ascenso por la Rv7", mapsUrl: "https://maps.app.goo.gl/aFLby43ysphnku9q7", icon: "🚗" },
-        { from: "Vøringsfossen", to: "Gol (Valle de Hallingdal)", desc: "≈ 130 km · 1 h 45 min por la meseta Rv7", mapsUrl: "https://maps.app.goo.gl/n6Wfhv9LheGxTVfZ7", icon: "🚗" },
-        { from: "Gol", to: "Estación Central de Oslo (Devolución del Coche)", desc: "≈ 170 km · 2 h 30 min por la Rv7 y E16", mapsUrl: "https://maps.app.goo.gl/MtS6HUrK7ajCJgst5", icon: "🚗" }
+        { from: "Voss Resort", to: "Puente de Hardanger (Hardangerbrua)", desc: "≈ 33,6 km · 34 min por la Rv13", mapsUrl: "https://maps.app.goo.gl/622tTQijiu77LGxdA", icon: "🚗" },
+        { from: "Puente de Hardanger", to: "Pueblo de Eidfjord", desc: "≈ 16,9 km · 17 min por la Rv7 bordeando el fiordo", mapsUrl: "https://maps.app.goo.gl/MV8RFr66JBXWQQWr8", icon: "🚗" },
+        { from: "Eidfjord", to: "Cascada Vøringsfossen (Måbødalen)", desc: "≈ 17,7 km · 19 min de ascenso por la Rv7", mapsUrl: "https://maps.app.goo.gl/aFLby43ysphnku9q7", icon: "🚗" },
+        { from: "Vøringsfossen", to: "Gol (Valle de Hallingdal)", desc: "≈ 126 km · 2 h 14 min por la meseta Rv7", mapsUrl: "https://maps.app.goo.gl/n6Wfhv9LheGxTVfZ7", icon: "🚗" },
+        { from: "Gol", to: "Estación Central de Oslo (Devolución del Coche)", desc: "≈ 171 km · 2 h 51 min por la Rv7 y E16", mapsUrl: "https://maps.app.goo.gl/MtS6HUrK7ajCJgst5", icon: "🚗" }
       ],
       mapEmbed: "https://www.google.com/maps/d/embed?mid=1dXdzxBl35rEwBo-rrdFcm2X_befRoBw&ehbc=2E312F",
       itinerary: [
@@ -476,22 +491,25 @@ const NORWAY_TRAVEL_DATA = {
         "¡CRÍTICO!: Devolución del coche de alquiler a las 19:00 en la estación central de Oslo (Oslo Railway Station). Debe coincidir exactamente con la hora de recogida del Día 1 para evitar cargos de días extra.",
         "Es un trayecto largo de coche. Preparad provisiones y tentempiés para la carretera, sobre todo para la acompañante vegetariana."
       ],
-      schedule: [
-        { time: "08:00–09:00", desc: "Desayuno en la cabaña de Voss, equipaje y check-out." },
-        { time: "09:00–10:00", desc: "Conducción hacia Eidfjord, cruzando el puente de Hardanger." },
+            schedule: [
+        { time: "08:00–08:45", desc: "Desayuno en la cabaña de Voss, equipaje y check-out." },
+        { time: "08:45–09:20", desc: "Conducción hacia el Puente de Hardanger (33,6 km · 34 min por Rv13)." },
+        { time: "09:20–09:40", desc: "Parada fotográfica en el Puente de Hardanger." },
+        { time: "09:40–10:00", desc: "Conducción bordeando el fiordo hacia Eidfjord (16,9 km · 17 min por Rv7)." },
         { time: "10:00–10:30", desc: "Paseo por el puerto de Eidfjord y café rápido." },
-        { time: "10:30–11:00", desc: "Ascenso por el desfiladero de Måbødalen hasta Vøringsfossen." },
-        { time: "11:00–12:30", desc: "Visita de los miradores y pasarelas de la cascada Vøringsfossen." },
-        { time: "12:30–14:30", desc: "Travesía por la meseta de Hardangervidda y el valle de Hallingdal." },
+        { time: "10:30–10:50", desc: "Ascenso por el desfiladero de Måbødalen hasta Vøringsfossen (17,7 km · 19 min por Rv7)." },
+        { time: "10:50–12:15", desc: "Visita de los miradores y pasarelas de la cascada Vøringsfossen." },
+        { time: "12:15–14:30", desc: "Travesía por la meseta de Hardangervidda hacia Gol (126 km · 2 h 14 min por Rv7)." },
         { time: "14:30–15:30", desc: "Parada para almorzar en el pueblo de Gol." },
-        { time: "15:30–18:00", desc: "Tramo final de conducción hacia la ciudad de Oslo." },
-        { time: "18:00–19:00", desc: "🚗 Devolución Coche de Alquiler en oficina Hertz de Oslo Railway Station (Contrato: CDBR_OSL_OSLX90 · Límite 19:00 h).", isFixed: true },
+        { time: "15:30–18:25", desc: "Tramo final de conducción hacia Oslo (171 km · 2 h 51 min por Rv7 y E16)." },
+        { time: "18:30–19:00", desc: "🚗 Devolución Coche de Alquiler en oficina Hertz de Oslo Railway Station (Contrato: CDBR_OSL_OSLX90 · Límite 19:00 h).", isFixed: true },
         { time: "19:00", desc: "Check-in en el Comfort Hotel Grand Central." },
         { time: "20:00", desc: "Cena relajada en Olivia (Østbanehallen), justo al lado del hotel." }
       ]
     },
     {
       dayNum: 9,
+      weatherDestinationIds: ["oslo"],
       title: "Día 9 — Explorando Oslo",
       date: "DOMINGO, 9 DE AGOSTO DE 2026",
       subHeader: "Oslo — día completo a pie y en transporte público",
@@ -549,6 +567,7 @@ const NORWAY_TRAVEL_DATA = {
     },
     {
       dayNum: 10,
+      weatherDestinationIds: ["oslo"],
       title: "Día 10 — Despedida nórdica y regreso a casa",
       date: "LUNES, 10 DE AGOSTO DE 2026",
       subHeader: "Oslo → Aeropuerto de Gardermoen → Vuelo de regreso",

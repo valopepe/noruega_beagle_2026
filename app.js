@@ -45,6 +45,156 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputEur = document.getElementById("inputEur");
   const EXCHANGE_RATE = 11.50; // 1 EUR = 11.5 NOK
   let activeDayNum = 2; // Default to Day 2 for nice display
+  let globalCachedWeatherData = {};
+  let lastWeatherFetchTime = null;
+
+  function getWeatherCodeInfo(code) {
+    if (code === 0) return { icon: "☀️", text: "Soleado" };
+    if ([1, 2].includes(code)) return { icon: "🌤️", text: "Parcialmente nublado" };
+    if (code === 3) return { icon: "⛅", text: "Nublado" };
+    if ([45, 48].includes(code)) return { icon: "🌫️", text: "Niebla" };
+    if ([51, 53, 55, 56, 57].includes(code)) return { icon: "🌦️", text: "Llovizna" };
+    if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return { icon: "🌧️", text: "Lluvia" };
+    if ([71, 73, 75, 77, 85, 86].includes(code)) return { icon: "🌨️", text: "Nieve" };
+    if ([95, 96, 99].includes(code)) return { icon: "⛈️", text: "Tormenta" };
+    return { icon: "🌤️", text: "Variable" };
+  }
+
+  async function fetchGlobalWeatherData() {
+    const weatherLastUpdatedText = document.getElementById("weatherLastUpdatedText");
+    if (weatherLastUpdatedText) {
+      weatherLastUpdatedText.textContent = "Obteniendo datos meteorológicos en tiempo real...";
+    }
+
+    await Promise.all(
+      NORWAY_TRAVEL_DATA.weatherDestinations.map(async (dest) => {
+        try {
+          const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${dest.lat}&longitude=${dest.lon}&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,windspeed_10m_max&timezone=Europe%2FOslo`);
+          if (!res.ok) throw new Error("API error");
+          const data = await res.json();
+          globalCachedWeatherData[dest.id] = data.daily;
+        } catch (err) {
+          console.warn(`Weather fetch fallback for ${dest.name}`, err);
+        }
+      })
+    );
+
+    lastWeatherFetchTime = new Date();
+    const timeStr = lastWeatherFetchTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    if (weatherLastUpdatedText) {
+      weatherLastUpdatedText.textContent = `Última actualización: hoy a las ${timeStr} · Próximo auto-refresco en 30 min`;
+    }
+
+    // Refresh weather section if open
+    if (typeof window._refreshWeatherSection === "function") {
+      window._refreshWeatherSection();
+    }
+
+    // Re-render currently active stage weather card if rendered
+    const activeDay = NORWAY_TRAVEL_DATA.days.find(d => d.dayNum === activeDayNum);
+    if (activeDay) {
+      const activeStageWeatherCard = document.getElementById(`stageWeatherCard-${activeDay.dayNum}`);
+      if (activeStageWeatherCard) {
+        activeStageWeatherCard.outerHTML = renderStageWeatherHTML(activeDay);
+        const stageRefreshBtn = document.getElementById(`btnRefreshStageWeather-${activeDay.dayNum}`);
+        if (stageRefreshBtn) {
+          stageRefreshBtn.addEventListener("click", async () => {
+            stageRefreshBtn.innerHTML = "⌛ Actualizando...";
+            await fetchGlobalWeatherData();
+          });
+        }
+      }
+    }
+  }
+
+  function renderStageWeatherHTML(day) {
+    const destIds = day.weatherDestinationIds || ["oslo"];
+    const dests = NORWAY_TRAVEL_DATA.weatherDestinations.filter(d => destIds.includes(d.id));
+    if (dests.length === 0) return "";
+
+    const destCardsHTML = dests.map(dest => {
+      const liveDaily = globalCachedWeatherData[dest.id];
+      let daysHTML = "";
+      if (liveDaily && liveDaily.time && liveDaily.time.length >= 3) {
+        for (let i = 0; i < 3; i++) {
+          const dateObj = new Date(liveDaily.time[i]);
+          const dayNames = ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"];
+          const dayLabel = i === 0 ? "Hoy" : i === 1 ? "Mañana" : `${dayNames[dateObj.getDay()]} ${dateObj.getDate()}`;
+          
+          const code = liveDaily.weathercode[i];
+          const info = getWeatherCodeInfo(code);
+          const tMax = Math.round(liveDaily.temperature_2m_max[i]);
+          const tMin = Math.round(liveDaily.temperature_2m_min[i]);
+          const rain = (liveDaily.precipitation_sum[i] || 0).toFixed(1);
+          const wind = Math.round(liveDaily.windspeed_10m_max[i] || 0);
+
+          daysHTML += `
+            <div style="background: rgba(var(--primary-rgb), 0.06); padding: 0.5rem 0.35rem; border-radius: 8px; text-align: center; border: 1px solid var(--border-card); flex: 1;">
+              <div style="font-size: 0.7rem; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 0.15rem;">${dayLabel}</div>
+              <div style="font-size: 1.4rem; line-height: 1.1; margin: 0.15rem 0;">${info.icon}</div>
+              <div style="font-size: 0.65rem; color: var(--text-muted); line-height: 1.15; height: 1.9rem; display: flex; align-items: center; justify-content: center; margin-bottom: 0.15rem;">${info.text}</div>
+              <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.1rem;">${tMax}° <span style="font-size:0.7rem; font-weight:400; color:var(--text-muted);">${tMin}°</span></div>
+              <div style="font-size: 0.65rem; color: var(--text-muted);">🌧️ ${rain} mm</div>
+              <div style="font-size: 0.65rem; color: var(--text-muted);">💨 ${wind} km/h</div>
+            </div>
+          `;
+        }
+      } else {
+        const fallbackDays = [
+          { label: "Hoy", icon: "🌤️", text: "Parcialmente nublado", tMax: 19, tMin: 11, rain: 0.2, wind: 12 },
+          { label: "Mañana", icon: "☀️", text: "Soleado", tMax: 21, tMin: 12, rain: 0.0, wind: 10 },
+          { label: "Pasado Mañana", icon: "⛅", text: "Nublado", tMax: 18, tMin: 10, rain: 1.5, wind: 15 }
+        ];
+        daysHTML = fallbackDays.map(d => `
+          <div style="background: rgba(var(--primary-rgb), 0.06); padding: 0.5rem 0.35rem; border-radius: 8px; text-align: center; border: 1px solid var(--border-card); flex: 1;">
+            <div style="font-size: 0.7rem; font-weight: 700; color: var(--primary); text-transform: uppercase; margin-bottom: 0.15rem;">${d.label}</div>
+            <div style="font-size: 1.4rem; line-height: 1.1; margin: 0.15rem 0;">${d.icon}</div>
+            <div style="font-size: 0.65rem; color: var(--text-muted); line-height: 1.15; height: 1.9rem; display: flex; align-items: center; justify-content: center; margin-bottom: 0.15rem;">${d.text}</div>
+            <div style="font-size: 0.8rem; font-weight: 700; color: var(--text-main); margin-bottom: 0.1rem;">${d.tMax}° <span style="font-size:0.7rem; font-weight:400; color:var(--text-muted);">${d.tMin}°</span></div>
+            <div style="font-size: 0.65rem; color: var(--text-muted);">🌧️ ${d.rain} mm</div>
+            <div style="font-size: 0.65rem; color: var(--text-muted);">💨 ${d.wind} km/h</div>
+          </div>
+        `).join("");
+      }
+
+      return `
+        <div style="background: rgba(0,0,0,0.2); border-radius: 10px; border: 1px solid var(--border-card); padding: 0.75rem;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.5rem; flex-wrap: wrap; gap: 0.2rem;">
+            <span style="font-weight: 700; font-size: 0.9rem; color: var(--primary); font-family: 'Outfit', sans-serif;">📍 ${dest.name}</span>
+            <span style="font-size: 0.72rem; color: var(--text-muted);">${dest.region}</span>
+          </div>
+          <div style="display: flex; gap: 0.4rem; justify-content: space-between; margin-bottom: 0.6rem;">
+            ${daysHTML}
+          </div>
+          <div style="background: rgba(var(--accent-rgb), 0.08); padding: 0.5rem 0.65rem; border-radius: 6px; border-left: 3px solid var(--accent); font-size: 0.78rem; color: var(--text-main); line-height: 1.35;">
+            <strong>💡 Ropa sugerida:</strong> ${dest.clothingTip}
+          </div>
+        </div>
+      `;
+    }).join("");
+
+    const timeStr = lastWeatherFetchTime ? lastWeatherFetchTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : "recién actualizado";
+
+    return `
+      <div class="card card-glass stage-weather-card" id="stageWeatherCard-${day.dayNum}" style="border-left: 4px solid var(--primary);">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem; flex-wrap: wrap; gap: 0.4rem;">
+          <div>
+            <h3 class="card-title" style="margin: 0; font-size: 1.1rem; display: flex; align-items: center; gap: 0.5rem;">
+              <span>🌤️ Meteorología de la Etapa</span>
+              <span class="badge badge-accent" style="font-size: 0.68rem; padding: 0.15rem 0.45rem;">🔴 En vivo</span>
+            </h3>
+            <span style="font-size: 0.72rem; color: var(--text-muted);">Actualización: ${timeStr} · Open-Meteo</span>
+          </div>
+          <button id="btnRefreshStageWeather-${day.dayNum}" class="btn btn-secondary btn-sm" style="padding: 0.25rem 0.65rem; font-size: 0.75rem; display: flex; align-items: center; gap: 0.3rem;" title="Actualizar previsión meteorológica">
+            <span>🔄</span> <span>Actualizar</span>
+          </button>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 0.85rem;">
+          ${destCardsHTML}
+        </div>
+      </div>
+    `;
+  }
 
   // Initialize
   initApp();
@@ -388,10 +538,35 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       ` : '';
 
+      let weatherPillsHTML = "";
+      const destIds = day.weatherDestinationIds || ["oslo"];
+      const dests = NORWAY_TRAVEL_DATA.weatherDestinations.filter(d => destIds.includes(d.id));
+      if (dests.length > 0) {
+        const pills = dests.map(dest => {
+          const live = globalCachedWeatherData[dest.id];
+          if (live && live.temperature_2m_max && live.temperature_2m_max.length > 0) {
+            const info = getWeatherCodeInfo(live.weathercode[0]);
+            const tMax = Math.round(live.temperature_2m_max[0]);
+            const tMin = Math.round(live.temperature_2m_min[0]);
+            const rain = (live.precipitation_sum[0] || 0).toFixed(1);
+            return `<span style="display:inline-flex; align-items:center; gap:0.25rem; background:rgba(var(--primary-rgb),0.12); padding:0.15rem 0.5rem; border-radius:6px; font-size:0.75rem; border:1px solid rgba(var(--primary-rgb),0.2); margin-top:0.2rem;">${info.icon} <strong>${dest.name.split('&')[0].trim()}</strong>: ${tMax}°/${tMin}° <span style="color:var(--text-muted);">(${rain}mm)</span></span>`;
+          }
+          return `<span style="display:inline-flex; align-items:center; gap:0.25rem; background:rgba(var(--primary-rgb),0.12); padding:0.15rem 0.5rem; border-radius:6px; font-size:0.75rem; border:1px solid rgba(var(--primary-rgb),0.2); margin-top:0.2rem;">🌤️ <strong>${dest.name.split('&')[0].trim()}</strong>: 19°/11° <span style="color:var(--text-muted);">(0mm)</span></span>`;
+        }).join(" ");
+
+        weatherPillsHTML = `
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.3rem; padding-top: 0.35rem; border-top: 1px dashed rgba(255,255,255,0.1); margin-top: 0.35rem;">
+            <span style="font-weight: 700; font-size: 0.78rem; color: var(--primary);">🌤️ Meteorología en ruta:</span>
+            <div style="display:flex; flex-wrap:wrap; gap:0.25rem; align-items:center;">${pills}</div>
+          </div>
+        `;
+      }
+
       const summaryHeaderHTML = `
         <div class="tramos-summary-header" style="background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(var(--primary-rgb), 0.3); border-radius: 12px; padding: 0.75rem 1rem; margin-bottom: 1.25rem; display: flex; flex-direction: column; gap: 0.4rem; box-shadow: 0 4px 12px rgba(0,0,0,0.15);">
           ${modeRowsHTML}
           ${route1HeaderRow}
+          ${weatherPillsHTML}
         </div>
       `;
 
@@ -634,7 +809,10 @@ document.addEventListener("DOMContentLoaded", () => {
       ${tipsHTML}
     `;
 
+    const stageWeatherHTML = renderStageWeatherHTML(day);
+
     const rightColHTML = `
+      ${stageWeatherHTML}
       ${accommodationHTML}
       ${natureHTML}
       ${cityGuideHTML}
@@ -666,6 +844,15 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       </div>
     `;
+
+    // Attach stage weather refresh listener
+    const stageRefreshBtn = dayDetailContainer.querySelector(`#btnRefreshStageWeather-${day.dayNum}`);
+    if (stageRefreshBtn) {
+      stageRefreshBtn.addEventListener("click", async () => {
+        stageRefreshBtn.innerHTML = "⌛ Actualizando...";
+        await fetchGlobalWeatherData();
+      });
+    }
 
     // Hook up Day-Specific Tabs Click Listeners
     if (day.cityGuide) {
@@ -1101,48 +1288,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!weatherGrid || !NORWAY_TRAVEL_DATA.weatherDestinations) return;
 
     let currentFilter = "all";
-    let cachedWeatherData = {};
 
-    function getWeatherCodeInfo(code) {
-      if (code === 0) return { icon: "☀️", text: "Soleado" };
-      if ([1, 2].includes(code)) return { icon: "🌤️", text: "Parcialmente nublado" };
-      if (code === 3) return { icon: "⛅", text: "Nublado" };
-      if ([45, 48].includes(code)) return { icon: "🌫️", text: "Niebla" };
-      if ([51, 53, 55, 56, 57].includes(code)) return { icon: "🌦️", text: "Llovizna" };
-      if ([61, 63, 65, 66, 67, 80, 81, 82].includes(code)) return { icon: "🌧️", text: "Lluvia" };
-      if ([71, 73, 75, 77, 85, 86].includes(code)) return { icon: "🌨️", text: "Nieve" };
-      if ([95, 96, 99].includes(code)) return { icon: "⛈️", text: "Tormenta" };
-      return { icon: "🌤️", text: "Variable" };
-    }
-
-    async function fetchWeatherForDestinations() {
-      if (weatherLastUpdatedText) {
-        weatherLastUpdatedText.textContent = "Obteniendo datos meteorológicos en tiempo real...";
-      }
-
-      await Promise.all(
-        NORWAY_TRAVEL_DATA.weatherDestinations.map(async (dest) => {
-          try {
-            const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${dest.lat}&longitude=${dest.lon}&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_sum,windspeed_10m_max&timezone=Europe%2FOslo`);
-            if (!res.ok) throw new Error("API error");
-            const data = await res.json();
-            cachedWeatherData[dest.id] = data.daily;
-          } catch (err) {
-            console.warn(`Weather fetch fallback for ${dest.name}`, err);
-          }
-        })
-      );
-
-      const now = new Date();
-      const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-      if (weatherLastUpdatedText) {
-        weatherLastUpdatedText.textContent = `Última actualización: hoy a las ${timeStr} · Próximo auto-refresco en 30 min`;
-      }
-
-      renderWeatherCards();
-    }
-
-    function renderWeatherCards() {
+    window._refreshWeatherSection = function renderWeatherCards() {
       weatherGrid.innerHTML = "";
       
       const filteredDests = NORWAY_TRAVEL_DATA.weatherDestinations.filter(d => {
@@ -1155,7 +1302,7 @@ document.addEventListener("DOMContentLoaded", () => {
         card.className = "card card-glass weather-card";
         card.style.cssText = "display: flex; flex-direction: column; overflow: hidden; padding: 0;";
 
-        const liveDaily = cachedWeatherData[dest.id];
+        const liveDaily = globalCachedWeatherData[dest.id];
         
         let daysHTML = "";
         if (liveDaily && liveDaily.time && liveDaily.time.length >= 3) {
@@ -1226,7 +1373,7 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
         weatherGrid.appendChild(card);
       });
-    }
+    };
 
     // Filter listeners
     weatherFilterBtns.forEach(btn => {
@@ -1234,20 +1381,20 @@ document.addEventListener("DOMContentLoaded", () => {
         weatherFilterBtns.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
         currentFilter = btn.getAttribute("data-weather-filter");
-        renderWeatherCards();
+        if (window._refreshWeatherSection) window._refreshWeatherSection();
       });
     });
 
     // Refresh button listener
     if (btnRefreshWeather) {
       btnRefreshWeather.addEventListener("click", () => {
-        fetchWeatherForDestinations();
+        fetchGlobalWeatherData();
       });
     }
 
     // Initial fetch & set interval 30 min (1800000 ms)
-    fetchWeatherForDestinations();
-    setInterval(fetchWeatherForDestinations, 30 * 60 * 1000);
+    fetchGlobalWeatherData();
+    setInterval(fetchGlobalWeatherData, 30 * 60 * 1000);
   }
 
   /* --- SETUP ONLINE TRANSLATOR --- */
