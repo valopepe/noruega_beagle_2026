@@ -1,4 +1,4 @@
-const NORWAY_TRAVEL_DATA = {
+const NORWAY_TRAVEL_DATA = window.NORWAY_TRAVEL_DATA = {
   tripInfo: {
     title: "Viaje a Noruega",
     subtitle: "Itinerario detallado · Oslo — Jotunheimen — Fiordos — Bergen — Oslo",
@@ -376,12 +376,6 @@ const NORWAY_TRAVEL_DATA = {
         { time: "15:30–18:00", desc: "Almuerzo tardío en Flåm (se recomienda Ægir BrewPub) o visita a Stegastein." },
         { time: "18:25–20:30", desc: "🚂 Tren de Flåm (Flåmsbana): Flåm → Myrdal (18:25) / Myrdal → Flåm (19:35).", isFixed: true },
         { time: "20:45–21:55", desc: "Trayecto final por carretera de Flåm a Voss Resort (65,7 km · 1 h 9 min por E16)." },
-        { time: "22:00", desc: "Check-in en el Voss Resort y sesión de sauna privada." }
-      ].", isFixed: true },
-        { time: "15:00–15:30", desc: "Trayecto en coche desde Gudvangen a Flåm." },
-        { time: "15:30–18:00", desc: "Almuerzo tardío en Flåm (se recomienda Ægir BrewPub) o visita a Stegastein." },
-        { time: "18:25–20:30", desc: "🚂 Tren de Flåm (Flåmsbana): Flåm → Myrdal (18:25) / Myrdal → Flåm (19:35).", isFixed: true },
-        { time: "20:45–21:45", desc: "Trayecto final por carretera de Flåm a Voss." },
         { time: "22:00", desc: "Check-in en el Voss Resort y sesión de sauna privada." }
       ]
     },
