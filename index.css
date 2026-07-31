@@ -28,9 +28,9 @@
   --accent-rgb: 16, 185, 129;
   --danger: #ef4444;
   --bg-base: #0b0f19;
-  --bg-sidebar: #111827;
+  --bg-sidebar: #080c15;
   --bg-card: rgba(17, 24, 39, 0.7);
-  --border-card: rgba(255, 255, 255, 0.08);
+  --border-card: rgba(255, 255, 255, 0.10);
   --text-main: #f3f4f6;
   --text-muted: #9ca3af;
   --text-accent: #38bdf8;
@@ -42,10 +42,10 @@
 body.light-theme {
   --bg-base: #f1f5f9;
   --bg-sidebar: #ffffff;
-  --bg-card: rgba(255, 255, 255, 0.75);
-  --border-card: rgba(0, 0, 0, 0.08);
+  --bg-card: rgba(255, 255, 255, 0.92);
+  --border-card: rgba(0, 0, 0, 0.10);
   --text-main: #0f172a;
-  --text-muted: #64748b;
+  --text-muted: #475569;
   --text-accent: #0284c7;
   --shadow-premium: 0 8px 32px 0 rgba(15, 23, 42, 0.08);
 }
@@ -137,9 +137,11 @@ a:hover {
   left: 0;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid var(--border-card);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
   z-index: 100;
   transition: transform var(--transition-speed) var(--transition-curve);
+  /* Solid, no transparency - maximum legibility */
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.6);
 }
 
 .sidebar-header {
@@ -197,7 +199,7 @@ a:hover {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: var(--text-muted);
+  color: #c9d1df;
   font-family: 'Inter', sans-serif;
   font-weight: 500;
   font-size: var(--text-sm);
@@ -208,16 +210,17 @@ a:hover {
 }
 
 .nav-btn:hover {
-  background: rgba(var(--primary-rgb), 0.08);
-  color: var(--text-main);
+  background: rgba(var(--primary-rgb), 0.14);
+  color: #ffffff;
   transform: translateX(4px);
 }
 
 .nav-btn.active {
-  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.15), rgba(var(--accent-rgb), 0.05));
-  color: var(--primary);
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.22), rgba(var(--accent-rgb), 0.08));
+  color: #ffffff;
   border-left: 3px solid var(--primary);
   padding-left: calc(1rem - 3px);
+  font-weight: 600;
 }
 
 .sidebar-footer {
